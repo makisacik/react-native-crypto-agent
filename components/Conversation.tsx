@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import useTypingEffect from "../utils/useTypingEffect";
 
 const conversations = [
   "Hello, agent!",
@@ -20,12 +21,15 @@ const Conversation = () => {
     }
   };
 
+  const conversationText = index === -1 ? "" : conversations[index];
+  const displayedText = useTypingEffect(conversationText, 50);
+
   if (index === -1) return null;
 
   return (
     <TouchableOpacity style={styles.container} onPress={handlePress}>
       <Image source={require("../assets/character.png")} style={styles.icon} />
-      <Text style={styles.text}>{conversations[index]}</Text>
+      <Text style={styles.text}>{displayedText}</Text>
     </TouchableOpacity>
   );
 };
@@ -35,11 +39,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     position: "absolute",
-    bottom: 70,
+    bottom: 40,
     left: 20,
     right: 20,
     backgroundColor: "#fff",
-    padding: 10,
+    padding: 20,
     borderRadius: 10,
     elevation: 5, // for Android
     shadowColor: "#000", // for iOS
@@ -48,13 +52,13 @@ const styles = StyleSheet.create({
     shadowRadius: 2, // for iOS
   },
   icon: {
-    width: 50,
-    height: 50,
-    marginRight: 10,
+    width: 80,
+    height: 80,
+    marginRight: 20,
   },
   text: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 20,
   },
 });
 
