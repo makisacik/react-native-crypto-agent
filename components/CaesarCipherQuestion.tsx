@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -18,6 +18,8 @@ import {
 import Modal from "react-native-modal";
 import CircularAlphabet from "./CircularAlphabet";
 import { useRoute } from "@react-navigation/native";
+import SuccessAnimation from "./SuccessAnimation";
+import IncorrectAnimation from "./IncorrectAnimation";
 
 interface CaesarCipherQuestionProps {
   isEncoding: boolean;
@@ -30,7 +32,20 @@ const CaesarCipherQuestion: React.FC = () => {
 
   const [inputText, setInputText] = useState<string>("");
   const [visible, setVisible] = useState<boolean>(false);
+  const [showSuccess, setShowSuccess] = useState<boolean>(false);
+  const [showIncorrect, setShowIncorrect] = useState<boolean>(false);
   const shift = 3;
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (showSuccess || showIncorrect) {
+      timer = setTimeout(() => {
+        setShowSuccess(false);
+        setShowIncorrect(false);
+      }, 1500);
+    }
+    return () => clearTimeout(timer);
+  }, [showSuccess, showIncorrect]);
 
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
@@ -58,7 +73,11 @@ const CaesarCipherQuestion: React.FC = () => {
       ? encodeCaesarCipher(text)
       : decodeCaesarCipher(text);
     const isValid = inputText.toLowerCase() === expectedText;
-    console.log(isValid ? "True" : "False");
+    if (isValid) {
+      setShowSuccess(true);
+    } else {
+      setShowIncorrect(true);
+    }
     Keyboard.dismiss();
   };
 
@@ -70,23 +89,16 @@ const CaesarCipherQuestion: React.FC = () => {
     <PaperProvider>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.container}>
-          <Modal
-            isVisible={visible}
-            onBackdropPress={hideModal}
-            animationIn="zoomIn"
-            animationOut="zoomOut"
-            animationInTiming={300}
-            animationOutTiming={300}
-            backdropTransitionOutTiming={0}
-          >
-            <View style={styles.modalContent}>
-              <Paragraph>For this cipher, the shift value is 3.</Paragraph>
-              <View style={styles.spacing} />
-              <Button mode="contained" onPress={hideModal}>
-                Close
-              </Button>
+          {showSuccess && (
+            <View style={styles.animationContainer}>
+              <SuccessAnimation />
             </View>
-          </Modal>
+          )}
+          {showIncorrect && (
+            <View style={styles.animationContainer}>
+              <IncorrectAnimation />
+            </View>
+          )}
           <Card style={styles.cardStyle}>
             <Card.Content>
               <View style={styles.row}>
@@ -122,6 +134,23 @@ const CaesarCipherQuestion: React.FC = () => {
               </Button>
             </Card.Content>
           </Card>
+          <Modal
+            isVisible={visible}
+            onBackdropPress={hideModal}
+            animationIn="zoomIn"
+            animationOut="zoomOut"
+            animationInTiming={300}
+            animationOutTiming={300}
+            backdropTransitionOutTiming={0}
+          >
+            <View style={styles.modalContent}>
+              <Paragraph>For this cipher, the shift value is 3.</Paragraph>
+              <View style={styles.spacing} />
+              <Button mode="contained" onPress={hideModal}>
+                Close
+              </Button>
+            </View>
+          </Modal>
         </View>
       </TouchableWithoutFeedback>
     </PaperProvider>
@@ -162,6 +191,13 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  animationContainer: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 1,
+    backgroundColor: "rgba(0, 0, 0, 0.05)",
   },
 });
 
