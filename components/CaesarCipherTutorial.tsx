@@ -7,7 +7,10 @@ const CaesarCipherTutorial = () => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Caesar Cipher Tutorial</Text>
-      <Image source={require("../assets/caesar.png")} style={styles.image} />
+      <Image
+        source={require("../assets/caesar_cipher_tutorial.png")}
+        style={styles.image}
+      />
       <Text style={styles.text}>
         The Caesar Cipher is one of the simplest and most widely known
         encryption techniques. It is a type of substitution cipher in which each

@@ -7,12 +7,11 @@ import { getConversation } from "../utils/ConversationManager";
 
 const Conversation = ({
   navigation,
-  route,
+  level,
 }: {
   navigation: any;
-  route: any;
+  level: any;
 }) => {
-  const { level } = route.params;
   const conversations = getConversation(level);
   const [index, setIndex] = useState(0);
 
