@@ -11,13 +11,14 @@ import {
   Provider as PaperProvider,
 } from "react-native-paper";
 import Modal from "react-native-modal";
+import CircularAlphabet from "./CircularAlphabet";
 
-interface CaesarCipherQuestionProps {
+interface CaesarCipherPuzzleProps {
   isEncoding: boolean;
   text: string;
 }
 
-const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
+const CaesarCipherPuzzle: React.FC<CaesarCipherPuzzleProps> = ({
   isEncoding = true,
   text = "",
 }) => {
@@ -52,11 +53,11 @@ const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
       : decodeCaesarCipher(text);
     const isValid = inputText.toLowerCase() === expectedText;
     console.log(isValid ? "True" : "False");
-    Keyboard.dismiss(); // Dismiss the keyboard when the submit button is clicked
+    Keyboard.dismiss();
   };
 
   const clearInput = () => {
-    setInputText(""); // Clear the text input when the clear icon is pressed
+    setInputText("");
   };
 
   return (
@@ -91,6 +92,7 @@ const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
                 style={styles.infoButton}
               />
             </View>
+            <CircularAlphabet shift={shift} />
             <TextInput
               mode="outlined"
               label={isEncoding ? "Enter encoded text" : "Enter decoded text"}
@@ -145,7 +147,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   spacing: {
-    height: 20, // Adjust the height as needed for the desired spacing
+    height: 20,
   },
   row: {
     flexDirection: "row",
@@ -153,4 +155,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CaesarCipherQuestion;
+export default CaesarCipherPuzzle;
