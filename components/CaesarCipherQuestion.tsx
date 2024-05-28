@@ -75,8 +75,9 @@ const CaesarCipherQuestion: React.FC = () => {
             onBackdropPress={hideModal}
             animationIn="zoomIn"
             animationOut="zoomOut"
-            animationInTiming={600}
-            animationOutTiming={600}
+            animationInTiming={300}
+            animationOutTiming={300}
+            backdropTransitionOutTiming={0}
           >
             <View style={styles.modalContent}>
               <Paragraph>For this cipher, the shift value is 3.</Paragraph>

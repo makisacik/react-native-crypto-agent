@@ -1,9 +1,10 @@
 /** @format */
 
 import React from "react";
-import { Button, View, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { Button } from "react-native-paper";
 import CaesarCipherQuestion from "./components/CaesarCipherQuestion";
 import Conversation from "./components/Conversation";
 
@@ -13,18 +14,24 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
   return (
     <View style={styles.container}>
       <Button
-        title="Go to Caesar Cipher Question"
+        mode="contained"
         onPress={() =>
           navigation.navigate("CaesarCipher", {
             isEncoding: true,
             text: "abcd",
           })
         }
-      />
+        style={styles.button}
+      >
+        Go to Caesar Cipher Question
+      </Button>
       <Button
-        title="Go to Conversation"
+        mode="contained"
         onPress={() => navigation.navigate("Conversation")}
-      />
+        style={styles.button}
+      >
+        Go to Conversation
+      </Button>
     </View>
   );
 };
@@ -48,5 +55,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     bottom: 40,
+  },
+  button: {
+    marginVertical: 10,
   },
 });
