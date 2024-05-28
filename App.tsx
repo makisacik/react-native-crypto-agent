@@ -10,12 +10,14 @@ import {
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import CaesarCipherQuestion from "./components/CaesarCipherQuestion";
+import Conversation from "./components/Conversation";
 
 export default function App() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={styles.container}>
         <CaesarCipherQuestion isEncoding={true} text={"abcd"} />
+        <Conversation />
         <StatusBar style="auto" />
       </View>
     </TouchableWithoutFeedback>

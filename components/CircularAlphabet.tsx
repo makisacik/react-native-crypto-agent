@@ -12,7 +12,7 @@ const CircularAlphabet: React.FC<CircularAlphabetProps> = ({ shift }) => {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const radiusOuter = 105;
   const radiusInner = 80;
-  const center = 120; // Radius + 20 for padding
+  const center = 120;
   const lineOffsetOuter = 8;
   const lineOffsetInner = 8;
 
