@@ -5,7 +5,7 @@ import { View, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Button } from "react-native-paper";
-import CaesarCipherQuestion from "./components/CaesarCipherQuestion";
+import CaesarCipherTutorial from "./components/CaesarCipherTutorial";
 import Conversation from "./components/Conversation";
 
 const Stack = createStackNavigator();
@@ -16,21 +16,11 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
       <Button
         mode="contained"
         onPress={() =>
-          navigation.navigate("CaesarCipher", {
-            isEncoding: true,
-            text: "abcd",
-          })
+          navigation.navigate("Conversation", { level: "CaesarCipher" })
         }
         style={styles.button}
       >
-        Go to Caesar Cipher Question
-      </Button>
-      <Button
-        mode="contained"
-        onPress={() => navigation.navigate("Conversation")}
-        style={styles.button}
-      >
-        Go to Conversation
+        Start Caesar Cipher Tutorial
       </Button>
     </View>
   );
@@ -41,8 +31,11 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="CaesarCipher" component={CaesarCipherQuestion} />
         <Stack.Screen name="Conversation" component={Conversation} />
+        <Stack.Screen
+          name="CaesarCipherTutorial"
+          component={CaesarCipherTutorial}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

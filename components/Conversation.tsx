@@ -3,21 +3,24 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import useTypingEffect from "../utils/useTypingEffect";
+import { getConversation } from "../utils/ConversationManager";
 
-const conversations = [
-  "Hello, agent!",
-  "Welcome to Crypto Agent.",
-  "Prepare for an exciting journey!",
-];
-
-const Conversation = () => {
+const Conversation = ({
+  navigation,
+  route,
+}: {
+  navigation: any;
+  route: any;
+}) => {
+  const { level } = route.params;
+  const conversations = getConversation(level);
   const [index, setIndex] = useState(0);
 
   const handlePress = () => {
     if (index < conversations.length - 1) {
       setIndex(index + 1);
     } else {
-      setIndex(-1);
+      navigation.navigate(`${level}Tutorial`);
     }
   };
 
