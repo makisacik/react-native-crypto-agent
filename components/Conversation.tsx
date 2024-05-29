@@ -5,13 +5,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import useTypingEffect from "../utils/useTypingEffect";
 import { getConversation } from "../utils/ConversationManager";
 
-const Conversation = ({
-  navigation,
-  level,
-}: {
-  navigation: any;
-  level: any;
-}) => {
+const Conversation = ({ level }: { level: string }) => {
   const conversations = getConversation(level);
   const [index, setIndex] = useState(0);
 
@@ -19,7 +13,7 @@ const Conversation = ({
     if (index < conversations.length - 1) {
       setIndex(index + 1);
     } else {
-      navigation.navigate(`${level}Tutorial`);
+      setIndex(-1);
     }
   };
 
