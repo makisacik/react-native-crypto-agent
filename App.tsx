@@ -6,7 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Button } from "react-native-paper";
 import FirstLevel from "./pages/FirstLevel";
-import CaesarCipherTutorial from "./components/CaesarCipherTutorial";
+import TutorialController from "./pages/TutorialController";
 
 const Stack = createStackNavigator();
 
@@ -20,6 +20,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
       >
         Start Level 1: Caesar Cipher
       </Button>
+      {/* Add buttons for other levels here */}
     </View>
   );
 };
@@ -31,8 +32,8 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="FirstLevel" component={FirstLevel} />
         <Stack.Screen
-          name="CaesarCipherTutorial"
-          component={CaesarCipherTutorial}
+          name="TutorialController"
+          component={TutorialController}
         />
       </Stack.Navigator>
     </NavigationContainer>

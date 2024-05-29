@@ -1,14 +1,14 @@
 /** @format */
 
 import React from "react";
-import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 
-const CaesarCipherTutorial = () => {
+const FirstLevelPage1 = () => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Caesar Cipher Tutorial</Text>
       <Image
-        source={require("../assets/caesar_cipher_tutorial.png")}
+        source={require("../../assets/caesar_cipher_tutorial.png")}
         style={styles.image}
       />
       <Text style={styles.text}>
@@ -16,18 +16,6 @@ const CaesarCipherTutorial = () => {
         encryption techniques. It is a type of substitution cipher in which each
         letter in the plaintext is shifted a certain number of places down or up
         the alphabet. For example, with a shift of 3:
-      </Text>
-      <Text style={styles.code}>
-        Plaintext: ABCDEFGHIJKLMNOPQRSTUVWXYZ{"\n"}
-        Ciphertext: DEFGHIJKLMNOPQRSTUVWXYZABC
-      </Text>
-      <Text style={styles.text}>
-        Here, 'A' is encrypted as 'D', 'B' as 'E', and so on. To decrypt, you
-        simply shift the letters back by the same number.
-      </Text>
-      <Text style={styles.text}>
-        Let's try encrypting a message! Use the input fields below to practice
-        encrypting and decrypting messages using the Caesar Cipher.
       </Text>
     </ScrollView>
   );
@@ -62,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CaesarCipherTutorial;
+export default FirstLevelPage1;

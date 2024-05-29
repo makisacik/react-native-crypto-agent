@@ -2,7 +2,7 @@
 
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
-import { Button, Text, Title, Paragraph } from "react-native-paper";
+import { Button, Title, Paragraph } from "react-native-paper";
 import Conversation from "../components/Conversation";
 
 const FirstLevel = ({ navigation }: { navigation: any }) => {
@@ -21,7 +21,9 @@ const FirstLevel = ({ navigation }: { navigation: any }) => {
         <Button
           mode="contained"
           style={styles.button}
-          onPress={() => navigation.navigate("CaesarCipherTutorial")}
+          onPress={() =>
+            navigation.navigate("TutorialController", { level: "CaesarCipher" })
+          }
         >
           Start the Training
         </Button>
@@ -46,7 +48,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    marginVertical: 10,
   },
   description: {
     fontSize: 16,
@@ -65,8 +66,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   button: {
-    marginVertical: 5,
-    width: "80%",
+    marginVertical: 10,
   },
 });
 
