@@ -12,7 +12,7 @@ const FirstLevelPage1 = () => {
 
   return (
     <Provider>
-      <ScrollView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.contentContainer}>
         <Text style={styles.title}>Caesar Cipher Tutorial</Text>
         <Image
           source={require("../../assets/caesar_cipher_tutorial.png")}
@@ -64,8 +64,10 @@ const FirstLevelPage1 = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
     backgroundColor: "#f5f5f5",
+  },
+  contentContainer: {
+    padding: 20,
   },
   title: {
     fontSize: 24,

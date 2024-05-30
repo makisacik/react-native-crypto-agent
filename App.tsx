@@ -20,7 +20,6 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
       >
         Start Level 1: Caesar Cipher
       </Button>
-      {/* Add buttons for other levels here */}
     </View>
   );
 };

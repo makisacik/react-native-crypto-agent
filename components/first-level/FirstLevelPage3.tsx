@@ -1,7 +1,12 @@
 /** @format */
 
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
+import {
+  View,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import {
   Text,
   TextInput,
@@ -44,54 +49,56 @@ const FirstLevelPage3 = () => {
 
   return (
     <Provider>
-      <View style={styles.container}>
-        <Text style={styles.title}>Decrypt a Message</Text>
-        <Text style={styles.text}>
-          Enter the encrypted message and shift value to see the decrypted
-          result.
-        </Text>
-        <TextInput
-          label="Enter encrypted message"
-          value={encryptedMessage}
-          onChangeText={setEncryptedMessage}
-          style={styles.input}
-        />
-        <TextInput
-          label="Enter shift value"
-          value={shift}
-          onChangeText={(text) => setShift(text)}
-          keyboardType="numeric"
-          style={styles.input}
-        />
-        <Button mode="contained" onPress={handleDecrypt}>
-          Decrypt
-        </Button>
-        {decryptedMessage && (
-          <Text style={styles.result}>
-            Decrypted Message: {decryptedMessage}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Decrypt a Message</Text>
+          <Text style={styles.text}>
+            Enter the encrypted message and shift value to see the decrypted
+            result.
           </Text>
-        )}
-        <Button mode="text" onPress={showDialog}>
-          Learn More
-        </Button>
-        <Portal>
-          <Dialog visible={visible} onDismiss={hideDialog}>
-            <Dialog.Title>Decryption Process</Dialog.Title>
-            <Dialog.Content>
-              <Text>
-                Decryption is simply the reverse of encryption. If you know the
-                shift value used for encryption, you can decrypt the message by
-                shifting in the opposite direction. For instance, if the message
-                was encrypted with a shift of 3, you decrypt by shifting back by
-                3.
-              </Text>
-            </Dialog.Content>
-            <Dialog.Actions>
-              <Button onPress={hideDialog}>Close</Button>
-            </Dialog.Actions>
-          </Dialog>
-        </Portal>
-      </View>
+          <TextInput
+            label="Enter encrypted message"
+            value={encryptedMessage}
+            onChangeText={setEncryptedMessage}
+            style={styles.input}
+          />
+          <TextInput
+            label="Enter shift value"
+            value={shift}
+            onChangeText={(text) => setShift(text)}
+            keyboardType="numeric"
+            style={styles.input}
+          />
+          <Button mode="contained" onPress={handleDecrypt}>
+            Decrypt
+          </Button>
+          {decryptedMessage && (
+            <Text style={styles.result}>
+              Decrypted Message: {decryptedMessage}
+            </Text>
+          )}
+          <Button mode="text" onPress={showDialog}>
+            Learn More
+          </Button>
+          <Portal>
+            <Dialog visible={visible} onDismiss={hideDialog}>
+              <Dialog.Title>Decryption Process</Dialog.Title>
+              <Dialog.Content>
+                <Text>
+                  Decryption is simply the reverse of encryption. If you know
+                  the shift value used for encryption, you can decrypt the
+                  message by shifting in the opposite direction. For instance,
+                  if the message was encrypted with a shift of 3, you decrypt by
+                  shifting back by 3.
+                </Text>
+              </Dialog.Content>
+              <Dialog.Actions>
+                <Button onPress={hideDialog}>Close</Button>
+              </Dialog.Actions>
+            </Dialog>
+          </Portal>
+        </View>
+      </TouchableWithoutFeedback>
     </Provider>
   );
 };

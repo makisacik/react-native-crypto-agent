@@ -8,7 +8,7 @@ const IncorrectAnimation: React.FC = () => {
   return (
     <View style={styles.container}>
       <LottieView
-        source={require("../assets/incorrect-animation.json")} // Path to your Lottie JSON file
+        source={require("../assets/incorrect-animation.json")}
         autoPlay
         loop={false}
         style={styles.animation}

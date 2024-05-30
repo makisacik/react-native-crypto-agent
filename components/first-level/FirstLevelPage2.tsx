@@ -49,51 +49,53 @@ const FirstLevelPage2 = () => {
 
   return (
     <Provider>
-      <View style={styles.container}>
-        <Text style={styles.title}>Encrypt a Message</Text>
-        <Text style={styles.text}>
-          Enter your message and shift value to see the encrypted result.
-        </Text>
-        <TextInput
-          label="Enter message"
-          value={input}
-          onChangeText={setInput}
-          style={styles.input}
-        />
-        <TextInput
-          label="Enter shift value"
-          value={shift}
-          onChangeText={(text) => setShift(text)}
-          keyboardType="numeric"
-          style={styles.input}
-        />
-        <Button mode="contained" onPress={handleEncrypt}>
-          Encrypt
-        </Button>
-        {output && (
-          <Text style={styles.result}>Encrypted Message: {output}</Text>
-        )}
-        <Button mode="text" onPress={showDialog}>
-          Learn More
-        </Button>
-        <Portal>
-          <Dialog visible={visible} onDismiss={hideDialog}>
-            <Dialog.Title>Encryption Process</Dialog.Title>
-            <Dialog.Content>
-              <Text>
-                To encrypt a message, each letter in the plaintext is shifted a
-                certain number of places down or up the alphabet. For example,
-                with a shift of 3, 'A' is encrypted as 'D', 'B' as 'E', etc. The
-                Caesar Cipher is easy to break because there are only 25
-                possible keys to try.
-              </Text>
-            </Dialog.Content>
-            <Dialog.Actions>
-              <Button onPress={hideDialog}>Close</Button>
-            </Dialog.Actions>
-          </Dialog>
-        </Portal>
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Encrypt a Message</Text>
+          <Text style={styles.text}>
+            Enter your message and shift value to see the encrypted result.
+          </Text>
+          <TextInput
+            label="Enter message"
+            value={input}
+            onChangeText={setInput}
+            style={styles.input}
+          />
+          <TextInput
+            label="Enter shift value"
+            value={shift}
+            onChangeText={(text) => setShift(text)}
+            keyboardType="numeric"
+            style={styles.input}
+          />
+          <Button mode="contained" onPress={handleEncrypt}>
+            Encrypt
+          </Button>
+          {output && (
+            <Text style={styles.result}>Encrypted Message: {output}</Text>
+          )}
+          <Button mode="text" onPress={showDialog}>
+            Learn More
+          </Button>
+          <Portal>
+            <Dialog visible={visible} onDismiss={hideDialog}>
+              <Dialog.Title>Encryption Process</Dialog.Title>
+              <Dialog.Content>
+                <Text>
+                  To encrypt a message, each letter in the plaintext is shifted
+                  a certain number of places down or up the alphabet. For
+                  example, with a shift of 3, 'A' is encrypted as 'D', 'B' as
+                  'E', etc. The Caesar Cipher is easy to break because there are
+                  only 25 possible keys to try.
+                </Text>
+              </Dialog.Content>
+              <Dialog.Actions>
+                <Button onPress={hideDialog}>Close</Button>
+              </Dialog.Actions>
+            </Dialog>
+          </Portal>
+        </View>
+      </TouchableWithoutFeedback>
     </Provider>
   );
 };
