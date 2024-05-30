@@ -5,8 +5,14 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import useTypingEffect from "../utils/useTypingEffect";
 import { getConversation } from "../utils/ConversationManager";
 
-const Conversation = ({ level }: { level: string }) => {
-  const conversations = getConversation(level);
+const Conversation = ({
+  level,
+  conversationNumber,
+}: {
+  level: string;
+  conversationNumber: string;
+}) => {
+  const conversations = getConversation(level, conversationNumber);
   const [index, setIndex] = useState(0);
 
   const handlePress = () => {

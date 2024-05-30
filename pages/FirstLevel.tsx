@@ -8,7 +8,7 @@ import Conversation from "../components/Conversation";
 const FirstLevel = ({ navigation }: { navigation: any }) => {
   return (
     <View style={styles.container}>
-      <Conversation level="FirstLevel" />
+      <Conversation level="FirstLevel" conversationNumber="1" />
       <View style={styles.infoContainer}>
         <Title style={styles.title}>Level 1: Caesar Cipher</Title>
         <Paragraph style={styles.description}>

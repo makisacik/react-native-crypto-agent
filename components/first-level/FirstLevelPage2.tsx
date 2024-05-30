@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
     marginBottom: 10,
   },
   button: {
@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
   shiftValueContainer: {
     width: 50,
     alignItems: "center",
+    justifyContent: "center",
   },
   shiftValue: {
     fontSize: 24,

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";
 import LottieView from "lottie-react-native";
+import Conversation from "../Conversation";
 
 const FirstLevelPage5 = () => {
   const [visible, setVisible] = useState(false);
@@ -14,6 +15,8 @@ const FirstLevelPage5 = () => {
   return (
     <Provider>
       <View style={styles.container}>
+        <Conversation level="FirstLevel" conversationNumber="2" />
+
         <Text style={styles.title}>
           You successfully completed the tutorial!
         </Text>
