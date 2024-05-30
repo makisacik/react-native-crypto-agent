@@ -36,7 +36,7 @@ const FirstLevelPage1 = () => {
           In this tutorial, you'll learn how to both encrypt and decrypt
           messages using the Caesar Cipher.
         </Text>
-        <Button mode="contained" onPress={showDialog}>
+        <Button mode="text" onPress={showDialog}>
           Learn More
         </Button>
         <Portal>

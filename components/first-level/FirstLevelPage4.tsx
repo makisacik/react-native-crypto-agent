@@ -15,6 +15,7 @@ import {
   Portal,
   Provider,
 } from "react-native-paper";
+import CircularAlphabet from "../CircularAlphabet";
 
 const FirstLevelPage4 = () => {
   const [encryptedMessage, setEncryptedMessage] = useState("");
@@ -26,6 +27,7 @@ const FirstLevelPage4 = () => {
   const hideDialog = () => setVisible(false);
 
   const handleDecrypt = () => {
+    Keyboard.dismiss();
     const shiftValue = parseInt(shift);
     const result = encryptedMessage
       .split("")
@@ -77,6 +79,7 @@ const FirstLevelPage4 = () => {
               Decrypted Message: {decryptedMessage}
             </Text>
           )}
+          <CircularAlphabet shift={parseInt(shift)} />
           <Button mode="text" onPress={showDialog}>
             Learn More
           </Button>
@@ -106,8 +109,8 @@ const FirstLevelPage4 = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: "#f5f5f5",
+    padding: 10,
+    //backgroundColor: "#f5f5f5",
   },
   title: {
     fontSize: 24,

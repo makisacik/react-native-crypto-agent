@@ -1,7 +1,13 @@
 /** @format */
 
 import React, { useState } from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import { getTutorialPages } from "../utils/TutorialManager";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -33,7 +39,11 @@ const TutorialController = ({
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? undefined : "height"}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
+    >
       <View style={styles.contentContainer}>
         <CurrentPage />
       </View>
@@ -59,7 +69,7 @@ const TutorialController = ({
           />
         </TouchableOpacity>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -72,12 +82,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    padding: 20,
+    padding: 10,
   },
   navigationContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 20,
+    paddingTop: 10,
+    paddingBottom: 40,
   },
 });
 
