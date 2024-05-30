@@ -1,7 +1,7 @@
 /** @format */
 
 const conversations = {
-  CaesarCipher: [
+  FirstLevel: [
     "Hello, agent!",
     "Welcome to Crypto Agent.",
     "Today, we'll learn about the Caesar Cipher.",
