@@ -15,20 +15,19 @@ import {
   Portal,
   Provider,
 } from "react-native-paper";
-import CircularAlphabet from "../CircularAlphabet";
 
-const FirstLevelPage3 = () => {
-  const [input, setInput] = useState("");
+const FirstLevelPage4 = () => {
+  const [encryptedMessage, setEncryptedMessage] = useState("");
   const [shift, setShift] = useState("3");
-  const [output, setOutput] = useState("");
+  const [decryptedMessage, setDecryptedMessage] = useState("");
   const [visible, setVisible] = useState(false);
 
   const showDialog = () => setVisible(true);
   const hideDialog = () => setVisible(false);
 
-  const handleEncrypt = () => {
+  const handleDecrypt = () => {
     const shiftValue = parseInt(shift);
-    const result = input
+    const result = encryptedMessage
       .split("")
       .map((char) => {
         if (char.match(/[a-z]/i)) {
@@ -36,30 +35,31 @@ const FirstLevelPage3 = () => {
           const shiftAmount = shiftValue % 26;
           let newCode: number = code;
           if (code >= 65 && code <= 90) {
-            newCode = ((code - 65 + shiftAmount) % 26) + 65;
+            newCode = ((code - 65 - shiftAmount + 26) % 26) + 65;
           } else if (code >= 97 && code <= 122) {
-            newCode = ((code - 97 + shiftAmount) % 26) + 97;
+            newCode = ((code - 97 - shiftAmount + 26) % 26) + 97;
           }
           return String.fromCharCode(newCode);
         }
         return char;
       })
       .join("");
-    setOutput(result);
+    setDecryptedMessage(result);
   };
 
   return (
     <Provider>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          <Text style={styles.title}>Encrypt a Message</Text>
+          <Text style={styles.title}>Decrypt a Message</Text>
           <Text style={styles.text}>
-            Enter your message and shift value to see the encrypted result.
+            Enter the encrypted message and shift value to see the decrypted
+            result.
           </Text>
           <TextInput
-            label="Enter message"
-            value={input}
-            onChangeText={setInput}
+            label="Enter encrypted message"
+            value={encryptedMessage}
+            onChangeText={setEncryptedMessage}
             style={styles.input}
           />
           <TextInput
@@ -69,26 +69,27 @@ const FirstLevelPage3 = () => {
             keyboardType="numeric"
             style={styles.input}
           />
-          <Button mode="contained" onPress={handleEncrypt}>
-            Encrypt
+          <Button mode="contained" onPress={handleDecrypt}>
+            Decrypt
           </Button>
-          {output && (
-            <Text style={styles.result}>Encrypted Message: {output}</Text>
+          {decryptedMessage && (
+            <Text style={styles.result}>
+              Decrypted Message: {decryptedMessage}
+            </Text>
           )}
-          <CircularAlphabet shift={parseInt(shift)} />
           <Button mode="text" onPress={showDialog}>
             Learn More
           </Button>
           <Portal>
             <Dialog visible={visible} onDismiss={hideDialog}>
-              <Dialog.Title>Encryption Process</Dialog.Title>
+              <Dialog.Title>Decryption Process</Dialog.Title>
               <Dialog.Content>
                 <Text>
-                  To encrypt a message, each letter in the plaintext is shifted
-                  a certain number of places down or up the alphabet. For
-                  example, with a shift of 3, 'A' is encrypted as 'D', 'B' as
-                  'E', etc. The Caesar Cipher is easy to break because there are
-                  only 25 possible keys to try.
+                  Decryption is simply the reverse of encryption. If you know
+                  the shift value used for encryption, you can decrypt the
+                  message by shifting in the opposite direction. For instance,
+                  if the message was encrypted with a shift of 3, you decrypt by
+                  shifting back by 3.
                 </Text>
               </Dialog.Content>
               <Dialog.Actions>
@@ -129,4 +130,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FirstLevelPage3;
+export default FirstLevelPage4;

@@ -7,86 +7,72 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
-import {
-  Text,
-  TextInput,
-  Button,
-  Dialog,
-  Portal,
-  Provider,
-} from "react-native-paper";
+import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";
+import CircularAlphabet from "../CircularAlphabet";
 
 const FirstLevelPage2 = () => {
-  const [input, setInput] = useState("");
-  const [shift, setShift] = useState("3");
-  const [output, setOutput] = useState("");
+  const [shift, setShift] = useState(0);
   const [visible, setVisible] = useState(false);
 
   const showDialog = () => setVisible(true);
   const hideDialog = () => setVisible(false);
 
-  const handleEncrypt = () => {
-    const shiftValue = parseInt(shift);
-    const result = input
-      .split("")
-      .map((char) => {
-        if (char.match(/[a-z]/i)) {
-          const code = char.charCodeAt(0);
-          const shiftAmount = shiftValue % 26;
-          let newCode: number = code;
-          if (code >= 65 && code <= 90) {
-            newCode = ((code - 65 + shiftAmount) % 26) + 65;
-          } else if (code >= 97 && code <= 122) {
-            newCode = ((code - 97 + shiftAmount) % 26) + 97;
-          }
-          return String.fromCharCode(newCode);
-        }
-        return char;
-      })
-      .join("");
-    setOutput(result);
+  const incrementShift = () => {
+    setShift((prevShift) => (prevShift + 1) % 26);
+  };
+
+  const decrementShift = () => {
+    setShift((prevShift) => (prevShift - 1 + 26) % 26);
   };
 
   return (
     <Provider>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          <Text style={styles.title}>Encrypt a Message</Text>
+          <Text style={styles.title}>Introduction to Circular Alphabet</Text>
           <Text style={styles.text}>
-            Enter your message and shift value to see the encrypted result.
+            The circular alphabet is a tool used in the Caesar Cipher encryption
+            process. Each letter of the alphabet can be shifted a certain number
+            of places to encrypt a message. You can play with the shift value to
+            see how the alphabet changes and understand how the encryption
+            works.
           </Text>
-          <TextInput
-            label="Enter message"
-            value={input}
-            onChangeText={setInput}
-            style={styles.input}
-          />
-          <TextInput
-            label="Enter shift value"
-            value={shift}
-            onChangeText={(text) => setShift(text)}
-            keyboardType="numeric"
-            style={styles.input}
-          />
-          <Button mode="contained" onPress={handleEncrypt}>
-            Encrypt
-          </Button>
-          {output && (
-            <Text style={styles.result}>Encrypted Message: {output}</Text>
-          )}
+          <View style={styles.buttonContainer}>
+            <Button
+              mode="contained"
+              onPress={decrementShift}
+              style={styles.button}
+              labelStyle={styles.buttonLabel}
+            >
+              -
+            </Button>
+            <View style={styles.shiftValueContainer}>
+              <Text style={styles.shiftValue}>{shift}</Text>
+            </View>
+            <Button
+              mode="contained"
+              onPress={incrementShift}
+              style={styles.button}
+              labelStyle={styles.buttonLabel}
+            >
+              +
+            </Button>
+          </View>
+          <CircularAlphabet shift={shift} />
           <Button mode="text" onPress={showDialog}>
             Learn More
           </Button>
           <Portal>
             <Dialog visible={visible} onDismiss={hideDialog}>
-              <Dialog.Title>Encryption Process</Dialog.Title>
+              <Dialog.Title>About Circular Alphabet</Dialog.Title>
               <Dialog.Content>
                 <Text>
-                  To encrypt a message, each letter in the plaintext is shifted
-                  a certain number of places down or up the alphabet. For
-                  example, with a shift of 3, 'A' is encrypted as 'D', 'B' as
-                  'E', etc. The Caesar Cipher is easy to break because there are
-                  only 25 possible keys to try.
+                  The circular alphabet visualizes the process of shifting
+                  letters in the Caesar Cipher. By changing the shift value, you
+                  can see how each letter is mapped to a new letter. For
+                  example, with a shift of 1, 'A' becomes 'B', 'B' becomes 'C',
+                  and so on. This helps in understanding how the encryption
+                  transforms the original message.
                 </Text>
               </Dialog.Content>
               <Dialog.Actions>
@@ -115,15 +101,29 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 10,
   },
-  input: {
+  buttonContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     marginBottom: 10,
   },
-  result: {
-    fontSize: 18,
-    marginTop: 10,
-    backgroundColor: "#e8e8e8",
-    padding: 10,
+  button: {
+    width: 50,
+    height: 50,
+    justifyContent: "center",
     borderRadius: 5,
+  },
+  buttonLabel: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  shiftValueContainer: {
+    width: 50,
+    alignItems: "center",
+  },
+  shiftValue: {
+    fontSize: 24,
+    fontWeight: "bold",
   },
 });
 
