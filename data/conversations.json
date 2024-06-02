@@ -1,23 +1,102 @@
 {
   "FirstLevel": {
-    "conversation1": [
-      "Hello, agent!",
-      "Welcome to Crypto Agent.",
-      "Today, we'll learn about the Caesar Cipher.",
-      "The Caesar Cipher is a type of substitution cipher in which each letter in the plaintext is shifted a certain number of places down the alphabet.",
-      "For example, with a shift of 3, A would be replaced by D, B would become E, and so on.",
-      "Ready to start? Let's dive in!"
-    ],
-    "conversation2": [
-      "Great job, agent!",
-      "You have completed the Caesar Cipher.",
-      "Now you are ready for your mission!"
-    ],
-    "conversation3": [
-      "Hello Agent, this is sergeant Mehmet!",
-      "Agent I was informed that you are able to start the mission.",
-      "We have a message that we need to decrypt.",
-      "Now you are ready for your mission!"
-    ]
+    "conversation1": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Hello, agent!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Welcome to Crypto Agent.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Today, we'll learn about the Caesar Cipher.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "The Caesar Cipher is a type of substitution cipher in which each letter in the plaintext is shifted a certain number of places down the alphabet.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "For example, with a shift of 3, A would be replaced by D, B would become E, and so on.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Ready to start? Let's dive in!",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation2": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Great job, agent!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "You have completed the Caesar Cipher.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Now you are ready for your mission!",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation3": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Sergeant Mehmet",
+          "image": "sergeant"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Hello Agent, this is sergeant Mehmet!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Agent I was informed that you are able to start the mission.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "We have a message that we need to decrypt.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Now you are ready for your mission!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "What am I going to decrypt?",
+          "speaker": "mainCharacter"
+        }
+      ]
+    }
   }
 }

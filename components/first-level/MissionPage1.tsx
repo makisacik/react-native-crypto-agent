@@ -7,13 +7,15 @@ import Character from "../Character";
 
 const MissionPage1 = () => {
   const [showConversation, setShowConversation] = useState(false);
-  const [conversationKey, setConversationKey] = useState(0);
   const [showExclamation, setShowExclamation] = useState(true);
 
   const handleCharacterClick = () => {
-    setConversationKey((prevKey) => prevKey + 1);
     setShowConversation(true);
     setShowExclamation(false);
+  };
+
+  const handleConversationFinish = () => {
+    setShowConversation(false);
   };
 
   return (
@@ -26,15 +28,15 @@ const MissionPage1 = () => {
         />
         {showExclamation && (
           <View style={styles.exclamationMark}>
-            <Text>!</Text>
+            <Text style={styles.exclamationText}>!</Text>
           </View>
         )}
       </View>
       {showConversation && (
         <Conversation
-          key={conversationKey}
           level="FirstLevel"
           conversationNumber="3"
+          onFinish={handleConversationFinish}
         />
       )}
     </View>
@@ -54,14 +56,18 @@ const styles = StyleSheet.create({
   },
   exclamationMark: {
     position: "absolute",
-    top: 0,
-    right: 30,
-    backgroundColor: "lightgray",
+    top: -10,
+    right: -10,
+    backgroundColor: "red",
     borderRadius: 15,
     width: 20,
     height: 20,
     justifyContent: "center",
     alignItems: "center",
+  },
+  exclamationText: {
+    color: "white",
+    fontWeight: "bold",
   },
 });
 
