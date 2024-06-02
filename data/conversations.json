@@ -12,6 +12,12 @@
       "Great job, agent!",
       "You have completed the Caesar Cipher.",
       "Now you are ready for your mission!"
+    ],
+    "conversation3": [
+      "Hello Agent, this is sergeant Mehmet!",
+      "Agent I was informed that you are able to start the mission.",
+      "We have a message that we need to decrypt.",
+      "Now you are ready for your mission!"
     ]
   }
 }

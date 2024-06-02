@@ -27,7 +27,13 @@ const FirstLevel = ({ navigation }: { navigation: any }) => {
         >
           Start the Training
         </Button>
-        <Button mode="outlined" style={styles.button} onPress={() => {}}>
+        <Button
+          mode="outlined"
+          style={styles.button}
+          onPress={() => {
+            navigation.navigate("MissionPage1", { level: "CaesarCipher" });
+          }}
+        >
           Start the Mission
         </Button>
       </View>
