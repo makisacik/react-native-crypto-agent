@@ -7,16 +7,22 @@ import LottieView from "lottie-react-native";
 import Conversation from "../Conversation";
 
 const FirstLevelPage5 = () => {
-  const [visible, setVisible] = useState(false);
+  const [showConversation, setShowConversation] = useState(true);
 
-  const showDialog = () => setVisible(true);
-  const hideDialog = () => setVisible(false);
+  const handleConversationFinish = () => {
+    setShowConversation(false);
+  };
 
   return (
     <Provider>
       <View style={styles.container}>
-        <Conversation level="FirstLevel" conversationNumber="2" />
-
+        {showConversation && (
+          <Conversation
+            level="FirstLevel"
+            conversationNumber="2"
+            onFinish={handleConversationFinish}
+          />
+        )}
         <Text style={styles.title}>
           You successfully completed the tutorial!
         </Text>

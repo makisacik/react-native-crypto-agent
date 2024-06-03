@@ -1,13 +1,16 @@
 /** @format */
 
-import React, { useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import { View, StyleSheet, Text, Animated } from "react-native";
+import { Button } from "react-native-paper";
 import Conversation from "../Conversation";
 import Character from "../Character";
 
 const MissionPage1 = () => {
   const [showConversation, setShowConversation] = useState(false);
   const [showExclamation, setShowExclamation] = useState(true);
+  const [showButton, setShowButton] = useState(false);
+  const buttonOpacity = useRef(new Animated.Value(0)).current;
 
   const handleCharacterClick = () => {
     setShowConversation(true);
@@ -16,6 +19,12 @@ const MissionPage1 = () => {
 
   const handleConversationFinish = () => {
     setShowConversation(false);
+    setShowButton(true);
+    Animated.timing(buttonOpacity, {
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
   };
 
   return (
@@ -39,6 +48,16 @@ const MissionPage1 = () => {
           onFinish={handleConversationFinish}
         />
       )}
+      {showButton && (
+        <Animated.View style={{ ...styles.button, opacity: buttonOpacity }}>
+          <Button
+            mode="contained"
+            onPress={() => console.log("Button Pressed")}
+          >
+            Next Step
+          </Button>
+        </Animated.View>
+      )}
     </View>
   );
 };
@@ -51,13 +70,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#f0f0f0",
   },
   characterWrapper: {
-    position: "relative",
+    position: "absolute",
+    top: 100,
     alignItems: "center",
   },
   exclamationMark: {
     position: "absolute",
     top: -10,
-    right: -10,
+    right: 30,
     backgroundColor: "red",
     borderRadius: 15,
     width: 20,
@@ -68,6 +88,10 @@ const styles = StyleSheet.create({
   exclamationText: {
     color: "white",
     fontWeight: "bold",
+  },
+  button: {
+    position: "absolute",
+    top: 250,
   },
 });
 
