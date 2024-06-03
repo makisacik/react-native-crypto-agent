@@ -22,7 +22,7 @@ const MissionPage1 = () => {
     <View style={styles.container}>
       <View style={styles.characterWrapper}>
         <Character
-          image={require("../../assets/character.png")}
+          image={require("../../assets/sergeant.png")}
           name="Sergeant Mehmet"
           onPress={handleCharacterClick}
         />

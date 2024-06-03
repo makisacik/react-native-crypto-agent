@@ -43,8 +43,8 @@ const Conversation = ({
 
   const characterImages: { [key: string]: any } = {
     agent: require("../assets/agent.png"),
-    instructor: require("../assets/character.png"),
-    sergeant: require("../assets/character.png"),
+    instructor: require("../assets/instructor.png"),
+    sergeant: require("../assets/sergeant.png"),
   };
 
   const { text, speaker } = dialogues[index];
