@@ -37,7 +37,7 @@ const FirstLevel = ({ navigation }: { navigation: any }) => {
             navigation.navigate("TutorialController", { level: "CaesarCipher" })
           }
         >
-          Start the Training
+          Start the Tutorial
         </Button>
         <Button
           mode="outlined"
