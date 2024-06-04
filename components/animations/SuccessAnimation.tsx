@@ -4,11 +4,11 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import LottieView from "lottie-react-native";
 
-const IncorrectAnimation: React.FC = () => {
+const SuccessAnimation: React.FC = () => {
   return (
     <View style={styles.container}>
       <LottieView
-        source={require("../assets/incorrect-animation.json")}
+        source={require("../../assets/success-animation.json")}
         autoPlay
         loop={false}
         style={styles.animation}
@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default IncorrectAnimation;
+export default SuccessAnimation;

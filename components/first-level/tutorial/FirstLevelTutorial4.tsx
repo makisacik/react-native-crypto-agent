@@ -17,7 +17,7 @@ import {
 } from "react-native-paper";
 import CircularAlphabet from "../CircularAlphabet";
 
-const FirstLevelPage4 = () => {
+const FirstLevelTutorial4 = () => {
   const [encryptedMessage, setEncryptedMessage] = useState("");
   const [shift, setShift] = useState("3");
   const [decryptedMessage, setDecryptedMessage] = useState("");
@@ -79,7 +79,7 @@ const FirstLevelPage4 = () => {
               Decrypted Message: {decryptedMessage}
             </Text>
           )}
-          <CircularAlphabet shift={parseInt(shift)} />
+          <CircularAlphabet shift={parseInt(shift)} isEncoding={true} />
           <Button mode="text" onPress={showDialog}>
             Learn More
           </Button>
@@ -133,4 +133,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FirstLevelPage4;
+export default FirstLevelTutorial4;

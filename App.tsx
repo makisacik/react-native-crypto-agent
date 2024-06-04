@@ -7,6 +7,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Button } from "react-native-paper";
 import FirstLevel from "./pages/FirstLevel";
 import TutorialController from "./pages/TutorialController";
+import FirstLevelTraining1 from "./components/first-level/training/FirstLevelTraining1";
+import FirstLevelTraining2 from "./components/first-level/training/FirstLevelTraining2";
 
 const Stack = createStackNavigator();
 
@@ -33,6 +35,14 @@ export default function App() {
         <Stack.Screen
           name="TutorialController"
           component={TutorialController}
+        />
+        <Stack.Screen
+          name="FirstLevelTraining1"
+          component={FirstLevelTraining1}
+        />
+        <Stack.Screen
+          name="FirstLevelTraining2"
+          component={FirstLevelTraining2}
         />
       </Stack.Navigator>
     </NavigationContainer>

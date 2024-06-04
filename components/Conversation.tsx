@@ -1,37 +1,64 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import useTypingEffect from "../utils/useTypingEffect";
 import { getConversation } from "../utils/ConversationManager";
+import useTypingEffect from "../utils/useTypingEffect";
 
 const Conversation = ({
   level,
   conversationNumber,
+  onFinish = () => {},
 }: {
   level: string;
   conversationNumber: string;
+  onFinish?: () => void;
 }) => {
-  const conversations = getConversation(level, conversationNumber);
+  const conversationData = getConversation(level, conversationNumber);
+
+  if (
+    !conversationData ||
+    !conversationData.dialogues ||
+    !conversationData.characters
+  ) {
+    return null;
+  }
+
+  const dialogues = conversationData.dialogues;
+  const characters = conversationData.characters;
+
   const [index, setIndex] = useState(0);
 
+  useEffect(() => {
+    setIndex(0);
+  }, [level, conversationNumber]);
+
   const handlePress = () => {
-    if (index < conversations.length - 1) {
+    if (index < dialogues.length - 1) {
       setIndex(index + 1);
     } else {
-      setIndex(-1);
+      onFinish();
     }
   };
 
-  const conversationText = index === -1 ? "" : conversations[index];
-  const displayedText = useTypingEffect(conversationText, 50);
+  const characterImages: { [key: string]: any } = {
+    agent: require("../assets/agent.png"),
+    instructor: require("../assets/instructor.png"),
+    sergeant: require("../assets/sergeant.png"),
+  };
 
-  if (index === -1) return null;
+  const { text, speaker } = dialogues[index];
+  const character = characters[speaker] || {};
+
+  const typedText = useTypingEffect(text, 50);
 
   return (
-    <TouchableOpacity style={styles.container} onPress={handlePress}>
-      <Image source={require("../assets/character.png")} style={styles.icon} />
-      <Text style={styles.text}>{displayedText}</Text>
+    <TouchableOpacity onPress={handlePress} style={styles.container}>
+      <Image source={characterImages[character.image]} style={styles.icon} />
+      <View style={styles.textContainer}>
+        <Text style={styles.name}>{character.name}</Text>
+        <Text style={styles.text}>{typedText}</Text>
+      </View>
     </TouchableOpacity>
   );
 };
@@ -58,9 +85,17 @@ const styles = StyleSheet.create({
     height: 80,
     marginRight: 20,
   },
-  text: {
+  textContainer: {
     flex: 1,
+  },
+  name: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 4,
+  },
+  text: {
     fontSize: 20,
+    flexWrap: "wrap",
   },
 });
 

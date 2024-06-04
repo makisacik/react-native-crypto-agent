@@ -16,20 +16,19 @@ import {
   Provider as PaperProvider,
 } from "react-native-paper";
 import Modal from "react-native-modal";
-import CircularAlphabet from "./CircularAlphabet";
-import { useRoute } from "@react-navigation/native";
-import SuccessAnimation from "./SuccessAnimation";
-import IncorrectAnimation from "./IncorrectAnimation";
+import CircularAlphabet from "./first-level/CircularAlphabet";
+import SuccessAnimation from "./animations/SuccessAnimation";
+import IncorrectAnimation from "./animations/IncorrectAnimation";
 
 interface CaesarCipherQuestionProps {
   isEncoding: boolean;
   text: string;
 }
 
-const CaesarCipherQuestion: React.FC = () => {
-  const route = useRoute();
-  const { isEncoding, text } = route.params as CaesarCipherQuestionProps;
-
+const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
+  isEncoding,
+  text,
+}) => {
   const [inputText, setInputText] = useState<string>("");
   const [visible, setVisible] = useState<boolean>(false);
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
@@ -113,7 +112,7 @@ const CaesarCipherQuestion: React.FC = () => {
                   style={styles.infoButton}
                 />
               </View>
-              <CircularAlphabet shift={shift} />
+              <CircularAlphabet shift={shift} isEncoding={isEncoding} />
               <TextInput
                 mode="outlined"
                 label={isEncoding ? "Enter encoded text" : "Enter decoded text"}
@@ -183,7 +182,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   infoButton: {
-    marginLeft: 10,
+    marginLeft: 0,
   },
   spacing: {
     height: 20,

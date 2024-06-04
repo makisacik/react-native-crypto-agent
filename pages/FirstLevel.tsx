@@ -1,14 +1,26 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, Image } from "react-native";
 import { Button, Title, Paragraph } from "react-native-paper";
 import Conversation from "../components/Conversation";
 
 const FirstLevel = ({ navigation }: { navigation: any }) => {
+  const [showConversation, setShowConversation] = useState(true);
+
+  const handleConversationFinish = () => {
+    setShowConversation(false);
+  };
+
   return (
     <View style={styles.container}>
-      <Conversation level="FirstLevel" conversationNumber="1" />
+      {showConversation && (
+        <Conversation
+          level="FirstLevel"
+          conversationNumber="1"
+          onFinish={handleConversationFinish}
+        />
+      )}
       <View style={styles.infoContainer}>
         <Title style={styles.title}>Level 1: Caesar Cipher</Title>
         <Paragraph style={styles.description}>
@@ -22,12 +34,18 @@ const FirstLevel = ({ navigation }: { navigation: any }) => {
           mode="contained"
           style={styles.button}
           onPress={() =>
-            navigation.navigate("TutorialController", { level: "CaesarCipher" })
+            navigation.navigate("TutorialController", { level: "FirstLevel" })
           }
         >
-          Start the Training
+          Start the Tutorial
         </Button>
-        <Button mode="outlined" style={styles.button} onPress={() => {}}>
+        <Button
+          mode="outlined"
+          style={styles.button}
+          onPress={() => {
+            navigation.navigate("FirstLevelTraining1");
+          }}
+        >
           Start the Mission
         </Button>
       </View>

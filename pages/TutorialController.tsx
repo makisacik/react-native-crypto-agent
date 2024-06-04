@@ -10,6 +10,12 @@ import {
 } from "react-native";
 import { getTutorialPages } from "../utils/TutorialManager";
 import { Ionicons } from "@expo/vector-icons";
+import { ProgressBar, useTheme } from "react-native-paper";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+} from "react-native-reanimated";
 
 const TutorialController = ({
   route,
@@ -21,6 +27,9 @@ const TutorialController = ({
   const { level } = route.params;
   const pages = getTutorialPages(level);
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
+  const theme = useTheme();
+
+  const opacity = useSharedValue(1);
 
   if (pages.length === 0) return null;
 
@@ -28,15 +37,45 @@ const TutorialController = ({
 
   const handleNext = () => {
     if (currentPageIndex < pages.length - 1) {
-      setCurrentPageIndex(currentPageIndex + 1);
+      fadeOut();
+      setTimeout(() => {
+        setCurrentPageIndex(currentPageIndex + 1);
+        fadeIn();
+      }, 200);
     }
   };
 
   const handlePrevious = () => {
     if (currentPageIndex > 0) {
-      setCurrentPageIndex(currentPageIndex - 1);
+      fadeOut();
+      setTimeout(() => {
+        setCurrentPageIndex(currentPageIndex - 1);
+        fadeIn();
+      }, 200);
     }
   };
+
+  const fadeOut = () => {
+    opacity.value = withSpring(0, {
+      damping: 10,
+      stiffness: 100,
+    });
+  };
+
+  const fadeIn = () => {
+    opacity.value = withSpring(1, {
+      damping: 10,
+      stiffness: 100,
+    });
+  };
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: opacity.value,
+    };
+  });
+
+  const progress = (currentPageIndex + 1) / pages.length;
 
   return (
     <KeyboardAvoidingView
@@ -44,9 +83,14 @@ const TutorialController = ({
       behavior={Platform.OS === "ios" ? undefined : "height"}
       keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
     >
-      <View style={styles.contentContainer}>
+      <Animated.View style={[styles.contentContainer, animatedStyle]}>
         <CurrentPage />
-      </View>
+      </Animated.View>
+      <ProgressBar
+        progress={progress}
+        color={theme.colors.primary}
+        style={styles.progressBar}
+      />
       <View style={styles.navigationContainer}>
         <TouchableOpacity
           onPress={handlePrevious}
@@ -83,6 +127,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 10,
+  },
+  progressBar: {
+    marginHorizontal: 20,
+    marginTop: 10,
   },
   navigationContainer: {
     flexDirection: "row",

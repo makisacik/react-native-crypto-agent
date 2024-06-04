@@ -6,9 +6,13 @@ import Svg, { Text as SvgText, Line } from "react-native-svg";
 
 interface CircularAlphabetProps {
   shift: number;
+  isEncoding: boolean;
 }
 
-const CircularAlphabet: React.FC<CircularAlphabetProps> = ({ shift }) => {
+const CircularAlphabet: React.FC<CircularAlphabetProps> = ({
+  isEncoding,
+  shift,
+}) => {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const radiusOuter = 105;
   const radiusInner = 80;
@@ -20,7 +24,9 @@ const CircularAlphabet: React.FC<CircularAlphabetProps> = ({ shift }) => {
     return alphabet
       .split("")
       .map((char, index) => {
-        const shiftedIndex = (index + shift) % 26;
+        const shiftedIndex = isEncoding
+          ? (index + shift) % 26
+          : (index - shift + 26) % 26;
         return alphabet[shiftedIndex];
       })
       .join("");

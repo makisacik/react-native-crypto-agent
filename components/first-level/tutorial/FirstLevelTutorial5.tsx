@@ -4,24 +4,30 @@ import React, { useState, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";
 import LottieView from "lottie-react-native";
-import Conversation from "../Conversation";
+import Conversation from "../../Conversation";
 
-const FirstLevelPage5 = () => {
-  const [visible, setVisible] = useState(false);
+const FirstLevelTutorial5 = () => {
+  const [showConversation, setShowConversation] = useState(true);
 
-  const showDialog = () => setVisible(true);
-  const hideDialog = () => setVisible(false);
+  const handleConversationFinish = () => {
+    setShowConversation(false);
+  };
 
   return (
     <Provider>
       <View style={styles.container}>
-        <Conversation level="FirstLevel" conversationNumber="2" />
-
+        {showConversation && (
+          <Conversation
+            level="FirstLevel"
+            conversationNumber="2"
+            onFinish={handleConversationFinish}
+          />
+        )}
         <Text style={styles.title}>
           You successfully completed the tutorial!
         </Text>
         <LottieView
-          source={require("../../assets/success-animation.json")}
+          source={require("../../../assets/success-animation.json")}
           autoPlay
           loop={false}
           style={styles.animation}
@@ -50,4 +56,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FirstLevelPage5;
+export default FirstLevelTutorial5;
