@@ -79,7 +79,7 @@ const FirstLevelPage4 = () => {
               Decrypted Message: {decryptedMessage}
             </Text>
           )}
-          <CircularAlphabet shift={parseInt(shift)} />
+          <CircularAlphabet shift={parseInt(shift)} isEncoding={true} />
           <Button mode="text" onPress={showDialog}>
             Learn More
           </Button>

@@ -97,6 +97,28 @@
           "speaker": "mainCharacter"
         }
       ]
+    },
+    "conversation4": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Sergeant Mehmet",
+          "image": "sergeant"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Okay, I found a message now!",
+          "speaker": "mainCharacter"
+        },
+        {
+          "text": "I need to decrypt it.",
+          "speaker": "mainCharacter"
+        }
+      ]
     }
   }
 }

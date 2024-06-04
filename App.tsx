@@ -8,6 +8,7 @@ import { Button } from "react-native-paper";
 import FirstLevel from "./pages/FirstLevel";
 import TutorialController from "./pages/TutorialController";
 import MissionPage1 from "./components/first-level/MissionPage1";
+import MissionPage2 from "./components/first-level/MissionPage2"; // Add MissionPage2
 
 const Stack = createStackNavigator();
 
@@ -36,6 +37,7 @@ export default function App() {
           component={TutorialController}
         />
         <Stack.Screen name="MissionPage1" component={MissionPage1} />
+        <Stack.Screen name="MissionPage2" component={MissionPage2} />
       </Stack.Navigator>
     </NavigationContainer>
   );

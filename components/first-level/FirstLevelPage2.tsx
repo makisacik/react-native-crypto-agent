@@ -58,7 +58,7 @@ const FirstLevelPage2 = () => {
               +
             </Button>
           </View>
-          <CircularAlphabet shift={shift} />
+          <CircularAlphabet shift={shift} isEncoding={true} />
           <Button mode="text" onPress={showDialog}>
             Learn More
           </Button>

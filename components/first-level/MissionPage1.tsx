@@ -6,7 +6,7 @@ import { Button } from "react-native-paper";
 import Conversation from "../Conversation";
 import Character from "../Character";
 
-const MissionPage1 = () => {
+const MissionPage1 = ({ navigation }: { navigation: any }) => {
   const [showConversation, setShowConversation] = useState(false);
   const [showExclamation, setShowExclamation] = useState(true);
   const [showButton, setShowButton] = useState(false);
@@ -52,9 +52,11 @@ const MissionPage1 = () => {
         <Animated.View style={{ ...styles.button, opacity: buttonOpacity }}>
           <Button
             mode="contained"
-            onPress={() => console.log("Button Pressed")}
+            onPress={() => {
+              navigation.navigate("MissionPage2");
+            }}
           >
-            Next Step
+            Continue
           </Button>
         </Animated.View>
       )}
