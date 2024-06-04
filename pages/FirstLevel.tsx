@@ -34,7 +34,7 @@ const FirstLevel = ({ navigation }: { navigation: any }) => {
           mode="contained"
           style={styles.button}
           onPress={() =>
-            navigation.navigate("TutorialController", { level: "CaesarCipher" })
+            navigation.navigate("TutorialController", { level: "FirstLevel" })
           }
         >
           Start the Tutorial
@@ -43,7 +43,7 @@ const FirstLevel = ({ navigation }: { navigation: any }) => {
           mode="outlined"
           style={styles.button}
           onPress={() => {
-            navigation.navigate("MissionPage1", { level: "CaesarCipher" });
+            navigation.navigate("FirstLevelTraining1");
           }}
         >
           Start the Mission

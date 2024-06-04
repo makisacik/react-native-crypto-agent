@@ -3,10 +3,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { View, StyleSheet, Text, Animated } from "react-native";
 import { Button } from "react-native-paper";
-import Conversation from "../Conversation";
-import Character from "../Character";
+import Conversation from "../../Conversation";
+import Character from "../../Character";
 
-const MissionPage1 = ({ navigation }: { navigation: any }) => {
+const FirstLevelTraining1 = ({ navigation }: { navigation: any }) => {
   const [showConversation, setShowConversation] = useState(false);
   const [showExclamation, setShowExclamation] = useState(true);
   const [showButton, setShowButton] = useState(false);
@@ -31,7 +31,7 @@ const MissionPage1 = ({ navigation }: { navigation: any }) => {
     <View style={styles.container}>
       <View style={styles.characterWrapper}>
         <Character
-          image={require("../../assets/sergeant.png")}
+          image={require("../../../assets/sergeant.png")}
           name="Sergeant Mehmet"
           onPress={handleCharacterClick}
         />
@@ -53,7 +53,7 @@ const MissionPage1 = ({ navigation }: { navigation: any }) => {
           <Button
             mode="contained"
             onPress={() => {
-              navigation.navigate("MissionPage2");
+              navigation.navigate("FirstLevelTraining2");
             }}
           >
             Continue
@@ -97,4 +97,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MissionPage1;
+export default FirstLevelTraining1;

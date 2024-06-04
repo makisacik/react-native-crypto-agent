@@ -7,10 +7,10 @@ import Animated, {
   useAnimatedStyle,
   withTiming,
 } from "react-native-reanimated";
-import Conversation from "../Conversation";
-import CaesarCipherQuestion from "../CaesarCipherQuestion";
+import Conversation from "../../Conversation";
+import CaesarCipherQuestion from "../../CaesarCipherQuestion";
 
-const MissionPage2 = ({ navigation }: { navigation: any }) => {
+const FirstLevelTraining2 = ({ navigation }: { navigation: any }) => {
   const [showConversation, setShowConversation] = useState(true);
   const [showCypherText, setShowCypherText] = useState(true);
   const [showCipherQuestion, setShowCipherQuestion] = useState(false);
@@ -40,7 +40,7 @@ const MissionPage2 = ({ navigation }: { navigation: any }) => {
       )}
       {showCypherText && (
         <Image
-          source={require("../../assets/cypher-text.png")}
+          source={require("../../../assets/cypher-text.png")}
           style={styles.image}
         />
       )}
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MissionPage2;
+export default FirstLevelTraining2;

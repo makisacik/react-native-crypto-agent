@@ -4,9 +4,9 @@ import React, { useState, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";
 import LottieView from "lottie-react-native";
-import Conversation from "../Conversation";
+import Conversation from "../../Conversation";
 
-const FirstLevelPage5 = () => {
+const FirstLevelTutorial5 = () => {
   const [showConversation, setShowConversation] = useState(true);
 
   const handleConversationFinish = () => {
@@ -27,7 +27,7 @@ const FirstLevelPage5 = () => {
           You successfully completed the tutorial!
         </Text>
         <LottieView
-          source={require("../../assets/success-animation.json")}
+          source={require("../../../assets/success-animation.json")}
           autoPlay
           loop={false}
           style={styles.animation}
@@ -56,4 +56,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FirstLevelPage5;
+export default FirstLevelTutorial5;

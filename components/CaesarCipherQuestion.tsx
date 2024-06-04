@@ -16,9 +16,9 @@ import {
   Provider as PaperProvider,
 } from "react-native-paper";
 import Modal from "react-native-modal";
-import CircularAlphabet from "./CircularAlphabet";
-import SuccessAnimation from "./SuccessAnimation";
-import IncorrectAnimation from "./IncorrectAnimation";
+import CircularAlphabet from "./first-level/CircularAlphabet";
+import SuccessAnimation from "./animations/SuccessAnimation";
+import IncorrectAnimation from "./animations/IncorrectAnimation";
 
 interface CaesarCipherQuestionProps {
   isEncoding: boolean;

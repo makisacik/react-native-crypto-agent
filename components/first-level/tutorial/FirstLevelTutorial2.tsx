@@ -10,7 +10,7 @@ import {
 import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";
 import CircularAlphabet from "../CircularAlphabet";
 
-const FirstLevelPage2 = () => {
+const FirstLevelTutorial2 = () => {
   const [shift, setShift] = useState(0);
   const [visible, setVisible] = useState(false);
 
@@ -128,4 +128,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FirstLevelPage2;
+export default FirstLevelTutorial2;

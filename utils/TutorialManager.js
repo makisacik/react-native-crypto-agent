@@ -1,18 +1,18 @@
 /** @format */
 
-import FirstLevelPage1 from "../components/first-level/FirstLevelPage1";
-import FirstLevelPage2 from "../components/first-level/FirstLevelPage2";
-import FirstLevelPage3 from "../components/first-level/FirstLevelPage3";
-import FirstLevelPage4 from "../components/first-level/FirstLevelPage4";
-import FirstLevelPage5 from "../components/first-level/FirstLevelPage5";
+import FirstLevelTutorial1 from "../components/first-level/tutorial/FirstLevelTutorial1";
+import FirstLevelTutorial2 from "../components/first-level/tutorial/FirstLevelTutorial2";
+import FirstLevelTutorial3 from "../components/first-level/tutorial/FirstLevelTutorial3";
+import FirstLevelTutorial4 from "../components/first-level/tutorial/FirstLevelTutorial4";
+import FirstLevelTutorial5 from "../components/first-level/tutorial/FirstLevelTutorial5";
 
 const tutorialPages = {
-  CaesarCipher: [
-    FirstLevelPage1,
-    FirstLevelPage2,
-    FirstLevelPage3,
-    FirstLevelPage4,
-    FirstLevelPage5,
+  FirstLevel: [
+    FirstLevelTutorial1,
+    FirstLevelTutorial2,
+    FirstLevelTutorial3,
+    FirstLevelTutorial4,
+    FirstLevelTutorial5,
   ],
 };
 

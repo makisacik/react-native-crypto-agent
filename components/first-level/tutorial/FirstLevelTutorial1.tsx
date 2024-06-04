@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { View, ScrollView, StyleSheet, Image, Keyboard } from "react-native";
 import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";
 
-const FirstLevelPage1 = () => {
+const FirstLevelTutorial1 = () => {
   const [visible, setVisible] = useState(false);
 
   const showDialog = () => setVisible(true);
@@ -15,7 +15,7 @@ const FirstLevelPage1 = () => {
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <Text style={styles.title}>Caesar Cipher Tutorial</Text>
         <Image
-          source={require("../../assets/caesar_cipher_tutorial.png")}
+          source={require("../../../assets/caesar_cipher_tutorial.png")}
           style={styles.image}
         />
         <Text style={styles.text}>
@@ -94,4 +94,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FirstLevelPage1;
+export default FirstLevelTutorial1;
