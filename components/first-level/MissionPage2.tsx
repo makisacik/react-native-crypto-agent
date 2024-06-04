@@ -1,7 +1,12 @@
 /** @format */
 
-import React, { useState } from "react";
-import { Image, View, StyleSheet } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Image, StyleSheet } from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+} from "react-native-reanimated";
 import Conversation from "../Conversation";
 import CaesarCipherQuestion from "../CaesarCipherQuestion";
 
@@ -9,12 +14,20 @@ const MissionPage2 = ({ navigation }: { navigation: any }) => {
   const [showConversation, setShowConversation] = useState(true);
   const [showCypherText, setShowCypherText] = useState(true);
   const [showCipherQuestion, setShowCipherQuestion] = useState(false);
+  const fadeAnim = useSharedValue(0);
 
   const handleConversationFinish = () => {
     setShowConversation(false);
     setShowCypherText(false);
     setShowCipherQuestion(true);
+    fadeAnim.value = withTiming(1, { duration: 1000 });
   };
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: fadeAnim.value,
+    };
+  });
 
   return (
     <View style={styles.container}>
@@ -32,9 +45,9 @@ const MissionPage2 = ({ navigation }: { navigation: any }) => {
         />
       )}
       {showCipherQuestion && (
-        <View style={styles.cipherContainer}>
+        <Animated.View style={[styles.cipherContainer, animatedStyle]}>
           <CaesarCipherQuestion isEncoding={false} text="phhwlqj vxqgdb" />
-        </View>
+        </Animated.View>
       )}
     </View>
   );

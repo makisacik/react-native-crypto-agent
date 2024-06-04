@@ -111,11 +111,37 @@
       },
       "dialogues": [
         {
-          "text": "Okay, I found a message now!",
+          "text": "Okay, I found the message now!",
+          "speaker": "mainCharacter"
+        },
+        {
+          "text": "Looks like the message is encrypted with the Caesar Cipher.",
           "speaker": "mainCharacter"
         },
         {
           "text": "I need to decrypt it.",
+          "speaker": "mainCharacter"
+        }
+      ]
+    },
+    "conversation5": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Sergeant Mehmet",
+          "image": "sergeant"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Hmm, so the meeting will be on Sunday",
+          "speaker": "mainCharacter"
+        },
+        {
+          "text": "This will be useful.",
           "speaker": "mainCharacter"
         }
       ]
