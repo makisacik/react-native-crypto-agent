@@ -1,12 +1,13 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Image, StyleSheet } from "react-native";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
 } from "react-native-reanimated";
+import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
 import CaesarCipherQuestion from "../../CaesarCipherQuestion";
 
@@ -14,6 +15,7 @@ const FirstLevelTraining2 = ({ navigation }: { navigation: any }) => {
   const [showConversation, setShowConversation] = useState(true);
   const [showCypherText, setShowCypherText] = useState(true);
   const [showCipherQuestion, setShowCipherQuestion] = useState(false);
+  const [showNextLevelButton, setShowNextLevelButton] = useState(false);
   const fadeAnim = useSharedValue(0);
 
   const handleConversationFinish = () => {
@@ -21,6 +23,10 @@ const FirstLevelTraining2 = ({ navigation }: { navigation: any }) => {
     setShowCypherText(false);
     setShowCipherQuestion(true);
     fadeAnim.value = withTiming(1, { duration: 1000 });
+  };
+
+  const handleCorrectAnswer = () => {
+    setShowNextLevelButton(true);
   };
 
   const animatedStyle = useAnimatedStyle(() => {
@@ -46,7 +52,22 @@ const FirstLevelTraining2 = ({ navigation }: { navigation: any }) => {
       )}
       {showCipherQuestion && (
         <Animated.View style={[styles.cipherContainer, animatedStyle]}>
-          <CaesarCipherQuestion isEncoding={false} text="phhwlqj vxqgdb" />
+          <CaesarCipherQuestion
+            isEncoding={false}
+            text="phhwlqj vxqgdb"
+            onCorrectAnswer={handleCorrectAnswer}
+          />
+          {showNextLevelButton && (
+            <View style={styles.nextButtonContainer}>
+              <Button
+                mode="contained"
+                onPress={() => navigation.navigate("FirstLevelTraining3")}
+                style={styles.nextButton}
+              >
+                Next Level
+              </Button>
+            </View>
+          )}
         </Animated.View>
       )}
     </View>
@@ -70,6 +91,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
     padding: 5,
+  },
+  nextButtonContainer: {
+    position: "absolute",
+    bottom: 250,
+    left: 0,
+    right: 0,
+    alignItems: "center",
+  },
+  nextButton: {
+    alignSelf: "center",
   },
 });
 

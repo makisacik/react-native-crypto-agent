@@ -9,6 +9,7 @@ import FirstLevel from "./pages/FirstLevel";
 import TutorialController from "./pages/TutorialController";
 import FirstLevelTraining1 from "./components/first-level/training/FirstLevelTraining1";
 import FirstLevelTraining2 from "./components/first-level/training/FirstLevelTraining2";
+import FirstLevelTraining3 from "./components/first-level/training/FirstLevelTraining3";
 
 const Stack = createStackNavigator();
 
@@ -43,6 +44,10 @@ export default function App() {
         <Stack.Screen
           name="FirstLevelTraining2"
           component={FirstLevelTraining2}
+        />
+        <Stack.Screen
+          name="FirstLevelTraining3"
+          component={FirstLevelTraining3}
         />
       </Stack.Navigator>
     </NavigationContainer>

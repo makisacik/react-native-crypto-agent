@@ -23,11 +23,13 @@ import IncorrectAnimation from "./animations/IncorrectAnimation";
 interface CaesarCipherQuestionProps {
   isEncoding: boolean;
   text: string;
+  onCorrectAnswer: () => void;
 }
 
 const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
   isEncoding,
   text,
+  onCorrectAnswer,
 }) => {
   const [inputText, setInputText] = useState<string>("");
   const [visible, setVisible] = useState<boolean>(false);
@@ -74,6 +76,7 @@ const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
     const isValid = inputText.toLowerCase() === expectedText;
     if (isValid) {
       setShowSuccess(true);
+      onCorrectAnswer();
     } else {
       setShowIncorrect(true);
     }
