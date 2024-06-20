@@ -56,6 +56,7 @@ const FirstLevelTraining2 = ({ navigation }: { navigation: any }) => {
             isEncoding={false}
             text="phhwlqj vxqgdb"
             onCorrectAnswer={handleCorrectAnswer}
+            shift={3}
           />
           {showNextLevelButton && (
             <View style={styles.nextButtonContainer}>
