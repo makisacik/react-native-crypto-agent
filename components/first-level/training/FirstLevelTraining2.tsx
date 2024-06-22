@@ -62,7 +62,11 @@ const FirstLevelTraining2 = ({ navigation }: { navigation: any }) => {
             <View style={styles.nextButtonContainer}>
               <Button
                 mode="contained"
-                onPress={() => navigation.navigate("FirstLevelTraining3")}
+                onPress={() =>
+                  navigation.navigate("QuestionController", {
+                    level: "FirstLevel",
+                  })
+                }
                 style={styles.nextButton}
               >
                 Next Level
