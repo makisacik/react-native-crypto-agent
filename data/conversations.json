@@ -23,18 +23,6 @@
         {
           "text": "Today, we'll learn about the Caesar Cipher.",
           "speaker": "otherCharacter"
-        },
-        {
-          "text": "The Caesar Cipher is a type of substitution cipher in which each letter in the plaintext is shifted a certain number of places down the alphabet.",
-          "speaker": "otherCharacter"
-        },
-        {
-          "text": "For example, with a shift of 3, A would be replaced by D, B would become E, and so on.",
-          "speaker": "otherCharacter"
-        },
-        {
-          "text": "Ready to start? Let's dive in!",
-          "speaker": "otherCharacter"
         }
       ]
     },
@@ -59,7 +47,7 @@
           "speaker": "otherCharacter"
         },
         {
-          "text": "Now you are ready for your mission!",
+          "text": "Now you are ready for your traning!",
           "speaker": "otherCharacter"
         }
       ]

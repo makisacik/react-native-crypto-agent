@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { getQuestions } from "../utils/QuestionManager";
 import { Ionicons } from "@expo/vector-icons";
-import { ProgressBar, useTheme, RadioButton } from "react-native-paper";
+import { ProgressBar, useTheme, Card } from "react-native-paper";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -26,11 +26,12 @@ const QuestionController = ({
   route: any;
   navigation: any;
 }) => {
-  const { level } = route.params;
+  const { level, nextComponent } = route.params; // Destructure nextComponent from route params
   const questions = getQuestions(level);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState("");
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
+  const [animationKey, setAnimationKey] = useState(0);
   const [animationSource, setAnimationSource] = useState(null);
   const theme = useTheme();
 
@@ -50,6 +51,8 @@ const QuestionController = ({
         setAnimationSource(null);
         fadeIn();
       }, 200);
+    } else {
+      navigation.navigate(nextComponent); // Navigate to nextComponent when the last question is finished
     }
   };
 
@@ -75,6 +78,7 @@ const QuestionController = ({
       setIsAnswerCorrect(false);
       setAnimationSource(require("../assets/incorrect-animation.json"));
     }
+    setAnimationKey((prevKey) => prevKey + 1);
   };
 
   const fadeOut = () => {
@@ -112,21 +116,44 @@ const QuestionController = ({
       >
         <View style={styles.contentContainer}>
           <Animated.View style={[styles.content, animatedStyle]}>
-            <Text style={styles.questionText}>{currentQuestion.question}</Text>
-            <RadioButton.Group
-              onValueChange={handleOptionSelect}
-              value={selectedOption}
-            >
+            <Card style={styles.questionCard}>
+              <Card.Content>
+                <Text style={styles.questionText}>
+                  {currentQuestion.question}
+                </Text>
+              </Card.Content>
+            </Card>
+            <View>
               {currentQuestion.options.map((option: string, index: number) => (
-                <View key={index} style={styles.optionContainer}>
-                  <RadioButton value={option} />
-                  <Text style={styles.optionText}>{option}</Text>
-                </View>
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => handleOptionSelect(option)}
+                >
+                  <Card style={styles.optionCard}>
+                    <Card.Content style={styles.optionContent}>
+                      <Ionicons
+                        name={
+                          selectedOption === option
+                            ? "radio-button-on"
+                            : "radio-button-off"
+                        }
+                        size={24}
+                        color={
+                          selectedOption === option
+                            ? theme.colors.primary
+                            : "gray"
+                        }
+                      />
+                      <Text style={styles.optionText}>{option}</Text>
+                    </Card.Content>
+                  </Card>
+                </TouchableOpacity>
               ))}
-            </RadioButton.Group>
+            </View>
           </Animated.View>
           {animationSource && (
             <LottieView
+              key={animationKey}
               source={animationSource}
               autoPlay
               loop={false}
@@ -151,21 +178,11 @@ const QuestionController = ({
               color={currentQuestionIndex === 0 ? "gray" : "black"}
             />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={handleNext}
-            disabled={
-              !isAnswerCorrect || currentQuestionIndex === questions.length - 1
-            }
-          >
+          <TouchableOpacity onPress={handleNext} disabled={!isAnswerCorrect}>
             <Ionicons
               name="arrow-forward"
               size={32}
-              color={
-                !isAnswerCorrect ||
-                currentQuestionIndex === questions.length - 1
-                  ? "gray"
-                  : "black"
-              }
+              color={!isAnswerCorrect ? "gray" : "black"}
             />
           </TouchableOpacity>
         </View>
@@ -189,18 +206,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  questionCard: {
+    marginBottom: 20,
+    width: "100%",
+  },
   questionText: {
     fontSize: 18,
     fontWeight: "bold",
-    marginBottom: 20,
   },
-  optionContainer: {
+  optionCard: {
+    width: "100%",
+    marginBottom: 10,
+  },
+  optionContent: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: 5,
   },
   optionText: {
-    fontSize: 16,
+    fontSize: 18,
+    marginLeft: 10,
   },
   progressBar: {
     marginHorizontal: 20,

@@ -65,6 +65,7 @@ const FirstLevelTraining2 = ({ navigation }: { navigation: any }) => {
                 onPress={() =>
                   navigation.navigate("QuestionController", {
                     level: "FirstLevel",
+                    nextComponent: "FirstLevelTraining3",
                   })
                 }
                 style={styles.nextButton}

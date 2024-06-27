@@ -123,6 +123,7 @@ const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
                 value={inputText}
                 onChangeText={setInputText}
                 autoCapitalize="none"
+                autoCorrect={false}
                 style={styles.input}
                 right={
                   <TextInput.Icon
