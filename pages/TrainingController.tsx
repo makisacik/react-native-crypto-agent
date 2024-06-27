@@ -1,9 +1,11 @@
 /** @format */
 
-import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
+import React, { useState, useLayoutEffect } from "react";
+import { View, StyleSheet, Text } from "react-native";
 import { getTrainingPages } from "../utils/TrainingManager";
 import { CommonActions } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/FontAwesome";
+import { useScore } from "../context/ScoreContext";
 
 const TrainingController = ({
   navigation,
@@ -15,6 +17,7 @@ const TrainingController = ({
   const { level } = route.params;
   const pages = getTrainingPages(level);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { score, updateScore } = useScore();
 
   const CurrentPage = pages[currentIndex];
 
@@ -31,9 +34,24 @@ const TrainingController = ({
     }
   };
 
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <View style={styles.scoreContainer}>
+          <Icon name="star" size={20} color="#e28743" />
+          <Text style={styles.scoreText}>{score}</Text>
+        </View>
+      ),
+    });
+  }, [navigation, score]);
+
   return (
     <View style={styles.container}>
-      <CurrentPage onNext={navigateToNextPage} navigation={navigation} />
+      <CurrentPage
+        onNext={navigateToNextPage}
+        navigation={navigation}
+        updateScore={updateScore}
+      />
     </View>
   );
 };
@@ -41,6 +59,16 @@ const TrainingController = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  scoreContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginRight: 10,
+  },
+  scoreText: {
+    marginLeft: 5,
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
 

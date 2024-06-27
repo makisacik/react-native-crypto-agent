@@ -26,7 +26,7 @@ const QuestionController = ({
   route: any;
   navigation: any;
 }) => {
-  const { level, nextComponent } = route.params; // Destructure nextComponent from route params
+  const { level, nextComponent } = route.params;
   const questions = getQuestions(level);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState("");
@@ -52,7 +52,7 @@ const QuestionController = ({
         fadeIn();
       }, 200);
     } else {
-      navigation.navigate(nextComponent); // Navigate to nextComponent when the last question is finished
+      navigation.navigate(nextComponent);
     }
   };
 

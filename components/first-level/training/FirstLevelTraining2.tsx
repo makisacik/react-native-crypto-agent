@@ -10,6 +10,7 @@ import Animated, {
 import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
 import CaesarCipherQuestion from "../../CaesarCipherQuestion";
+import { useScore } from "../../../context/ScoreContext";
 
 const FirstLevelTraining2 = ({
   navigation,
@@ -23,6 +24,7 @@ const FirstLevelTraining2 = ({
   const [showCipherQuestion, setShowCipherQuestion] = useState(false);
   const [showNextLevelButton, setShowNextLevelButton] = useState(false);
   const fadeAnim = useSharedValue(0);
+  const { updateScore } = useScore();
 
   const handleConversationFinish = () => {
     setShowConversation(false);
@@ -32,6 +34,7 @@ const FirstLevelTraining2 = ({
   };
 
   const handleCorrectAnswer = () => {
+    updateScore(20);
     setShowNextLevelButton(true);
   };
 
@@ -60,7 +63,7 @@ const FirstLevelTraining2 = ({
         <Animated.View style={[styles.cipherContainer, animatedStyle]}>
           <CaesarCipherQuestion
             isEncoding={false}
-            text="vxqgdb"
+            text="phhwlqj vxqgdb"
             onCorrectAnswer={handleCorrectAnswer}
             shift={3}
           />
