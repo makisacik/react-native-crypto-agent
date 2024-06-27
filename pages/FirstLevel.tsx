@@ -46,7 +46,7 @@ const FirstLevel = ({ navigation }: { navigation: any }) => {
             navigation.navigate("FirstLevelTraining1");
           }}
         >
-          Start the Mission
+          Start the Training
         </Button>
       </View>
     </View>

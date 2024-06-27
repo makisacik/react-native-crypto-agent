@@ -5,6 +5,7 @@ import { View, StyleSheet, Text, Animated } from "react-native";
 import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
 import Character from "../../Character";
+import { CommonActions } from "@react-navigation/native";
 
 const FirstLevelTraining3 = ({ navigation }: { navigation: any }) => {
   const [showConversation, setShowConversation] = useState(false);
@@ -27,6 +28,15 @@ const FirstLevelTraining3 = ({ navigation }: { navigation: any }) => {
     }).start();
   };
 
+  const handleCompleteTutorial = () => {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{ name: "Home" }],
+      })
+    );
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.characterWrapper}>
@@ -44,19 +54,14 @@ const FirstLevelTraining3 = ({ navigation }: { navigation: any }) => {
       {showConversation && (
         <Conversation
           level="FirstLevel"
-          conversationNumber="3"
+          conversationNumber="5"
           onFinish={handleConversationFinish}
         />
       )}
       {showButton && (
         <Animated.View style={{ ...styles.button, opacity: buttonOpacity }}>
-          <Button
-            mode="contained"
-            onPress={() => {
-              navigation.navigate("FirstLevelTraining2");
-            }}
-          >
-            Continue
+          <Button mode="contained" onPress={handleCompleteTutorial}>
+            Complete the training
           </Button>
         </Animated.View>
       )}

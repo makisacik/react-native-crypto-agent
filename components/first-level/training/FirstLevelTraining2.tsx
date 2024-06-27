@@ -54,7 +54,7 @@ const FirstLevelTraining2 = ({ navigation }: { navigation: any }) => {
         <Animated.View style={[styles.cipherContainer, animatedStyle]}>
           <CaesarCipherQuestion
             isEncoding={false}
-            text="phhwlqj vxqgdb"
+            text="vxqgdb"
             onCorrectAnswer={handleCorrectAnswer}
             shift={3}
           />
@@ -70,7 +70,7 @@ const FirstLevelTraining2 = ({ navigation }: { navigation: any }) => {
                 }
                 style={styles.nextButton}
               >
-                Next Level
+                Continue
               </Button>
             </View>
           )}
