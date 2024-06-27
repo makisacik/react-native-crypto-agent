@@ -1,12 +1,18 @@
 /** @format */
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { View, StyleSheet, Text, Animated } from "react-native";
 import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
 import Character from "../../Character";
 
-const FirstLevelTraining1 = ({ navigation }: { navigation: any }) => {
+const FirstLevelTraining1 = ({
+  navigation,
+  onNext,
+}: {
+  navigation: any;
+  onNext: () => void;
+}) => {
   const [showConversation, setShowConversation] = useState(false);
   const [showExclamation, setShowExclamation] = useState(true);
   const [showButton, setShowButton] = useState(false);
@@ -50,12 +56,7 @@ const FirstLevelTraining1 = ({ navigation }: { navigation: any }) => {
       )}
       {showButton && (
         <Animated.View style={{ ...styles.button, opacity: buttonOpacity }}>
-          <Button
-            mode="contained"
-            onPress={() => {
-              navigation.navigate("FirstLevelTraining2");
-            }}
-          >
+          <Button mode="contained" onPress={onNext}>
             Continue
           </Button>
         </Animated.View>

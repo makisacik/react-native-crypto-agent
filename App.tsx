@@ -10,7 +10,8 @@ import TutorialController from "./pages/TutorialController";
 import FirstLevelTraining1 from "./components/first-level/training/FirstLevelTraining1";
 import FirstLevelTraining2 from "./components/first-level/training/FirstLevelTraining2";
 import FirstLevelTraining3 from "./components/first-level/training/FirstLevelTraining3";
-import QuestionController from "./pages/QuestionController"; // Ensure correct import
+import TrainingController from "./pages/TrainingController";
+import QuestionController from "./pages/QuestionController";
 
 const Stack = createStackNavigator();
 
@@ -49,6 +50,10 @@ export default function App() {
         <Stack.Screen
           name="FirstLevelTraining3"
           component={FirstLevelTraining3}
+        />
+        <Stack.Screen
+          name="TrainingController"
+          component={TrainingController}
         />
         <Stack.Screen
           name="QuestionController"

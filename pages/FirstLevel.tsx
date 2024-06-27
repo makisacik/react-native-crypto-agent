@@ -43,7 +43,7 @@ const FirstLevel = ({ navigation }: { navigation: any }) => {
           mode="outlined"
           style={styles.button}
           onPress={() => {
-            navigation.navigate("FirstLevelTraining1");
+            navigation.navigate("TrainingController", { level: "FirstLevel" });
           }}
         >
           Start the Training

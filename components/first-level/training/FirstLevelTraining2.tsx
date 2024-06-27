@@ -11,7 +11,13 @@ import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
 import CaesarCipherQuestion from "../../CaesarCipherQuestion";
 
-const FirstLevelTraining2 = ({ navigation }: { navigation: any }) => {
+const FirstLevelTraining2 = ({
+  navigation,
+  onNext,
+}: {
+  navigation: any;
+  onNext: () => void;
+}) => {
   const [showConversation, setShowConversation] = useState(true);
   const [showCypherText, setShowCypherText] = useState(true);
   const [showCipherQuestion, setShowCipherQuestion] = useState(false);
@@ -62,12 +68,7 @@ const FirstLevelTraining2 = ({ navigation }: { navigation: any }) => {
             <View style={styles.nextButtonContainer}>
               <Button
                 mode="contained"
-                onPress={() =>
-                  navigation.navigate("QuestionController", {
-                    level: "FirstLevel",
-                    nextComponent: "FirstLevelTraining3",
-                  })
-                }
+                onPress={onNext}
                 style={styles.nextButton}
               >
                 Continue

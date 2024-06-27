@@ -7,7 +7,13 @@ import Conversation from "../../Conversation";
 import Character from "../../Character";
 import { CommonActions } from "@react-navigation/native";
 
-const FirstLevelTraining3 = ({ navigation }: { navigation: any }) => {
+const FirstLevelTraining3 = ({
+  navigation,
+  onNext,
+}: {
+  navigation: any;
+  onNext: () => void;
+}) => {
   const [showConversation, setShowConversation] = useState(false);
   const [showExclamation, setShowExclamation] = useState(true);
   const [showButton, setShowButton] = useState(false);
