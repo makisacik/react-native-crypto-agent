@@ -3,7 +3,6 @@
 import React, { useState, useLayoutEffect } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { getTrainingPages } from "../utils/TrainingManager";
-import { CommonActions } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useScore } from "../context/ScoreContext";
 
@@ -25,12 +24,10 @@ const TrainingController = ({
     if (currentIndex < pages.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      navigation.dispatch(
-        CommonActions.reset({
-          index: 0,
-          routes: [{ name: "Home" }],
-        })
-      );
+      navigation.reset({
+        index: 0,
+        routes: [{ name: "Home" }],
+      });
     }
   };
 
@@ -50,6 +47,7 @@ const TrainingController = ({
       <CurrentPage
         onNext={navigateToNextPage}
         navigation={navigation}
+        route={route}
         updateScore={updateScore}
       />
     </View>

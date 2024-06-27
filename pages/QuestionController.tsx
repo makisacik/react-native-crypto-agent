@@ -1,4 +1,5 @@
 /** @format */
+
 import React, { useState } from "react";
 import {
   View,
@@ -22,11 +23,13 @@ import LottieView from "lottie-react-native";
 const QuestionController = ({
   route,
   navigation,
+  onNext,
 }: {
   route: any;
   navigation: any;
+  onNext: () => void;
 }) => {
-  const { level, nextComponent } = route.params;
+  const { level } = route.params;
   const questions = getQuestions(level);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState("");
@@ -52,7 +55,7 @@ const QuestionController = ({
         fadeIn();
       }, 200);
     } else {
-      navigation.navigate(nextComponent);
+      onNext();
     }
   };
 
