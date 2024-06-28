@@ -16,7 +16,7 @@ const TrainingController = ({
   const { level } = route.params;
   const pages = getTrainingPages(level);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { score, updateScore } = useScore();
+  const { score, addScore } = useScore();
 
   const CurrentPage = pages[currentIndex];
 
@@ -48,7 +48,6 @@ const TrainingController = ({
         onNext={navigateToNextPage}
         navigation={navigation}
         route={route}
-        updateScore={updateScore}
       />
     </View>
   );

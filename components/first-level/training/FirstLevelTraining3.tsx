@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { View, StyleSheet, Text, Animated } from "react-native";
-import { Button } from "react-native-paper";
+import { Button, Card, Paragraph } from "react-native-paper";
 import Conversation from "../../Conversation";
 import Character from "../../Character";
 import { CommonActions } from "@react-navigation/native";
+import { useScore } from "../../../context/ScoreContext"; // Import useScore hook
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const FirstLevelTraining3 = ({
   navigation,
@@ -18,6 +20,10 @@ const FirstLevelTraining3 = ({
   const [showExclamation, setShowExclamation] = useState(true);
   const [showButton, setShowButton] = useState(false);
   const buttonOpacity = useRef(new Animated.Value(0)).current;
+  const { score } = useScore();
+
+  const maxScore = 150;
+  const numberOfQuestions = 10;
 
   const handleCharacterClick = () => {
     setShowConversation(true);
@@ -57,19 +63,41 @@ const FirstLevelTraining3 = ({
           </View>
         )}
       </View>
+      <View style={styles.summaryWrapper}>
+        <Card style={styles.summaryCard}>
+          <Card.Content>
+            <Text style={styles.summaryTitle}>Training Summary</Text>
+            <View style={styles.summaryTextContainer}>
+              <Paragraph style={styles.summaryText}>
+                Highest Score Possible: {maxScore}
+              </Paragraph>
+              <Icon name="star" size={15} color="#e28743" style={styles.icon} />
+            </View>
+            <View style={styles.summaryTextContainer}>
+              <Paragraph style={styles.summaryText}>
+                Your Score: {score}
+              </Paragraph>
+              <Icon name="star" size={15} color="#e28743" style={styles.icon} />
+            </View>
+            <Paragraph style={styles.summaryText}>
+              Number of Questions: {numberOfQuestions}
+            </Paragraph>
+          </Card.Content>
+        </Card>
+        {showButton && (
+          <Animated.View style={{ ...styles.button, opacity: buttonOpacity }}>
+            <Button mode="contained" onPress={handleCompleteTutorial}>
+              Complete the training
+            </Button>
+          </Animated.View>
+        )}
+      </View>
       {showConversation && (
         <Conversation
           level="FirstLevel"
           conversationNumber="5"
           onFinish={handleConversationFinish}
         />
-      )}
-      {showButton && (
-        <Animated.View style={{ ...styles.button, opacity: buttonOpacity }}>
-          <Button mode="contained" onPress={handleCompleteTutorial}>
-            Complete the training
-          </Button>
-        </Animated.View>
       )}
     </View>
   );
@@ -78,14 +106,14 @@ const FirstLevelTraining3 = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
     backgroundColor: "#f0f0f0",
+    paddingTop: 100,
   },
   characterWrapper: {
-    position: "absolute",
-    top: 100,
     alignItems: "center",
+    marginBottom: 50,
   },
   exclamationMark: {
     position: "absolute",
@@ -102,9 +130,33 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
   },
+  summaryWrapper: {
+    width: "80%",
+    alignItems: "center",
+  },
+  summaryCard: {
+    width: "100%",
+    elevation: 5,
+    marginBottom: 50,
+  },
+  summaryTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  summaryTextContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 5,
+  },
+  summaryText: {
+    fontSize: 16,
+  },
+  icon: {
+    marginLeft: 5,
+  },
   button: {
-    position: "absolute",
-    top: 250,
+    width: "70%",
   },
 });
 
