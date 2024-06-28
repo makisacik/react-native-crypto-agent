@@ -134,5 +134,29 @@
         }
       ]
     }
+  },
+  "SecondLevel": {
+    "conversation1": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "As you can see Agent!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Without having the key you can't decrypt a message.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    }
   }
 }
