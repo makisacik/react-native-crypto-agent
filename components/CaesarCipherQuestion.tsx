@@ -24,6 +24,7 @@ interface CaesarCipherQuestionProps {
   isEncoding: boolean;
   text: string;
   onCorrectAnswer: () => void;
+  onMistake: () => void;
   shift: number;
 }
 
@@ -31,6 +32,7 @@ const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
   isEncoding,
   text,
   onCorrectAnswer,
+  onMistake,
   shift,
 }) => {
   const [inputText, setInputText] = useState<string>("");
@@ -80,6 +82,7 @@ const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
       onCorrectAnswer();
     } else {
       setShowIncorrect(true);
+      onMistake();
     }
     Keyboard.dismiss();
   };
