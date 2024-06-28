@@ -59,14 +59,18 @@ const FirstLevelTutorial2 = () => {
             </Button>
           </View>
           <CircularAlphabet shift={shift} isEncoding={true} />
-          <Button mode="text" onPress={showDialog}>
+          <Button
+            mode="text"
+            onPress={showDialog}
+            labelStyle={styles.buttonTextLabel}
+          >
             Learn More
           </Button>
           <Portal>
             <Dialog visible={visible} onDismiss={hideDialog}>
               <Dialog.Title>About Circular Alphabet</Dialog.Title>
               <Dialog.Content>
-                <Text>
+                <Text style={styles.dialogText}>
                   The circular alphabet visualizes the process of shifting
                   letters in the Caesar Cipher. By changing the shift value, you
                   can see how each letter is mapped to a new letter. For
@@ -76,7 +80,12 @@ const FirstLevelTutorial2 = () => {
                 </Text>
               </Dialog.Content>
               <Dialog.Actions>
-                <Button onPress={hideDialog}>Close</Button>
+                <Button
+                  onPress={hideDialog}
+                  labelStyle={styles.buttonTextLabel}
+                >
+                  Close
+                </Button>
               </Dialog.Actions>
             </Dialog>
           </Portal>
@@ -93,11 +102,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "UbuntuBold",
     marginBottom: 10,
   },
   text: {
     fontSize: 16,
+    fontFamily: "UbuntuRegular",
     marginBottom: 10,
   },
   buttonContainer: {
@@ -114,7 +124,7 @@ const styles = StyleSheet.create({
   },
   buttonLabel: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "UbuntuBold",
   },
   shiftValueContainer: {
     width: 50,
@@ -123,7 +133,15 @@ const styles = StyleSheet.create({
   },
   shiftValue: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "UbuntuBold",
+  },
+  buttonTextLabel: {
+    fontSize: 14,
+    fontFamily: "UbuntuRegular",
+  },
+  dialogText: {
+    fontSize: 16,
+    fontFamily: "UbuntuRegular",
   },
 });
 

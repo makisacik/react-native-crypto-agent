@@ -36,14 +36,18 @@ const FirstLevelTutorial1 = () => {
           In this tutorial, you'll learn how to both encrypt and decrypt
           messages using the Caesar Cipher.
         </Text>
-        <Button mode="text" onPress={showDialog}>
+        <Button
+          mode="text"
+          onPress={showDialog}
+          labelStyle={styles.buttonLabel}
+        >
           Learn More
         </Button>
         <Portal>
           <Dialog visible={visible} onDismiss={hideDialog}>
             <Dialog.Title>Caesar Cipher</Dialog.Title>
             <Dialog.Content>
-              <Text>
+              <Text style={styles.dialogText}>
                 The Caesar Cipher is a type of substitution cipher in which each
                 letter in the plaintext is shifted by a fixed number of places.
                 This technique is named after Julius Caesar, who used it to
@@ -53,7 +57,9 @@ const FirstLevelTutorial1 = () => {
               </Text>
             </Dialog.Content>
             <Dialog.Actions>
-              <Button onPress={hideDialog}>Close</Button>
+              <Button onPress={hideDialog} labelStyle={styles.buttonLabel}>
+                Close
+              </Button>
             </Dialog.Actions>
           </Dialog>
         </Portal>
@@ -71,7 +77,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "UbuntuBold",
     marginBottom: 10,
   },
   image: {
@@ -82,6 +88,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
+    fontFamily: "UbuntuRegular",
     marginBottom: 10,
   },
   example: {
@@ -91,6 +98,14 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 10,
     fontSize: 16,
+  },
+  buttonLabel: {
+    fontSize: 14,
+    fontFamily: "UbuntuRegular",
+  },
+  dialogText: {
+    fontSize: 16,
+    fontFamily: "UbuntuRegular",
   },
 });
 

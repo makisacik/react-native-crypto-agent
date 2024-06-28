@@ -6,7 +6,7 @@ import { Button, Card, Paragraph } from "react-native-paper";
 import Conversation from "../../Conversation";
 import Character from "../../Character";
 import { CommonActions } from "@react-navigation/native";
-import { useScore } from "../../../context/ScoreContext"; // Import useScore hook
+import { useScore } from "../../../context/ScoreContext";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const FirstLevelTraining3 = ({

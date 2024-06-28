@@ -90,11 +90,12 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontFamily: "UbuntuBold",
     marginBottom: 4,
   },
   text: {
     fontSize: 20,
+    fontFamily: "UbuntuRegular",
     flexWrap: "wrap",
   },
 });

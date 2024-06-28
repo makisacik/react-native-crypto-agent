@@ -33,6 +33,7 @@ const FirstLevel = ({ navigation }: { navigation: any }) => {
         <Button
           mode="contained"
           style={styles.button}
+          labelStyle={styles.buttonLabel}
           onPress={() =>
             navigation.navigate("TutorialController", { level: "FirstLevel" })
           }
@@ -42,6 +43,7 @@ const FirstLevel = ({ navigation }: { navigation: any }) => {
         <Button
           mode="outlined"
           style={styles.button}
+          labelStyle={styles.buttonLabel}
           onPress={() => {
             navigation.navigate("TrainingController", { level: "FirstLevel" });
           }}
@@ -65,11 +67,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "UbuntuBold",
   },
   description: {
     fontSize: 16,
     marginVertical: 10,
+    fontFamily: "UbuntuMedium",
     textAlign: "center",
   },
   image: {
@@ -81,10 +84,15 @@ const styles = StyleSheet.create({
   imageDescription: {
     fontSize: 14,
     marginBottom: 20,
+    fontFamily: "UbuntuRegular",
     textAlign: "center",
   },
   button: {
     marginVertical: 10,
+  },
+  buttonLabel: {
+    fontSize: 14,
+    fontFamily: "UbuntuRegular",
   },
 });
 
