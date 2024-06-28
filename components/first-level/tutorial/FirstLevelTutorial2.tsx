@@ -7,20 +7,12 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
-import {
-  Text,
-  Button,
-  Dialog,
-  Portal,
-  Provider,
-  TextInput,
-} from "react-native-paper";
+import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";
 import CircularAlphabet from "../CircularAlphabet";
 
 const FirstLevelTutorial2 = () => {
   const [shift, setShift] = useState(0);
   const [visible, setVisible] = useState(false);
-  const [inputValue, setInputValue] = useState("");
 
   const showDialog = () => setVisible(true);
   const hideDialog = () => setVisible(false);
@@ -45,13 +37,6 @@ const FirstLevelTutorial2 = () => {
             see how the alphabet changes and understand how the encryption
             works.
           </Text>
-          <TextInput
-            label="Your Input"
-            value={inputValue}
-            onChangeText={(text) => setInputValue(text)}
-            autoComplete="off"
-            style={styles.input}
-          />
           <View style={styles.buttonContainer}>
             <Button
               mode="contained"
@@ -113,9 +98,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    marginBottom: 10,
-  },
-  input: {
     marginBottom: 10,
   },
   buttonContainer: {
