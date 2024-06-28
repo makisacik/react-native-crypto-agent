@@ -19,6 +19,7 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import LottieView from "lottie-react-native";
+import { useScore } from "../context/ScoreContext"; // Import useScore hook
 
 const QuestionController = ({
   route,
@@ -34,9 +35,12 @@ const QuestionController = ({
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState("");
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
+  const [mistakeMade, setMistakeMade] = useState(false);
+  const [scoreUpdated, setScoreUpdated] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
   const [animationSource, setAnimationSource] = useState(null);
   const theme = useTheme();
+  const { addScore } = useScore();
 
   const opacity = useSharedValue(1);
 
@@ -52,6 +56,8 @@ const QuestionController = ({
         setSelectedOption("");
         setIsAnswerCorrect(false);
         setAnimationSource(null);
+        setMistakeMade(false);
+        setScoreUpdated(false);
         fadeIn();
       }, 200);
     } else {
@@ -67,6 +73,8 @@ const QuestionController = ({
         setSelectedOption("");
         setIsAnswerCorrect(false);
         setAnimationSource(null);
+        setMistakeMade(false);
+        setScoreUpdated(false);
         fadeIn();
       }, 200);
     }
@@ -77,8 +85,13 @@ const QuestionController = ({
     if (value === currentQuestion.answer) {
       setIsAnswerCorrect(true);
       setAnimationSource(require("../assets/success-animation.json"));
+      if (!scoreUpdated) {
+        addScore(mistakeMade ? 10 : 15);
+        setScoreUpdated(true);
+      }
     } else {
       setIsAnswerCorrect(false);
+      setMistakeMade(true);
       setAnimationSource(require("../assets/incorrect-animation.json"));
     }
     setAnimationKey((prevKey) => prevKey + 1);

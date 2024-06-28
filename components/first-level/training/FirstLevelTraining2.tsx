@@ -26,7 +26,7 @@ const FirstLevelTraining2 = ({
   const [mistakeMade, setMistakeMade] = useState(false);
   const [scoreUpdated, setScoreUpdated] = useState(false);
   const fadeAnim = useSharedValue(0);
-  const { updateScore } = useScore();
+  const { addScore } = useScore();
 
   const handleConversationFinish = () => {
     setShowConversation(false);
@@ -38,9 +38,9 @@ const FirstLevelTraining2 = ({
   const handleCorrectAnswer = () => {
     if (!scoreUpdated) {
       if (mistakeMade) {
-        updateScore(10);
+        addScore(10);
       } else {
-        updateScore(20);
+        addScore(20);
       }
       setScoreUpdated(true);
     }
