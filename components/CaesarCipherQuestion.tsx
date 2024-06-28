@@ -23,17 +23,20 @@ import IncorrectAnimation from "./animations/IncorrectAnimation";
 interface CaesarCipherQuestionProps {
   isEncoding: boolean;
   text: string;
+  onCorrectAnswer: () => void;
+  shift: number;
 }
 
 const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
   isEncoding,
   text,
+  onCorrectAnswer,
+  shift,
 }) => {
   const [inputText, setInputText] = useState<string>("");
   const [visible, setVisible] = useState<boolean>(false);
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
   const [showIncorrect, setShowIncorrect] = useState<boolean>(false);
-  const shift = 3;
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -74,6 +77,7 @@ const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
     const isValid = inputText.toLowerCase() === expectedText;
     if (isValid) {
       setShowSuccess(true);
+      onCorrectAnswer();
     } else {
       setShowIncorrect(true);
     }
@@ -119,6 +123,7 @@ const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
                 value={inputText}
                 onChangeText={setInputText}
                 autoCapitalize="none"
+                autoCorrect={false}
                 style={styles.input}
                 right={
                   <TextInput.Icon
@@ -143,7 +148,9 @@ const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
             backdropTransitionOutTiming={0}
           >
             <View style={styles.modalContent}>
-              <Paragraph>For this cipher, the shift value is 3.</Paragraph>
+              <Paragraph>
+                For this cipher, the shift value is {shift}.
+              </Paragraph>
               <View style={styles.spacing} />
               <Button mode="contained" onPress={hideModal}>
                 Close

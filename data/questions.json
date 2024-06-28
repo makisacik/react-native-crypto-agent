@@ -1,0 +1,46 @@
+{
+  "FirstLevel": {
+    "questions": [
+      {
+        "question": "What is the Caesar Cipher primarily used for?",
+        "options": [
+          "Encrypting data",
+          "Compressing files",
+          "Backing up data",
+          "Deleting files"
+        ],
+        "answer": "Encrypting data"
+      },
+      {
+        "question": "In a Caesar Cipher with a shift of 3, what does the letter 'A' become?",
+        "options": ["D", "C", "E", "B"],
+        "answer": "D"
+      },
+      {
+        "question": "Who is the Caesar Cipher named after?",
+        "options": [
+          "Julius Caesar",
+          "Alexander the Great",
+          "Cleopatra",
+          "Napoleon"
+        ],
+        "answer": "Julius Caesar"
+      },
+      {
+        "question": "If the plaintext is 'HELLO' and the shift is 1, what is the ciphertext?",
+        "options": ["IFMMP", "GDKKN", "JGNNS", "HFLLO"],
+        "answer": "IFMMP"
+      },
+      {
+        "question": "What is a key aspect of the Caesar Cipher?",
+        "options": [
+          "It shifts letters by a fixed number",
+          "It rearranges letters randomly",
+          "It adds numbers to letters",
+          "It uses a grid to encode letters"
+        ],
+        "answer": "It shifts letters by a fixed number"
+      }
+    ]
+  }
+}

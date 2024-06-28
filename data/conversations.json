@@ -23,18 +23,6 @@
         {
           "text": "Today, we'll learn about the Caesar Cipher.",
           "speaker": "otherCharacter"
-        },
-        {
-          "text": "The Caesar Cipher is a type of substitution cipher in which each letter in the plaintext is shifted a certain number of places down the alphabet.",
-          "speaker": "otherCharacter"
-        },
-        {
-          "text": "For example, with a shift of 3, A would be replaced by D, B would become E, and so on.",
-          "speaker": "otherCharacter"
-        },
-        {
-          "text": "Ready to start? Let's dive in!",
-          "speaker": "otherCharacter"
         }
       ]
     },
@@ -59,7 +47,7 @@
           "speaker": "otherCharacter"
         },
         {
-          "text": "Now you are ready for your mission!",
+          "text": "Now you are ready for your traning!",
           "speaker": "otherCharacter"
         }
       ]
@@ -81,19 +69,19 @@
           "speaker": "otherCharacter"
         },
         {
-          "text": "Agent I was informed that you are able to start the mission.",
+          "text": "Agent I was informed that you are able to start the training.",
           "speaker": "otherCharacter"
         },
         {
-          "text": "We have a message that we need to decrypt.",
+          "text": "Now you are ready for your training!",
           "speaker": "otherCharacter"
         },
         {
-          "text": "Now you are ready for your mission!",
+          "text": "Try to decrypt this message!",
           "speaker": "otherCharacter"
         },
         {
-          "text": "What am I going to decrypt?",
+          "text": "Okay sir!",
           "speaker": "mainCharacter"
         }
       ]
@@ -137,12 +125,12 @@
       },
       "dialogues": [
         {
-          "text": "Hmm, so the meeting will be on Sunday",
-          "speaker": "mainCharacter"
+          "text": "Well done, agent! You completed the training.",
+          "speaker": "otherCharacter"
         },
         {
-          "text": "This will be useful.",
-          "speaker": "mainCharacter"
+          "text": "You can work on other Cryptography topics now.",
+          "speaker": "otherCharacter"
         }
       ]
     }
