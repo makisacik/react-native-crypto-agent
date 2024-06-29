@@ -157,6 +157,24 @@
           "speaker": "otherCharacter"
         }
       ]
+    },
+    "conversation2": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "The Data Encryption Standard (DES) is another symmetric algorithm!",
+          "speaker": "otherCharacter"
+        }
+      ]
     }
   }
 }

@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   StyleSheet,
@@ -8,7 +8,6 @@ import {
   Keyboard,
   ScrollView,
   Dimensions,
-  Animated,
 } from "react-native";
 import {
   Text,
@@ -18,14 +17,14 @@ import {
   Portal,
   Provider,
 } from "react-native-paper";
-import { encryptAES, decryptAES } from "../../../utils/CryptographyFunctions";
+import { encryptDES, decryptDES } from "../../../utils/CryptographyFunctions";
 import Conversation from "../../Conversation";
 import { useScore } from "../../../context/ScoreContext";
 
 const { width } = Dimensions.get("window");
 const containerWidth = width * 0.9;
 
-const SecondLevelTutorial3 = () => {
+const SecondLevelTutorial5 = () => {
   const [input, setInput] = useState("mymessage");
   const [key, setKey] = useState("mysecretkey");
   const [output, setOutput] = useState("");
@@ -48,13 +47,13 @@ const SecondLevelTutorial3 = () => {
     const encryptionKey = key || "mysecretkey";
     setInput(message);
     setKey(encryptionKey);
-    const result = encryptAES(message, encryptionKey);
+    const result = encryptDES(message, encryptionKey);
     setOutput(result);
     setDecryptedOutput("");
   };
 
   const handleDecrypt = () => {
-    const result = decryptAES(output, key);
+    const result = decryptDES(output, key);
     setDecryptedOutput(result);
     if (!conversationShown) {
       setShowConversation(true);
@@ -71,10 +70,10 @@ const SecondLevelTutorial3 = () => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
           <ScrollView contentContainerStyle={styles.scrollView}>
-            <Text style={styles.title}>Encrypt a Message with AES</Text>
+            <Text style={styles.title}>Encrypt a Message with DES</Text>
             <Text style={styles.text}>
               Enter your message and a key to see the encrypted result using
-              AES.
+              DES.
             </Text>
             <TextInput
               label="Enter message"
@@ -116,13 +115,13 @@ const SecondLevelTutorial3 = () => {
           </View>
           <Portal>
             <Dialog visible={visible} onDismiss={hideDialog}>
-              <Dialog.Title>
-                Can the same key produce different encrypted messages?
-              </Dialog.Title>
+              <Dialog.Title>What is DES?</Dialog.Title>
               <Dialog.Content>
                 <Text>
-                  Yes due to the use of an random initialization vector or a
-                  random salt vlue in the encryption process.
+                  DES (Data Encryption Standard) is a symmetric-key algorithm
+                  for the encryption of digital data. DES was developed in the
+                  early 1970s and was once a widely used encryption method. It
+                  uses a 56-bit key and operates on 64-bit blocks of data.
                 </Text>
               </Dialog.Content>
               <Dialog.Actions>
@@ -134,7 +133,7 @@ const SecondLevelTutorial3 = () => {
             <View style={styles.conversationContainer}>
               <Conversation
                 level="SecondLevel"
-                conversationNumber="1"
+                conversationNumber="3"
                 onFinish={handleConversationFinish}
               />
             </View>
@@ -193,4 +192,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SecondLevelTutorial3;
+export default SecondLevelTutorial5;
