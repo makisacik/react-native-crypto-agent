@@ -9,12 +9,14 @@
           "Backing up data",
           "Deleting files"
         ],
-        "answer": "Encrypting data"
+        "answer": "Encrypting data",
+        "questionType": "singleAnswer"
       },
       {
         "question": "In a Caesar Cipher with a shift of 3, what does the letter 'A' become?",
         "options": ["D", "C", "E", "B"],
-        "answer": "D"
+        "answer": "D",
+        "questionType": "singleAnswer"
       },
       {
         "question": "Who is the Caesar Cipher named after?",
@@ -24,12 +26,14 @@
           "Cleopatra",
           "Napoleon"
         ],
-        "answer": "Julius Caesar"
+        "answer": "Julius Caesar",
+        "questionType": "singleAnswer"
       },
       {
         "question": "If the plaintext is 'HELLO' and the shift is 1, what is the ciphertext?",
         "options": ["IFMMP", "GDKKN", "JGNNS", "HFLLO"],
-        "answer": "IFMMP"
+        "answer": "IFMMP",
+        "questionType": "singleAnswer"
       },
       {
         "question": "What is a key aspect of the Caesar Cipher?",
@@ -39,7 +43,23 @@
           "It adds numbers to letters",
           "It uses a grid to encode letters"
         ],
-        "answer": "It shifts letters by a fixed number"
+        "answer": "It shifts letters by a fixed number",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "Which of the following are characteristics of the Caesar Cipher?",
+        "options": [
+          "It is a substitution cipher",
+          "It uses a fixed shift",
+          "It is vulnerable to frequency analysis",
+          "It uses a polyalphabetic system"
+        ],
+        "answer": [
+          "It is a substitution cipher",
+          "It uses a fixed shift",
+          "It is vulnerable to frequency analysis"
+        ],
+        "questionType": "multipleAnswer"
       }
     ]
   }

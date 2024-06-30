@@ -33,7 +33,7 @@ const QuestionController = ({
   const { level } = route.params;
   const questions = getQuestions(level);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [scoreUpdated, setScoreUpdated] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
   const [animationSource, setAnimationSource] = useState(null);
@@ -52,7 +52,7 @@ const QuestionController = ({
       fadeOut();
       setTimeout(() => {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setSelectedOption("");
+        setSelectedOptions([]);
         setAnimationSource(null);
         setScoreUpdated(false);
         setAnswerChecked(false);
@@ -68,7 +68,7 @@ const QuestionController = ({
       fadeOut();
       setTimeout(() => {
         setCurrentQuestionIndex(currentQuestionIndex - 1);
-        setSelectedOption("");
+        setSelectedOptions([]);
         setAnimationSource(null);
         setScoreUpdated(false);
         setAnswerChecked(false);
@@ -79,12 +79,26 @@ const QuestionController = ({
 
   const handleOptionSelect = (value: string) => {
     if (!answerChecked) {
-      setSelectedOption(value);
+      if (currentQuestion.questionType === "multipleAnswer") {
+        if (selectedOptions.includes(value)) {
+          setSelectedOptions(
+            selectedOptions.filter((option) => option !== value)
+          );
+        } else {
+          setSelectedOptions([...selectedOptions, value]);
+        }
+      } else {
+        setSelectedOptions([value]);
+      }
     }
   };
 
   const handleCheckAnswer = () => {
-    const isCorrect = selectedOption === currentQuestion.answer;
+    const isCorrect =
+      currentQuestion.questionType === "multipleAnswer"
+        ? selectedOptions.sort().toString() ===
+          currentQuestion.answer.sort().toString()
+        : selectedOptions[0] === currentQuestion.answer;
     if (isCorrect) {
       setAnimationSource(require("../assets/success-animation.json"));
       if (!scoreUpdated) {
@@ -152,7 +166,10 @@ const QuestionController = ({
                       styles.optionCard,
                       {
                         backgroundColor:
-                          answerChecked && option === currentQuestion.answer
+                          answerChecked &&
+                          (currentQuestion.questionType === "multipleAnswer"
+                            ? currentQuestion.answer.includes(option)
+                            : option === currentQuestion.answer)
                             ? "lightgreen"
                             : "white",
                       },
@@ -161,13 +178,17 @@ const QuestionController = ({
                     <Card.Content style={styles.optionContent}>
                       <Ionicons
                         name={
-                          selectedOption === option
+                          currentQuestion.questionType === "multipleAnswer"
+                            ? selectedOptions.includes(option)
+                              ? "checkbox"
+                              : "square-outline"
+                            : selectedOptions.includes(option)
                             ? "radio-button-on"
                             : "radio-button-off"
                         }
                         size={24}
                         color={
-                          selectedOption === option
+                          selectedOptions.includes(option)
                             ? theme.colors.primary
                             : "gray"
                         }
@@ -188,7 +209,7 @@ const QuestionController = ({
                 },
               ]}
               onPress={handleCheckAnswer}
-              disabled={selectedOption === "" || answerChecked} // Disable button if no option is selected or answer is already checked
+              disabled={selectedOptions.length === 0 || answerChecked} // Disable button if no option is selected or answer is already checked
             >
               <Text style={styles.checkButtonText}>Check Answer</Text>
             </TouchableOpacity>
