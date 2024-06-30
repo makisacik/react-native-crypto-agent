@@ -59,13 +59,13 @@
           "image": "agent"
         },
         "otherCharacter": {
-          "name": "Sergeant Mehmet",
-          "image": "sergeant"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
         {
-          "text": "Hello Agent, this is sergeant Mehmet!",
+          "text": "Hello Agent, I am your trainer!",
           "speaker": "otherCharacter"
         },
         {
@@ -93,8 +93,8 @@
           "image": "agent"
         },
         "otherCharacter": {
-          "name": "Sergeant Mehmet",
-          "image": "sergeant"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
@@ -119,8 +119,8 @@
           "image": "agent"
         },
         "otherCharacter": {
-          "name": "Sergeant Mehmet",
-          "image": "sergeant"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
@@ -228,6 +228,32 @@
       "dialogues": [
         {
           "text": "Great job, agent!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "You have completed the Symmetric Algorithms.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Now you are ready for your training!",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation5": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Lets do the tranining!",
           "speaker": "otherCharacter"
         },
         {

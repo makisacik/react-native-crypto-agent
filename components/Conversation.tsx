@@ -55,7 +55,7 @@ const Conversation = ({
   const characterImages: { [key: string]: any } = {
     agent: require("../assets/agent.png"),
     instructor: require("../assets/instructor.png"),
-    sergeant: require("../assets/sergeant.png"),
+    trainer: require("../assets/trainer.png"),
   };
 
   const character = characters[currentSpeaker] || {};

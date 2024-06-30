@@ -53,8 +53,8 @@ const FirstLevelTraining3 = ({
     <View style={styles.container}>
       <View style={styles.characterWrapper}>
         <Character
-          image={require("../../../assets/sergeant.png")}
-          name="Sergeant Mehmet"
+          image={require("../../../assets/trainer.png")}
+          name="Trainer"
           onPress={handleCharacterClick}
         />
         {showExclamation && (
