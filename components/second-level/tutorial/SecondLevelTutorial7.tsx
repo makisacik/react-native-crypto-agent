@@ -11,8 +11,16 @@ import {
   Image,
   Animated,
   Easing,
+  TouchableOpacity,
 } from "react-native";
-import { Text, Provider } from "react-native-paper";
+import {
+  Text,
+  Provider,
+  Dialog,
+  Portal,
+  Button,
+  IconButton,
+} from "react-native-paper";
 import Conversation from "../../Conversation";
 import { useScore } from "../../../context/ScoreContext";
 
@@ -46,6 +54,8 @@ const SecondLevelTutorial7 = () => {
   const [showConversation, setShowConversation] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showAllApplications, setShowAllApplications] = useState(false);
+  const [dialogVisible, setDialogVisible] = useState(false);
+  const [selectedApplication, setSelectedApplication] = useState<any>(null);
   const { resetScore } = useScore();
   const animationValues = useRef(
     applications.map(() => new Animated.Value(0))
@@ -74,6 +84,16 @@ const SecondLevelTutorial7 = () => {
     );
 
     Animated.stagger(300, animations).start();
+  };
+
+  const showDialog = (application: any) => {
+    setSelectedApplication(application);
+    setDialogVisible(true);
+  };
+
+  const hideDialog = () => {
+    setDialogVisible(false);
+    setSelectedApplication(null);
   };
 
   return (
@@ -127,6 +147,12 @@ const SecondLevelTutorial7 = () => {
                     <Text style={styles.listItemText}>
                       {app.text.split(":")[0]}
                     </Text>
+                    <IconButton
+                      icon="information"
+                      size={20}
+                      onPress={() => showDialog(app)}
+                      style={styles.infoButton}
+                    />
                   </Animated.View>
                 ))}
               </>
@@ -142,6 +168,17 @@ const SecondLevelTutorial7 = () => {
               />
             </View>
           )}
+          <Portal>
+            <Dialog visible={dialogVisible} onDismiss={hideDialog}>
+              <Dialog.Title>Application Info</Dialog.Title>
+              <Dialog.Content>
+                <Text>{selectedApplication?.text}</Text>
+              </Dialog.Content>
+              <Dialog.Actions>
+                <Button onPress={hideDialog}>Close</Button>
+              </Dialog.Actions>
+            </Dialog>
+          </Portal>
         </View>
       </TouchableWithoutFeedback>
     </Provider>
@@ -191,6 +228,10 @@ const styles = StyleSheet.create({
   listItemText: {
     fontSize: 18,
     fontFamily: "UbuntuRegular",
+    flex: 1,
+  },
+  infoButton: {
+    marginLeft: "auto",
   },
   conversationContainer: {
     position: "absolute",
