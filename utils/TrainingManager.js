@@ -12,6 +12,7 @@ const trainingPages = {
     QuestionController,
     FirstLevelTraining3,
   ],
+  SecondLevel: [QuestionController],
 };
 
 export const getTrainingPages = (level) => trainingPages[level] || [];

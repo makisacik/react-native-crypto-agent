@@ -62,5 +62,70 @@
         "questionType": "multipleAnswer"
       }
     ]
+  },
+  "SecondLevel": {
+    "questions": [
+      {
+        "question": "Which algorithm is known for its use of a 128-bit block size and key sizes of 128, 192, or 256 bits?",
+        "options": ["AES", "DES", "TripleDES", "RSA"],
+        "answer": "AES",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "Which of the following algorithms is the oldest?",
+        "options": ["AES", "DES", "TripleDES"],
+        "answer": "DES",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "What is a characteristic feature of TripleDES?",
+        "options": [
+          "It applies DES encryption three times",
+          "It uses a block size of 256 bits",
+          "It was developed as a successor to AES",
+          "It uses a polyalphabetic system"
+        ],
+        "answer": "It applies DES encryption three times",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "Which of the following statements are true about AES?",
+        "options": [
+          "It is based on the Rijndael cipher",
+          "It has a fixed block size of 128 bits",
+          "It supports key sizes of 128, 192, and 256 bits",
+          "It is less secure than DES"
+        ],
+        "answer": [
+          "It is based on the Rijndael cipher",
+          "It has a fixed block size of 128 bits",
+          "It supports key sizes of 128, 192, and 256 bits"
+        ],
+        "questionType": "multipleAnswer"
+      },
+      {
+        "question": "Which algorithm is typically used to encrypt smaller amounts of data due to its higher security and efficiency?",
+        "options": ["AES", "DES", "TripleDES"],
+        "answer": "AES",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "DES uses a key length of _____ bits.",
+        "options": ["64", "56", "128", "192"],
+        "answer": "56",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "What does the 'Triple' in TripleDES signify?",
+        "options": [
+          "Three different keys are used",
+          "Three rounds of DES encryption are applied",
+          "It uses three times the block size of DES",
+          "It is three times faster than DES"
+        ],
+        "answer": "Three rounds of DES encryption are applied",
+        "questionType": "singleAnswer"
+      }
+    ]
   }
 }
