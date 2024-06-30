@@ -47,7 +47,7 @@
           "speaker": "otherCharacter"
         },
         {
-          "text": "Now you are ready for your traning!",
+          "text": "Now you are ready for your training!",
           "speaker": "otherCharacter"
         }
       ]
@@ -210,6 +210,32 @@
         },
         {
           "text": "Fifth application is Payment Systems.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation4": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Great job, agent!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "You have completed the Symmetric Algorithms.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Now you are ready for your training!",
           "speaker": "otherCharacter"
         }
       ]
