@@ -34,11 +34,10 @@ const QuestionController = ({
   const questions = getQuestions(level);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState("");
-  const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
-  const [mistakeMade, setMistakeMade] = useState(false);
   const [scoreUpdated, setScoreUpdated] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
   const [animationSource, setAnimationSource] = useState(null);
+  const [answerChecked, setAnswerChecked] = useState(false);
   const theme = useTheme();
   const { addScore } = useScore();
 
@@ -54,10 +53,9 @@ const QuestionController = ({
       setTimeout(() => {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
         setSelectedOption("");
-        setIsAnswerCorrect(false);
         setAnimationSource(null);
-        setMistakeMade(false);
         setScoreUpdated(false);
+        setAnswerChecked(false);
         fadeIn();
       }, 200);
     } else {
@@ -71,29 +69,32 @@ const QuestionController = ({
       setTimeout(() => {
         setCurrentQuestionIndex(currentQuestionIndex - 1);
         setSelectedOption("");
-        setIsAnswerCorrect(false);
         setAnimationSource(null);
-        setMistakeMade(false);
         setScoreUpdated(false);
+        setAnswerChecked(false);
         fadeIn();
       }, 200);
     }
   };
 
   const handleOptionSelect = (value: string) => {
-    setSelectedOption(value);
-    if (value === currentQuestion.answer) {
-      setIsAnswerCorrect(true);
+    if (!answerChecked) {
+      setSelectedOption(value);
+    }
+  };
+
+  const handleCheckAnswer = () => {
+    const isCorrect = selectedOption === currentQuestion.answer;
+    if (isCorrect) {
       setAnimationSource(require("../assets/success-animation.json"));
       if (!scoreUpdated) {
-        addScore(mistakeMade ? 10 : 15);
+        addScore(15);
         setScoreUpdated(true);
       }
     } else {
-      setIsAnswerCorrect(false);
-      setMistakeMade(true);
       setAnimationSource(require("../assets/incorrect-animation.json"));
     }
+    setAnswerChecked(true);
     setAnimationKey((prevKey) => prevKey + 1);
   };
 
@@ -144,8 +145,19 @@ const QuestionController = ({
                 <TouchableOpacity
                   key={index}
                   onPress={() => handleOptionSelect(option)}
+                  disabled={answerChecked} // Disable options after checking the answer
                 >
-                  <Card style={styles.optionCard}>
+                  <Card
+                    style={[
+                      styles.optionCard,
+                      {
+                        backgroundColor:
+                          answerChecked && option === currentQuestion.answer
+                            ? "lightgreen"
+                            : "white",
+                      },
+                    ]}
+                  >
                     <Card.Content style={styles.optionContent}>
                       <Ionicons
                         name={
@@ -166,6 +178,20 @@ const QuestionController = ({
                 </TouchableOpacity>
               ))}
             </View>
+            <TouchableOpacity
+              style={[
+                styles.checkButton,
+                {
+                  backgroundColor: answerChecked
+                    ? "gray"
+                    : theme.colors.primary,
+                },
+              ]}
+              onPress={handleCheckAnswer}
+              disabled={selectedOption === "" || answerChecked} // Disable button if no option is selected or answer is already checked
+            >
+              <Text style={styles.checkButtonText}>Check Answer</Text>
+            </TouchableOpacity>
           </Animated.View>
           {animationSource && (
             <LottieView
@@ -194,11 +220,11 @@ const QuestionController = ({
               color={currentQuestionIndex === 0 ? "gray" : "black"}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={handleNext} disabled={!isAnswerCorrect}>
+          <TouchableOpacity onPress={handleNext} disabled={!answerChecked}>
             <Ionicons
               name="arrow-forward"
               size={32}
-              color={!isAnswerCorrect ? "gray" : "black"}
+              color={!answerChecked ? "gray" : "black"}
             />
           </TouchableOpacity>
         </View>
@@ -241,6 +267,16 @@ const styles = StyleSheet.create({
   optionText: {
     fontSize: 18,
     marginLeft: 10,
+  },
+  checkButton: {
+    marginTop: 20,
+    padding: 10,
+    borderRadius: 5,
+    alignItems: "center",
+  },
+  checkButtonText: {
+    color: "#fff",
+    fontSize: 18,
   },
   progressBar: {
     marginHorizontal: 20,
