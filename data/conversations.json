@@ -47,7 +47,7 @@
           "speaker": "otherCharacter"
         },
         {
-          "text": "Now you are ready for your traning!",
+          "text": "Now you are ready for your training!",
           "speaker": "otherCharacter"
         }
       ]
@@ -59,13 +59,13 @@
           "image": "agent"
         },
         "otherCharacter": {
-          "name": "Sergeant Mehmet",
-          "image": "sergeant"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
         {
-          "text": "Hello Agent, this is sergeant Mehmet!",
+          "text": "Hello Agent, I am your trainer!",
           "speaker": "otherCharacter"
         },
         {
@@ -93,8 +93,8 @@
           "image": "agent"
         },
         "otherCharacter": {
-          "name": "Sergeant Mehmet",
-          "image": "sergeant"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
@@ -119,8 +119,8 @@
           "image": "agent"
         },
         "otherCharacter": {
-          "name": "Sergeant Mehmet",
-          "image": "sergeant"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
@@ -130,6 +130,138 @@
         },
         {
           "text": "You can work on other Cryptography topics now.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    }
+  },
+  "SecondLevel": {
+    "conversation1": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "As you can see Agent!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Without having the key you can't decrypt a message.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation2": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "The Data Encryption Standard (DES) is another symmetric algorithm!",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation3": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "I will explain to you Applications of Symmetric Key Cryptography.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "First application is Data Encryption.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Second application is Secure Communications.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Third application is Digital Signatures.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Fourth application is Authentication.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Fifth application is Payment Systems.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation4": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Great job, agent!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "You have completed the Symmetric Algorithms.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Now you are ready for your training!",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation5": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Lets do the tranining!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "You have completed the Symmetric Algorithms.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Now you are ready for your training!",
           "speaker": "otherCharacter"
         }
       ]

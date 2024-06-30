@@ -19,6 +19,7 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import LottieView from "lottie-react-native";
+import { useScore } from "../context/ScoreContext"; // Import useScore hook
 
 const QuestionController = ({
   route,
@@ -32,11 +33,13 @@ const QuestionController = ({
   const { level } = route.params;
   const questions = getQuestions(level);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedOption, setSelectedOption] = useState("");
-  const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+  const [scoreUpdated, setScoreUpdated] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
   const [animationSource, setAnimationSource] = useState(null);
+  const [answerChecked, setAnswerChecked] = useState(false);
   const theme = useTheme();
+  const { addScore } = useScore();
 
   const opacity = useSharedValue(1);
 
@@ -49,9 +52,10 @@ const QuestionController = ({
       fadeOut();
       setTimeout(() => {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setSelectedOption("");
-        setIsAnswerCorrect(false);
+        setSelectedOptions([]);
         setAnimationSource(null);
+        setScoreUpdated(false);
+        setAnswerChecked(false);
         fadeIn();
       }, 200);
     } else {
@@ -64,23 +68,47 @@ const QuestionController = ({
       fadeOut();
       setTimeout(() => {
         setCurrentQuestionIndex(currentQuestionIndex - 1);
-        setSelectedOption("");
-        setIsAnswerCorrect(false);
+        setSelectedOptions([]);
         setAnimationSource(null);
+        setScoreUpdated(false);
+        setAnswerChecked(false);
         fadeIn();
       }, 200);
     }
   };
 
   const handleOptionSelect = (value: string) => {
-    setSelectedOption(value);
-    if (value === currentQuestion.answer) {
-      setIsAnswerCorrect(true);
+    if (!answerChecked) {
+      if (currentQuestion.questionType === "multipleAnswer") {
+        if (selectedOptions.includes(value)) {
+          setSelectedOptions(
+            selectedOptions.filter((option) => option !== value)
+          );
+        } else {
+          setSelectedOptions([...selectedOptions, value]);
+        }
+      } else {
+        setSelectedOptions([value]);
+      }
+    }
+  };
+
+  const handleCheckAnswer = () => {
+    const isCorrect =
+      currentQuestion.questionType === "multipleAnswer"
+        ? selectedOptions.sort().toString() ===
+          currentQuestion.answer.sort().toString()
+        : selectedOptions[0] === currentQuestion.answer;
+    if (isCorrect) {
       setAnimationSource(require("../assets/success-animation.json"));
+      if (!scoreUpdated) {
+        addScore(15);
+        setScoreUpdated(true);
+      }
     } else {
-      setIsAnswerCorrect(false);
       setAnimationSource(require("../assets/incorrect-animation.json"));
     }
+    setAnswerChecked(true);
     setAnimationKey((prevKey) => prevKey + 1);
   };
 
@@ -131,18 +159,36 @@ const QuestionController = ({
                 <TouchableOpacity
                   key={index}
                   onPress={() => handleOptionSelect(option)}
+                  disabled={answerChecked} // Disable options after checking the answer
                 >
-                  <Card style={styles.optionCard}>
+                  <Card
+                    style={[
+                      styles.optionCard,
+                      {
+                        backgroundColor:
+                          answerChecked &&
+                          (currentQuestion.questionType === "multipleAnswer"
+                            ? currentQuestion.answer.includes(option)
+                            : option === currentQuestion.answer)
+                            ? "lightgreen"
+                            : "white",
+                      },
+                    ]}
+                  >
                     <Card.Content style={styles.optionContent}>
                       <Ionicons
                         name={
-                          selectedOption === option
+                          currentQuestion.questionType === "multipleAnswer"
+                            ? selectedOptions.includes(option)
+                              ? "checkbox"
+                              : "square-outline"
+                            : selectedOptions.includes(option)
                             ? "radio-button-on"
                             : "radio-button-off"
                         }
                         size={24}
                         color={
-                          selectedOption === option
+                          selectedOptions.includes(option)
                             ? theme.colors.primary
                             : "gray"
                         }
@@ -153,6 +199,20 @@ const QuestionController = ({
                 </TouchableOpacity>
               ))}
             </View>
+            <TouchableOpacity
+              style={[
+                styles.checkButton,
+                {
+                  backgroundColor: answerChecked
+                    ? "gray"
+                    : theme.colors.primary,
+                },
+              ]}
+              onPress={handleCheckAnswer}
+              disabled={selectedOptions.length === 0 || answerChecked} // Disable button if no option is selected or answer is already checked
+            >
+              <Text style={styles.checkButtonText}>Check Answer</Text>
+            </TouchableOpacity>
           </Animated.View>
           {animationSource && (
             <LottieView
@@ -181,11 +241,11 @@ const QuestionController = ({
               color={currentQuestionIndex === 0 ? "gray" : "black"}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={handleNext} disabled={!isAnswerCorrect}>
+          <TouchableOpacity onPress={handleNext} disabled={!answerChecked}>
             <Ionicons
               name="arrow-forward"
               size={32}
-              color={!isAnswerCorrect ? "gray" : "black"}
+              color={!answerChecked ? "gray" : "black"}
             />
           </TouchableOpacity>
         </View>
@@ -228,6 +288,16 @@ const styles = StyleSheet.create({
   optionText: {
     fontSize: 18,
     marginLeft: 10,
+  },
+  checkButton: {
+    marginTop: 20,
+    padding: 10,
+    borderRadius: 5,
+    alignItems: "center",
+  },
+  checkButtonText: {
+    color: "#fff",
+    fontSize: 18,
   },
   progressBar: {
     marginHorizontal: 20,

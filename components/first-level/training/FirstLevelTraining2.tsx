@@ -23,8 +23,10 @@ const FirstLevelTraining2 = ({
   const [showCypherText, setShowCypherText] = useState(true);
   const [showCipherQuestion, setShowCipherQuestion] = useState(false);
   const [showNextLevelButton, setShowNextLevelButton] = useState(false);
+  const [mistakeMade, setMistakeMade] = useState(false);
+  const [scoreUpdated, setScoreUpdated] = useState(false);
   const fadeAnim = useSharedValue(0);
-  const { updateScore } = useScore();
+  const { addScore } = useScore();
 
   const handleConversationFinish = () => {
     setShowConversation(false);
@@ -34,8 +36,19 @@ const FirstLevelTraining2 = ({
   };
 
   const handleCorrectAnswer = () => {
-    updateScore(20);
+    if (!scoreUpdated) {
+      if (mistakeMade) {
+        addScore(10);
+      } else {
+        addScore(20);
+      }
+      setScoreUpdated(true);
+    }
     setShowNextLevelButton(true);
+  };
+
+  const handleMistake = () => {
+    setMistakeMade(true);
   };
 
   const animatedStyle = useAnimatedStyle(() => {
@@ -63,8 +76,9 @@ const FirstLevelTraining2 = ({
         <Animated.View style={[styles.cipherContainer, animatedStyle]}>
           <CaesarCipherQuestion
             isEncoding={false}
-            text="phhwlqj vxqgdb"
+            text="vxqgdb"
             onCorrectAnswer={handleCorrectAnswer}
+            onMistake={handleMistake}
             shift={3}
           />
           {showNextLevelButton && (

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { View, ScrollView, StyleSheet, Image, Keyboard } from "react-native";
 import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";
 
-const FirstLevelTutorial1 = () => {
+const SecondLevelTutorial1 = () => {
   const [visible, setVisible] = useState(false);
 
   const showDialog = () => setVisible(true);
@@ -13,28 +13,21 @@ const FirstLevelTutorial1 = () => {
   return (
     <Provider>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <Text style={styles.title}>Caesar Cipher Tutorial</Text>
+        <Text style={styles.title}>Introduction to Symmetric Algorithms</Text>
         <Image
-          source={require("../../../assets/caesar_cipher_tutorial.png")}
+          source={require("../../../assets/symmetric.png")}
           style={styles.image}
         />
         <Text style={styles.text}>
-          The Caesar Cipher is one of the simplest and most widely known
-          encryption techniques. It is a type of substitution cipher in which
-          each letter in the plaintext is shifted a certain number of places
-          down or up the alphabet. For example, with a shift of 3:
-        </Text>
-        <Text style={styles.example}>
-          Plaintext: ABCDEFGHIJKLMNOPQRSTUVWXYZ{"\n"}
-          Ciphertext: DEFGHIJKLMNOPQRSTUVWXYZABC
+          Symmetric algorithms are a type of encryption where the same key is
+          used for both encryption and decryption. This method is fast and
+          efficient, making it ideal for encrypting large amounts of data. In
+          this tutorial, you'll learn about some common symmetric algorithms
+          like AES and DES.
         </Text>
         <Text style={styles.text}>
-          Here, 'A' is encrypted as 'D', 'B' as 'E', and so on. This method is
-          named after Julius Caesar, who used it in his private correspondence.
-        </Text>
-        <Text style={styles.text}>
-          In this tutorial, you'll learn how to both encrypt and decrypt
-          messages using the Caesar Cipher.
+          Symmetric algorithms are widely used in various applications such as
+          securing internet communications, protecting sensitive data, and more.
         </Text>
         <Button
           mode="text"
@@ -45,15 +38,14 @@ const FirstLevelTutorial1 = () => {
         </Button>
         <Portal>
           <Dialog visible={visible} onDismiss={hideDialog}>
-            <Dialog.Title>Caesar Cipher</Dialog.Title>
+            <Dialog.Title>Symmetric Algorithms</Dialog.Title>
             <Dialog.Content>
               <Text style={styles.dialogText}>
-                The Caesar Cipher is a type of substitution cipher in which each
-                letter in the plaintext is shifted by a fixed number of places.
-                This technique is named after Julius Caesar, who used it to
-                protect his messages. The shift is also referred to as the key.
-                For example, with a shift of 1, 'A' would be replaced by 'B',
-                'B' would become 'C', and so on.
+                Symmetric algorithms use a single key for both encryption and
+                decryption. This key must be kept secret, as anyone with the key
+                can decrypt the data. Popular symmetric algorithms include the
+                Advanced Encryption Standard (AES) and the Data Encryption
+                Standard (DES).
               </Text>
             </Dialog.Content>
             <Dialog.Actions>
@@ -91,14 +83,6 @@ const styles = StyleSheet.create({
     fontFamily: "UbuntuRegular",
     marginBottom: 10,
   },
-  example: {
-    fontFamily: "monospace",
-    backgroundColor: "#e8e8e8",
-    padding: 10,
-    borderRadius: 5,
-    marginBottom: 10,
-    fontSize: 16,
-  },
   buttonLabel: {
     fontSize: 14,
     fontFamily: "UbuntuRegular",
@@ -109,4 +93,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FirstLevelTutorial1;
+export default SecondLevelTutorial1;

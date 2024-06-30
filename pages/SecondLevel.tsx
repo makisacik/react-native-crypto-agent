@@ -5,7 +5,7 @@ import { View, StyleSheet, Image } from "react-native";
 import { Button, Title, Paragraph } from "react-native-paper";
 import Conversation from "../components/Conversation";
 
-const FirstLevel = ({ navigation }: { navigation: any }) => {
+const SecondLevel = ({ navigation }: { navigation: any }) => {
   const [showConversation, setShowConversation] = useState(true);
 
   const handleConversationFinish = () => {
@@ -16,26 +16,29 @@ const FirstLevel = ({ navigation }: { navigation: any }) => {
     <View style={styles.container}>
       {showConversation && (
         <Conversation
-          level="FirstLevel"
-          conversationNumber="1"
+          level="SecondLevel"
+          conversationNumber="2"
           onFinish={handleConversationFinish}
         />
       )}
       <View style={styles.infoContainer}>
-        <Title style={styles.title}>Level 1: Caesar Cipher</Title>
+        <Title style={styles.title}>Level 2: Symmetric Algorithms</Title>
         <Paragraph style={styles.description}>
-          In this level, we will talk about the Caesar Cipher.
+          In this level, we will talk about Symmetric Algorithms.
         </Paragraph>
-        <Image source={require("../assets/caesar.png")} style={styles.image} />
+        <Image
+          source={require("../assets/symmetric.png")}
+          style={styles.image}
+        />
         <Paragraph style={styles.imageDescription}>
-          Julius Caesar, the inventor of the Caesar Cipher.
+          Example of a Symmetric Algorithm diagram.
         </Paragraph>
         <Button
           mode="contained"
           style={styles.button}
           labelStyle={styles.buttonLabel}
           onPress={() =>
-            navigation.navigate("TutorialController", { level: "FirstLevel" })
+            navigation.navigate("TutorialController", { level: "SecondLevel" })
           }
         >
           Start the Tutorial
@@ -45,7 +48,7 @@ const FirstLevel = ({ navigation }: { navigation: any }) => {
           style={styles.button}
           labelStyle={styles.buttonLabel}
           onPress={() => {
-            navigation.navigate("TrainingController", { level: "FirstLevel" });
+            navigation.navigate("TrainingController", { level: "SecondLevel" });
           }}
         >
           Start the Training
@@ -72,11 +75,11 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 16,
     marginVertical: 10,
-    fontFamily: "UbuntuMedium",
+    fontFamily: "UbuntuRegular",
     textAlign: "center",
   },
   image: {
-    width: 200,
+    width: "100%",
     height: 200,
     resizeMode: "contain",
     marginVertical: 10,
@@ -96,4 +99,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FirstLevel;
+export default SecondLevel;

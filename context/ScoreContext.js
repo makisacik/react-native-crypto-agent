@@ -7,12 +7,16 @@ const ScoreContext = createContext();
 export const ScoreProvider = ({ children }) => {
   const [score, setScore] = useState(0);
 
-  const updateScore = (points) => {
+  const addScore = (points) => {
     setScore((prevScore) => prevScore + points);
   };
 
+  const resetScore = () => {
+    setScore(0);
+  };
+
   return (
-    <ScoreContext.Provider value={{ score, updateScore }}>
+    <ScoreContext.Provider value={{ score, addScore, resetScore }}>
       {children}
     </ScoreContext.Provider>
   );

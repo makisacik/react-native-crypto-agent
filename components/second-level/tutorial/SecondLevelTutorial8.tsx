@@ -7,7 +7,7 @@ import LottieView from "lottie-react-native";
 import Conversation from "../../Conversation";
 import { CommonActions, useNavigation } from "@react-navigation/native";
 
-const FirstLevelTutorial5 = () => {
+const SecondLevelTutorial8 = () => {
   const navigation = useNavigation();
   const [showConversation, setShowConversation] = useState(true);
   const buttonOpacity = useRef(new Animated.Value(0)).current;
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FirstLevelTutorial5;
+export default SecondLevelTutorial8;

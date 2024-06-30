@@ -1,10 +1,11 @@
 /** @format */
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { View, StyleSheet, Text, Animated } from "react-native";
 import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
 import Character from "../../Character";
+import { useScore } from "../../../context/ScoreContext"; // Import useScore hook
 
 const FirstLevelTraining1 = ({
   navigation,
@@ -17,6 +18,11 @@ const FirstLevelTraining1 = ({
   const [showExclamation, setShowExclamation] = useState(true);
   const [showButton, setShowButton] = useState(false);
   const buttonOpacity = useRef(new Animated.Value(0)).current;
+  const { resetScore } = useScore(); // Use the resetScore function
+
+  useEffect(() => {
+    resetScore(); // Reset the score when this component mounts
+  }, []);
 
   const handleCharacterClick = () => {
     setShowConversation(true);
@@ -37,8 +43,8 @@ const FirstLevelTraining1 = ({
     <View style={styles.container}>
       <View style={styles.characterWrapper}>
         <Character
-          image={require("../../../assets/sergeant.png")}
-          name="Sergeant Mehmet"
+          image={require("../../../assets/trainer.png")}
+          name="Trainer"
           onPress={handleCharacterClick}
         />
         {showExclamation && (
