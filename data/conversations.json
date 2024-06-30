@@ -175,6 +175,44 @@
           "speaker": "otherCharacter"
         }
       ]
+    },
+    "conversation3": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "I will explain to you Applications of Symmetric Key Cryptography.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "First application is Data Encryption.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Second application is Secure Communications.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Third application is Digital Signatures.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Fourth application is Authentication.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Fifth application is Payment Systems.",
+          "speaker": "otherCharacter"
+        }
+      ]
     }
   }
 }

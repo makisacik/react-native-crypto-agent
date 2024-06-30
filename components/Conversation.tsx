@@ -8,10 +8,12 @@ import useTypingEffect from "../utils/useTypingEffect";
 const Conversation = ({
   level,
   conversationNumber,
+  onDialogueChange = (index) => {},
   onFinish = () => {},
 }: {
   level: string;
   conversationNumber: string;
+  onDialogueChange?: (index: number) => void;
   onFinish?: () => void;
 }) => {
   const conversationData = getConversation(level, conversationNumber);
@@ -28,14 +30,23 @@ const Conversation = ({
   const characters = conversationData.characters;
 
   const [index, setIndex] = useState(0);
+  const [currentText, setCurrentText] = useState(dialogues[0].text);
+  const [currentSpeaker, setCurrentSpeaker] = useState(dialogues[0].speaker);
 
   useEffect(() => {
     setIndex(0);
+    setCurrentText(dialogues[0].text);
+    setCurrentSpeaker(dialogues[0].speaker);
+    onDialogueChange(0);
   }, [level, conversationNumber]);
 
   const handlePress = () => {
     if (index < dialogues.length - 1) {
-      setIndex(index + 1);
+      const newIndex = index + 1;
+      setIndex(newIndex);
+      setCurrentText(dialogues[newIndex].text);
+      setCurrentSpeaker(dialogues[newIndex].speaker);
+      onDialogueChange(newIndex);
     } else {
       onFinish();
     }
@@ -47,10 +58,9 @@ const Conversation = ({
     sergeant: require("../assets/sergeant.png"),
   };
 
-  const { text, speaker } = dialogues[index];
-  const character = characters[speaker] || {};
+  const character = characters[currentSpeaker] || {};
 
-  const typedText = useTypingEffect(text, 50);
+  const typedText = useTypingEffect(currentText, 50);
 
   return (
     <TouchableOpacity onPress={handlePress} style={styles.container}>
