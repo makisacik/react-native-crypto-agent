@@ -10,6 +10,7 @@ import SecondLevelTutorial2 from "../components/second-level/tutorial/SecondLeve
 import SecondLevelTutorial3 from "../components/second-level/tutorial/SecondLevelTutorial3";
 import SecondLevelTutorial4 from "../components/second-level/tutorial/SecondLevelTutorial4";
 import SecondLevelTutorial5 from "../components/second-level/tutorial/SecondLevelTutorial5";
+import SecondLevelTutorial6 from "../components/second-level/tutorial/SecondLevelTutorial6";
 
 const tutorialPages = {
   FirstLevel: [
@@ -25,6 +26,7 @@ const tutorialPages = {
     SecondLevelTutorial3,
     SecondLevelTutorial4,
     SecondLevelTutorial5,
+    SecondLevelTutorial6,
   ],
 };
 
