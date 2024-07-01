@@ -9,6 +9,7 @@ import { loadAsync } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import FirstLevel from "./pages/FirstLevel";
 import SecondLevel from "./pages/SecondLevel";
+import ThirdLevel from "./pages/ThirdLevel"; // Import the ThirdLevel component
 import TutorialController from "./pages/TutorialController";
 import FirstLevelTraining1 from "./components/first-level/training/FirstLevelTraining1";
 import FirstLevelTraining2 from "./components/first-level/training/FirstLevelTraining2";
@@ -51,6 +52,14 @@ const HomeScreen = ({ navigation }: { navigation: any }) => (
         >
           Start Level 2: Symmetric Algorithms
         </Button>
+        <Button
+          mode="contained"
+          onPress={() => navigation.navigate("ThirdLevel")}
+          style={styles.button}
+          labelStyle={styles.buttonLabel}
+        >
+          Start Level 3: Asymmetric Algorithms
+        </Button>
       </View>
     </Card>
   </View>
@@ -79,6 +88,7 @@ export default function App() {
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="FirstLevel" component={FirstLevel} />
           <Stack.Screen name="SecondLevel" component={SecondLevel} />
+          <Stack.Screen name="ThirdLevel" component={ThirdLevel} />
           <Stack.Screen
             name="TutorialController"
             component={TutorialController}

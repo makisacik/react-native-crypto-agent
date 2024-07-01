@@ -265,6 +265,30 @@
           "speaker": "otherCharacter"
         }
       ]
+    },
+    "ThirdLevel": {
+      "conversation1": {
+        "characters": {
+          "mainCharacter": {
+            "name": "Agent",
+            "image": "agent"
+          },
+          "otherCharacter": {
+            "name": "Instructor",
+            "image": "instructor"
+          }
+        },
+        "dialogues": [
+          {
+            "text": "Hello again!",
+            "speaker": "otherCharacter"
+          },
+          {
+            "text": "Let's start with the Asymmetric Key Cryptography.",
+            "speaker": "otherCharacter"
+          }
+        ]
+      }
     }
   }
 }
