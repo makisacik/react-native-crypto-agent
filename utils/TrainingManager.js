@@ -24,6 +24,7 @@ const trainingPages = {
     ThirdLevelTraining3,
     ThirdLevelTraining4,
     ThirdLevelTraining5,
+    QuestionController,
   ],
 };
 
