@@ -1,4 +1,5 @@
 /** @format */
+/** @format */
 
 import React, { useState, useEffect, useRef } from "react";
 import { View, StyleSheet, Text, Animated } from "react-native";
@@ -9,7 +10,7 @@ import { CommonActions } from "@react-navigation/native";
 import { useScore } from "../../../context/ScoreContext";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-const FirstLevelTraining3 = ({
+const ThirdLevelTraining6 = ({
   navigation,
   onNext,
 }: {
@@ -94,8 +95,8 @@ const FirstLevelTraining3 = ({
       </View>
       {showConversation && (
         <Conversation
-          level="FirstLevel"
-          conversationNumber={5}
+          level="ThirdLevel"
+          conversationNumber={10}
           onFinish={handleConversationFinish}
         />
       )}
@@ -160,4 +161,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FirstLevelTraining3;
+export default ThirdLevelTraining6;

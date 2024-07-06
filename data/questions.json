@@ -127,5 +127,104 @@
         "questionType": "singleAnswer"
       }
     ]
+  },
+
+  "ThirdLevel": {
+    "questions": [
+      {
+        "question": "What is the main difference between symmetric and asymmetric encryption?",
+        "options": [
+          "Symmetric encryption uses the same key for encryption and decryption, while asymmetric encryption uses different keys.",
+          "Asymmetric encryption uses the same key for encryption and decryption, while symmetric encryption uses different keys.",
+          "Symmetric encryption is slower than asymmetric encryption.",
+          "Asymmetric encryption is less secure than symmetric encryption."
+        ],
+        "answer": "Symmetric encryption uses the same key for encryption and decryption, while asymmetric encryption uses different keys.",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "Which of the following is an example of an asymmetric encryption algorithm?",
+        "options": ["RSA", "AES", "DES", "Blowfish"],
+        "answer": "RSA",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "In RSA encryption, what is the purpose of the public key?",
+        "options": [
+          "To encrypt data",
+          "To decrypt data",
+          "To compress data",
+          "To generate keys"
+        ],
+        "answer": "To encrypt data",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "Which algorithm is commonly used for secure key exchange in asymmetric encryption?",
+        "options": ["Diffie-Hellman", "AES", "DES", "MD5"],
+        "answer": "Diffie-Hellman",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "What is a digital signature?",
+        "options": [
+          "A mechanism to verify the authenticity and integrity of a message",
+          "A way to encrypt messages",
+          "A method to compress data",
+          "A tool for generating keys"
+        ],
+        "answer": "A mechanism to verify the authenticity and integrity of a message",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "Which of the following statements are true about RSA?",
+        "options": [
+          "It is an asymmetric algorithm",
+          "It uses a pair of keys (public and private)",
+          "It is based on the difficulty of factoring large numbers",
+          "It is faster than symmetric algorithms"
+        ],
+        "answer": [
+          "It is an asymmetric algorithm",
+          "It uses a pair of keys (public and private)",
+          "It is based on the difficulty of factoring large numbers"
+        ],
+        "questionType": "multipleAnswer"
+      },
+      {
+        "question": "In asymmetric encryption, the private key is kept ______.",
+        "options": ["Secret", "Public", "With the sender", "In the cloud"],
+        "answer": "Secret",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "What does PKI stand for?",
+        "options": [
+          "Public Key Infrastructure",
+          "Private Key Infrastructure",
+          "Public Key Integration",
+          "Private Key Integration"
+        ],
+        "answer": "Public Key Infrastructure",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "Which asymmetric algorithm is widely used for email encryption?",
+        "options": ["PGP", "AES", "SHA-256", "Blowfish"],
+        "answer": "PGP",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "Which of the following is a common use case for asymmetric encryption?",
+        "options": [
+          "Secure key exchange",
+          "Fast bulk data encryption",
+          "Password hashing",
+          "Generating random numbers"
+        ],
+        "answer": "Secure key exchange",
+        "questionType": "singleAnswer"
+      }
+    ]
   }
 }

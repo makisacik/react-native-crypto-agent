@@ -109,7 +109,7 @@ const SecondLevelTutorial4 = () => {
             <View style={styles.conversationContainer}>
               <Conversation
                 level="SecondLevel"
-                conversationNumber="2"
+                conversationNumber={2}
                 onFinish={handleConversationFinish}
               />
             </View>

@@ -266,5 +266,227 @@
         }
       ]
     }
+  },
+  "ThirdLevel": {
+    "conversation1": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Hello again!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Let's start with the Asymmetric Key Cryptography.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation2": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "So Agent, let's make a simulation test!",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation3": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "A company needs an asymmetric encryption algorithm for encrypting their emails.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Which algorithm should they choose if they want a widely used and highly secure option?",
+          "speaker": "otherCharacter",
+          "choices": ["RSA", "ECC", "Blowfish"],
+          "correctChoiceIndex": 0
+        },
+        {
+          "text": "Correct! RSA is a widely used and highly secure asymmetric encryption algorithm.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Got it!",
+          "speaker": "mainCharacter"
+        }
+      ]
+    },
+    "conversation4": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "A financial institution needs an efficient encryption algorithm for mobile transactions.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation5": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Which algorithm should they choose for high security with shorter key lengths?",
+          "speaker": "otherCharacter",
+          "choices": ["RSA", "ECC", "DSA"],
+          "correctChoiceIndex": 1
+        },
+        {
+          "text": "Correct! ECC offers high security with shorter key lengths, making it ideal for mobile transactions.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Understood!",
+          "speaker": "mainCharacter"
+        }
+      ]
+    },
+    "conversation6": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "A website needs to establish a secure connection with its users.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation7": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Which algorithm is primarily used for secure key exchange in this scenario?",
+          "speaker": "otherCharacter",
+          "choices": ["RSA", "ECC", "Diffie-Hellman"],
+          "correctChoiceIndex": 2
+        },
+        {
+          "text": "Correct! Diffie-Hellman is primarily used for secure key exchange.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Makes sense!",
+          "speaker": "mainCharacter"
+        }
+      ]
+    },
+    "conversation8": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "A document needs to be signed digitally to ensure its integrity and origin.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation9": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Which algorithm is specifically designed for digital signatures?",
+          "speaker": "otherCharacter",
+          "choices": ["RSA", "ECC", "DSA"],
+          "correctChoiceIndex": 2
+        },
+        {
+          "text": "Correct! DSA is specifically designed for digital signatures.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Got it!",
+          "speaker": "mainCharacter"
+        },
+        {
+          "text": "Now you are ready for the multiple choice test!",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation10": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Well done you have completed the Asymmetric Algorithms.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    }
   }
 }

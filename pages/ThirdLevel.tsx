@@ -5,7 +5,7 @@ import { View, StyleSheet, Image } from "react-native";
 import { Button, Title, Paragraph } from "react-native-paper";
 import Conversation from "../components/Conversation";
 
-const SecondLevel = ({ navigation }: { navigation: any }) => {
+const ThirdLevel = ({ navigation }: { navigation: any }) => {
   const [showConversation, setShowConversation] = useState(true);
 
   const handleConversationFinish = () => {
@@ -16,29 +16,29 @@ const SecondLevel = ({ navigation }: { navigation: any }) => {
     <View style={styles.container}>
       {showConversation && (
         <Conversation
-          level="SecondLevel"
-          conversationNumber={2}
+          level="ThirdLevel"
+          conversationNumber={1}
           onFinish={handleConversationFinish}
         />
       )}
       <View style={styles.infoContainer}>
-        <Title style={styles.title}>Level 2: Symmetric Algorithms</Title>
+        <Title style={styles.title}>Level 3: Asymmetric Algorithms</Title>
         <Paragraph style={styles.description}>
-          In this level, we will talk about Symmetric Algorithms.
+          In this level, we will talk about Asymmetric Algorithms.
         </Paragraph>
         <Image
-          source={require("../assets/symmetric.png")}
+          source={require("../assets/asymmetric.png")}
           style={styles.image}
         />
         <Paragraph style={styles.imageDescription}>
-          Example of a Symmetric Algorithm diagram.
+          Example of an Asymmetric Algorithm diagram.
         </Paragraph>
         <Button
           mode="contained"
           style={styles.button}
           labelStyle={styles.buttonLabel}
           onPress={() =>
-            navigation.navigate("TutorialController", { level: "SecondLevel" })
+            navigation.navigate("TutorialController", { level: "ThirdLevel" })
           }
         >
           Start the Tutorial
@@ -48,7 +48,7 @@ const SecondLevel = ({ navigation }: { navigation: any }) => {
           style={styles.button}
           labelStyle={styles.buttonLabel}
           onPress={() => {
-            navigation.navigate("TrainingController", { level: "SecondLevel" });
+            navigation.navigate("TrainingController", { level: "ThirdLevel" });
           }}
         >
           Start the Training
@@ -99,4 +99,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SecondLevel;
+export default ThirdLevel;

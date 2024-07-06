@@ -19,7 +19,7 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import LottieView from "lottie-react-native";
-import { useScore } from "../context/ScoreContext"; // Import useScore hook
+import { useScore } from "../context/ScoreContext";
 
 const QuestionController = ({
   route,
@@ -159,7 +159,7 @@ const QuestionController = ({
                 <TouchableOpacity
                   key={index}
                   onPress={() => handleOptionSelect(option)}
-                  disabled={answerChecked} // Disable options after checking the answer
+                  disabled={answerChecked}
                 >
                   <Card
                     style={[
@@ -209,7 +209,7 @@ const QuestionController = ({
                 },
               ]}
               onPress={handleCheckAnswer}
-              disabled={selectedOptions.length === 0 || answerChecked} // Disable button if no option is selected or answer is already checked
+              disabled={selectedOptions.length === 0 || answerChecked}
             >
               <Text style={styles.checkButtonText}>Check Answer</Text>
             </TouchableOpacity>
