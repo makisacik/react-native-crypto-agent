@@ -9,6 +9,7 @@ import ThirdLevelTraining2 from "../components/third-level/training/ThirdLevelTr
 import ThirdLevelTraining3 from "../components/third-level/training/ThirdLevelTraining3";
 import ThirdLevelTraining4 from "../components/third-level/training/ThirdLevelTraining4";
 import ThirdLevelTraining5 from "../components/third-level/training/ThirdLevelTraining5";
+import ThirdLevelTraining6 from "../components/third-level/training/ThirdLevelTraining6";
 
 const trainingPages = {
   FirstLevel: [
@@ -25,6 +26,7 @@ const trainingPages = {
     ThirdLevelTraining4,
     ThirdLevelTraining5,
     QuestionController,
+    ThirdLevelTraining6,
   ],
 };
 

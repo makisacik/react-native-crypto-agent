@@ -467,6 +467,24 @@
         {
           "text": "Got it!",
           "speaker": "mainCharacter"
+        },
+        {
+          "text": "Now you are ready for the multiple choice test!",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation10": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Well done you have completed the Asymmetric Algorithms.",
+          "speaker": "otherCharacter"
         }
       ]
     }
