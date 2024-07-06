@@ -5,6 +5,8 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { Button } from "react-native-paper";
 import { getConversation } from "../utils/ConversationManager";
 import useTypingEffect from "../utils/useTypingEffect";
+import LottieView from "lottie-react-native";
+import { useScore } from "../context/ScoreContext";
 
 interface ConversationProps {
   level: string;
@@ -39,6 +41,10 @@ const Conversation = ({
   const [correctChoiceIndex, setCorrectChoiceIndex] = useState(
     dialogues[0].correctChoiceIndex
   );
+  const [scoreUpdated, setScoreUpdated] = useState(false);
+  const [animationSource, setAnimationSource] = useState(null);
+  const [animationKey, setAnimationKey] = useState(0);
+  const { addScore } = useScore();
 
   useEffect(() => {
     setIndex(0);
@@ -46,6 +52,7 @@ const Conversation = ({
     setCurrentSpeaker(dialogues[0].speaker);
     setChoices(dialogues[0].choices || []);
     setCorrectChoiceIndex(dialogues[0].correctChoiceIndex);
+    setScoreUpdated(false);
     onDialogueChange(0);
   }, [level, conversationNumber]);
 
@@ -53,8 +60,20 @@ const Conversation = ({
     if (choices.length > 0 && choiceIndex === null) {
       return;
     }
-    if (choiceIndex !== null && choiceIndex !== correctChoiceIndex) {
-      return;
+    if (choiceIndex !== null) {
+      if (choiceIndex !== correctChoiceIndex) {
+        setAnimationSource(require("../assets/incorrect-animation.json"));
+        setAnimationKey((prevKey) => prevKey + 1);
+        return;
+      } else if (!scoreUpdated) {
+        if (animationSource) {
+          addScore(5);
+        } else {
+          addScore(15);
+        }
+        setScoreUpdated(true);
+        setAnimationSource(null);
+      }
     }
 
     if (index < dialogues.length - 1) {
@@ -64,6 +83,7 @@ const Conversation = ({
       setCurrentSpeaker(dialogues[newIndex].speaker);
       setChoices(dialogues[newIndex].choices || []);
       setCorrectChoiceIndex(dialogues[newIndex].correctChoiceIndex);
+      setScoreUpdated(false);
       onDialogueChange(newIndex);
     } else {
       onFinish();
@@ -104,6 +124,16 @@ const Conversation = ({
           </View>
         )}
       </View>
+      {animationSource && (
+        <LottieView
+          key={animationKey}
+          source={animationSource}
+          autoPlay
+          loop={false}
+          style={styles.animation}
+          onAnimationFinish={() => setAnimationSource(null)}
+        />
+      )}
     </TouchableOpacity>
   );
 };
@@ -149,6 +179,14 @@ const styles = StyleSheet.create({
   },
   choiceButton: {
     marginVertical: 5,
+  },
+  animation: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: [{ translateX: -50 }, { translateY: -50 }],
+    width: 100,
+    height: 100,
   },
 });
 
