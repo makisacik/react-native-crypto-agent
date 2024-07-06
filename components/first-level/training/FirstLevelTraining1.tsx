@@ -5,7 +5,7 @@ import { View, StyleSheet, Text, Animated } from "react-native";
 import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
 import Character from "../../Character";
-import { useScore } from "../../../context/ScoreContext"; // Import useScore hook
+import { useScore } from "../../../context/ScoreContext";
 
 const FirstLevelTraining1 = ({
   navigation,
@@ -18,10 +18,10 @@ const FirstLevelTraining1 = ({
   const [showExclamation, setShowExclamation] = useState(true);
   const [showButton, setShowButton] = useState(false);
   const buttonOpacity = useRef(new Animated.Value(0)).current;
-  const { resetScore } = useScore(); // Use the resetScore function
+  const { resetScore } = useScore();
 
   useEffect(() => {
-    resetScore(); // Reset the score when this component mounts
+    resetScore();
   }, []);
 
   const handleCharacterClick = () => {
@@ -56,7 +56,7 @@ const FirstLevelTraining1 = ({
       {showConversation && (
         <Conversation
           level="FirstLevel"
-          conversationNumber="3"
+          conversationNumber={3}
           onFinish={handleConversationFinish}
         />
       )}

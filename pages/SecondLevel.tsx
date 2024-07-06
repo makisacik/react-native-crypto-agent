@@ -17,7 +17,7 @@ const SecondLevel = ({ navigation }: { navigation: any }) => {
       {showConversation && (
         <Conversation
           level="SecondLevel"
-          conversationNumber="2"
+          conversationNumber={2}
           onFinish={handleConversationFinish}
         />
       )}

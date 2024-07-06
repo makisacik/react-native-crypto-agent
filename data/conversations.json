@@ -265,30 +265,80 @@
           "speaker": "otherCharacter"
         }
       ]
-    },
-    "ThirdLevel": {
-      "conversation1": {
-        "characters": {
-          "mainCharacter": {
-            "name": "Agent",
-            "image": "agent"
-          },
-          "otherCharacter": {
-            "name": "Instructor",
-            "image": "instructor"
-          }
+    }
+  },
+  "ThirdLevel": {
+    "conversation1": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
         },
-        "dialogues": [
-          {
-            "text": "Hello again!",
-            "speaker": "otherCharacter"
-          },
-          {
-            "text": "Let's start with the Asymmetric Key Cryptography.",
-            "speaker": "otherCharacter"
-          }
-        ]
-      }
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Hello again!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Let's start with the Asymmetric Key Cryptography.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation2": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "So Agent let's make a simulation test!",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation3": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Following computer needs an an Asymmetric Encryption algorithm for encryption!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Which algorithm should we choose if we want a widely used and highly secure option?",
+          "speaker": "otherCharacter",
+          "choices": ["RSA", "ECC", "Blowfish"],
+          "correctChoiceIndex": 0
+        },
+        {
+          "text": "Correct! RSA is a widely used and highly secure asymmetric encryption algorithm.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Got it!",
+          "speaker": "mainCharacter"
+        }
+      ]
     }
   }
 }

@@ -4,6 +4,7 @@ import FirstLevelTraining1 from "../components/first-level/training/FirstLevelTr
 import FirstLevelTraining2 from "../components/first-level/training/FirstLevelTraining2";
 import FirstLevelTraining3 from "../components/first-level/training/FirstLevelTraining3";
 import QuestionController from "../pages/QuestionController";
+import ThirdLevelTraining1 from "../components/third-level/training/ThirdLevelTraining1";
 
 const trainingPages = {
   FirstLevel: [
@@ -13,6 +14,7 @@ const trainingPages = {
     FirstLevelTraining3,
   ],
   SecondLevel: [QuestionController],
+  ThirdLevel: [ThirdLevelTraining1],
 };
 
 export const getTrainingPages = (level) => trainingPages[level] || [];

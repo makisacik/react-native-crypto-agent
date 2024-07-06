@@ -17,6 +17,7 @@ import FirstLevelTraining3 from "./components/first-level/training/FirstLevelTra
 import TrainingController from "./pages/TrainingController";
 import QuestionController from "./pages/QuestionController";
 import { ScoreProvider } from "./context/ScoreContext";
+import ThirdLevelTraining1 from "./components/third-level/training/ThirdLevelTraining1";
 
 const Stack = createStackNavigator();
 
@@ -112,6 +113,10 @@ export default function App() {
           <Stack.Screen
             name="QuestionController"
             component={QuestionController}
+          />
+          <Stack.Screen
+            name="ThirdLevelTraining1"
+            component={ThirdLevelTraining1}
           />
         </Stack.Navigator>
       </NavigationContainer>

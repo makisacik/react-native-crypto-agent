@@ -162,7 +162,7 @@ const SecondLevelTutorial7 = () => {
             <View style={styles.conversationContainer}>
               <Conversation
                 level="SecondLevel"
-                conversationNumber="3"
+                conversationNumber={3}
                 onDialogueChange={handleDialogueChange}
                 onFinish={handleConversationFinish}
               />
