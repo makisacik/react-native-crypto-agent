@@ -11,31 +11,29 @@ import Animated, {
 import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
 
-const ThirdLevelTraining1 = ({
+const ThirdLevelTraining5 = ({
   navigation,
   onNext,
 }: {
   navigation: any;
   onNext: () => void;
 }) => {
-  const [showConversation2, setShowConversation2] = useState(true);
-  const [showImage, setShowImage] = useState(false);
-  const [showConversation3, setShowConversation3] = useState(false);
+  const [showFirstConversation, setShowFirstConversation] = useState(true);
+  const [showIcon, setShowIcon] = useState(false);
+  const [showSecondConversation, setShowSecondConversation] = useState(false);
   const [showNextButton, setShowNextButton] = useState(false);
   const fadeAnim = useSharedValue(0);
 
-  const handleConversation2Finish = () => {
-    console.log("Conversation 2 finished");
-    setShowConversation2(false);
-    setShowImage(true);
+  const handleConversation4Finish = () => {
+    setShowFirstConversation(false);
+    setShowIcon(true);
     fadeAnim.value = withTiming(1, { duration: 1000 }, () => {
-      runOnJS(setShowConversation3)(true);
+      runOnJS(setShowSecondConversation)(true);
     });
   };
 
-  const handleConversation3Finish = () => {
-    console.log("Conversation 3 finished");
-    setShowConversation3(false);
+  const handleConversation5Finish = () => {
+    setShowSecondConversation(false);
     setShowNextButton(true);
   };
 
@@ -47,26 +45,26 @@ const ThirdLevelTraining1 = ({
 
   return (
     <View style={styles.container}>
-      {showConversation2 && (
+      {showFirstConversation && (
         <Conversation
           level="ThirdLevel"
-          conversationNumber={2}
-          onFinish={handleConversation2Finish}
+          conversationNumber={8}
+          onFinish={handleConversation4Finish}
         />
       )}
-      {showImage && (
-        <Animated.View style={[styles.imageContainer, animatedStyle]}>
+      {showIcon && (
+        <Animated.View style={[styles.iconContainer, animatedStyle]}>
           <Image
-            source={require("../../../assets/computer.png")}
-            style={styles.image}
+            source={require("../../../assets/digital_document.png")}
+            style={styles.icon}
           />
         </Animated.View>
       )}
-      {showConversation3 && (
+      {showSecondConversation && (
         <Conversation
           level="ThirdLevel"
-          conversationNumber={3}
-          onFinish={handleConversation3Finish}
+          conversationNumber={9}
+          onFinish={handleConversation5Finish}
         />
       )}
       {showNextButton && (
@@ -87,13 +85,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#f0f0f0",
   },
-  imageContainer: {
+  iconContainer: {
     position: "absolute",
     top: "10%",
     justifyContent: "center",
     alignItems: "center",
   },
-  image: {
+  icon: {
     width: 200,
     height: 200,
     marginBottom: 20,
@@ -110,4 +108,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ThirdLevelTraining1;
+export default ThirdLevelTraining5;
