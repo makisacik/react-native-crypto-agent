@@ -113,7 +113,7 @@ const QuestionController = ({
   };
 
   const fadeOut = () => {
-    opacity.value = withSpring(0, {
+    opacity.value = withSpring(0.01, {
       damping: 10,
       stiffness: 100,
     });
