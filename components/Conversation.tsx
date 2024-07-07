@@ -97,7 +97,7 @@ const Conversation = ({
   };
 
   const character = characters[currentSpeaker] || {};
-  const typedText = useTypingEffect(currentText, 50);
+  const typedText = useTypingEffect(currentText, 20);
 
   return (
     <TouchableOpacity
