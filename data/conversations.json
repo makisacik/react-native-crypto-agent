@@ -355,7 +355,7 @@
       },
       "dialogues": [
         {
-          "text": " Which algorithm should they avoid due to its vulnerabilities to brute-force attacks??",
+          "text": "Which algorithm should they avoid due to its vulnerabilities to brute-force attacks?",
           "speaker": "otherCharacter",
           "choices": ["AES", "DES", "Triple DES"],
           "correctChoiceIndex": 1

@@ -104,9 +104,9 @@
         "questionType": "multipleAnswer"
       },
       {
-        "question": "Which algorithm is typically used to encrypt smaller amounts of data due to its higher security and efficiency?",
-        "options": ["AES", "DES", "TripleDES"],
-        "answer": "AES",
+        "question": "Which algorithm is widely used in protocols like SSL/TLS and WE?",
+        "options": ["RC4", "ChaCha20", "TripleDES"],
+        "answer": "RC4",
         "questionType": "singleAnswer"
       },
       {
