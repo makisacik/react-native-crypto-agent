@@ -13,6 +13,9 @@ import SecondLevelTutorial5 from "../components/second-level/tutorial/SecondLeve
 import SecondLevelTutorial6 from "../components/second-level/tutorial/SecondLevelTutorial6";
 import SecondLevelTutorial7 from "../components/second-level/tutorial/SecondLevelTutorial7";
 import SecondLevelTutorial8 from "../components/second-level/tutorial/SecondLevelTutorial8";
+import SecondLevelTutorial9 from "../components/second-level/tutorial/SecondLevelTutorial9";
+import SecondLevelTutorial10 from "../components/second-level/tutorial/SecondLevelTutorial10";
+import SecondLevelTutorial11 from "../components/second-level/tutorial/SecondLevelTutorial11";
 import ThirdLevelTutorial1 from "../components/third-level/tutorial/ThirdLevelTutorial1";
 import ThirdLevelTutorial2 from "../components/third-level/tutorial/ThirdLevelTutorial2";
 import ThirdLevelTutorial3 from "../components/third-level/tutorial/ThirdLevelTutorial3";
@@ -35,6 +38,9 @@ const tutorialPages = {
     SecondLevelTutorial6,
     SecondLevelTutorial7,
     SecondLevelTutorial8,
+    SecondLevelTutorial9,
+    SecondLevelTutorial10,
+    SecondLevelTutorial11,
   ],
   ThirdLevel: [
     ThirdLevelTutorial1,
