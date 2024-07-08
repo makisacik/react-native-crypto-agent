@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";
 
-const ThirdLevelTutorial4 = () => {
+const ThirdLevelTutorial6 = () => {
   const [visible, setVisible] = useState(false);
 
   const showDialog = () => setVisible(true);
@@ -21,17 +21,20 @@ const ThirdLevelTutorial4 = () => {
     <Provider>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <ScrollView contentContainerStyle={styles.container}>
-          <Text style={styles.title}>Elliptic Curve Cryptography (ECC)</Text>
+          <Text style={styles.title}>Digital Signature Algorithm (DSA)</Text>
           <Text style={styles.text}>
-            Elliptic Curve Cryptography (ECC) is a public-key cryptosystem that
-            is based on the algebraic structure of elliptic curves over finite
-            fields. ECC allows for smaller keys compared to non-ECC cryptography
-            to provide equivalent security.
+            The Digital Signature Algorithm (DSA) is a federal information
+            processing standard for digital signatures. Digital signatures are
+            used to authenticate the integrity and origin of a message or
+            document.
           </Text>
-          <Image
-            source={require("../../../assets/ecc_graph.png")}
-            style={styles.image}
-          />
+          <View style={styles.imageContainer}>
+            <Image
+              source={require("../../../assets/digital_signatures.png")}
+              style={styles.image}
+              resizeMode="contain"
+            />
+          </View>
           <Button
             mode="text"
             onPress={showDialog}
@@ -41,13 +44,14 @@ const ThirdLevelTutorial4 = () => {
           </Button>
           <Portal>
             <Dialog visible={visible} onDismiss={hideDialog}>
-              <Dialog.Title>About ECC</Dialog.Title>
+              <Dialog.Title>About DSA</Dialog.Title>
               <Dialog.Content>
                 <Text style={styles.dialogText}>
-                  ECC stands for Elliptic Curve Cryptography, which provides
-                  high security with smaller key sizes. It is widely used in
-                  modern encryption protocols and offers advantages in terms of
-                  efficiency and security.
+                  The Digital Signature Algorithm (DSA) is a public key
+                  algorithm used for generating a digital signature. It ensures
+                  that the signed message was not altered and verifies the
+                  authenticity of the sender. DSA is widely used in various
+                  security protocols and applications.
                 </Text>
               </Dialog.Content>
               <Dialog.Actions>
@@ -81,10 +85,16 @@ const styles = StyleSheet.create({
     fontFamily: "UbuntuRegular",
     marginBottom: 10,
   },
+  bold: {
+    fontWeight: "bold",
+  },
+  imageContainer: {
+    alignItems: "center",
+    marginBottom: 10,
+  },
   image: {
     width: "100%",
-    height: 250,
-    marginBottom: 10,
+    height: 200,
   },
   buttonTextLabel: {
     fontSize: 14,
@@ -96,4 +106,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ThirdLevelTutorial4;
+export default ThirdLevelTutorial6;

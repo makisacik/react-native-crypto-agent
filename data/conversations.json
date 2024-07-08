@@ -613,6 +613,20 @@
           "speaker": "otherCharacter"
         }
       ]
+    },
+    "conversation11": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Nice job agent! You have completed the Asymmetric Algorithms tutorial.",
+          "speaker": "otherCharacter"
+        }
+      ]
     }
   }
 }
