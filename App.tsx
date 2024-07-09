@@ -95,28 +95,8 @@ export default function App() {
             component={TutorialController}
           />
           <Stack.Screen
-            name="FirstLevelTraining1"
-            component={FirstLevelTraining1}
-          />
-          <Stack.Screen
-            name="FirstLevelTraining2"
-            component={FirstLevelTraining2}
-          />
-          <Stack.Screen
-            name="FirstLevelTraining3"
-            component={FirstLevelTraining3}
-          />
-          <Stack.Screen
             name="TrainingController"
             component={TrainingController}
-          />
-          <Stack.Screen
-            name="QuestionController"
-            component={QuestionController}
-          />
-          <Stack.Screen
-            name="ThirdLevelTraining1"
-            component={ThirdLevelTraining1}
           />
         </Stack.Navigator>
       </NavigationContainer>
