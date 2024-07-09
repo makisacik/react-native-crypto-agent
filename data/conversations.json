@@ -563,12 +563,58 @@
       },
       "dialogues": [
         {
-          "text": "A document needs to be signed digitally to ensure its integrity and origin.",
+          "text": "A website wants to secure its data transmission using a more efficient asymmetric algorithm suitable for mobile devices with limited processing power. ",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "The website opts for an algorithm that offers high security with shorter key lengths. ",
           "speaker": "otherCharacter"
         }
       ]
     },
     "conversation9": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Which algorithm should the website choose?",
+          "speaker": "otherCharacter",
+          "choices": ["RSA", "ECC", "Diffie-Hellman"],
+          "correctChoiceIndex": 1
+        },
+        {
+          "text": "Correct! ECC is highly efficient for environments with limited processing power, providing strong security with shorter key lengths.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Makes sense!",
+          "speaker": "mainCharacter"
+        }
+      ]
+    },
+    "conversation10": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "A document needs to be signed digitally to ensure its integrity and origin.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation11": {
       "characters": {
         "mainCharacter": {
           "name": "Agent",
@@ -600,7 +646,7 @@
         }
       ]
     },
-    "conversation10": {
+    "conversation12": {
       "characters": {
         "otherCharacter": {
           "name": "Trainer",
@@ -614,7 +660,7 @@
         }
       ]
     },
-    "conversation11": {
+    "conversation13": {
       "characters": {
         "otherCharacter": {
           "name": "Instructor",
