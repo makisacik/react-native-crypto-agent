@@ -10,6 +10,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
+import { useScore } from "../../../context/ScoreContext";
 
 const ThirdLevelTraining1 = ({
   navigation,
@@ -23,9 +24,13 @@ const ThirdLevelTraining1 = ({
   const [showConversation3, setShowConversation3] = useState(false);
   const [showNextButton, setShowNextButton] = useState(false);
   const fadeAnim = useSharedValue(0);
+  const { resetScore } = useScore();
+
+  useEffect(() => {
+    resetScore();
+  }, []);
 
   const handleConversation2Finish = () => {
-    console.log("Conversation 2 finished");
     setShowConversation2(false);
     setShowImage(true);
     fadeAnim.value = withTiming(1, { duration: 1000 }, () => {
@@ -34,7 +39,6 @@ const ThirdLevelTraining1 = ({
   };
 
   const handleConversation3Finish = () => {
-    console.log("Conversation 3 finished");
     setShowConversation3(false);
     setShowNextButton(true);
   };

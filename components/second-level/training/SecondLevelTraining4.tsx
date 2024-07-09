@@ -23,7 +23,7 @@ const SecondLevelTraining4 = ({
   const buttonOpacity = useRef(new Animated.Value(0)).current;
   const { score } = useScore();
 
-  const maxScore = 150;
+  const maxScore = 135;
   const numberOfQuestions = 10;
 
   const handleCharacterClick = () => {

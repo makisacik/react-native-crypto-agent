@@ -23,8 +23,8 @@ const ThirdLevelTraining6 = ({
   const buttonOpacity = useRef(new Animated.Value(0)).current;
   const { score } = useScore();
 
-  const maxScore = 150;
-  const numberOfQuestions = 10;
+  const maxScore = 200;
+  const numberOfQuestions = 15;
 
   const handleCharacterClick = () => {
     setShowConversation(true);
