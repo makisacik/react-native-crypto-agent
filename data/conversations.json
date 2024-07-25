@@ -242,26 +242,152 @@
     },
     "conversation5": {
       "characters": {
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Hello agent, lets start your verbal test now!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Imagine you are tasked with securing a database of sensitive customer information.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation6": {
+      "characters": {
         "mainCharacter": {
           "name": "Agent",
           "image": "agent"
         },
         "otherCharacter": {
-          "name": "Instructor",
-          "image": "instructor"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
         {
-          "text": "Lets do the tranining!",
+          "text": "Which symmetric key algorithm out of these two would be more suitable due to its higher security and efficiency, AES or DES?",
+          "speaker": "otherCharacter",
+          "choices": ["AES", "DES"],
+          "correctChoiceIndex": 0
+        },
+        {
+          "text": "Correct! AES is widely appreciated for its high level of reliability and security. It is often used in secure communications and file storage.",
           "speaker": "otherCharacter"
         },
         {
-          "text": "You have completed the Symmetric Algorithms.",
+          "text": "Understood!",
+          "speaker": "mainCharacter"
+        }
+      ]
+    },
+    "conversation7": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "You need to encrypt a large file quickly for secure transmission over the internet.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation8": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Out of these two which symmetric key algorithm would you choose for its performance and simplicity?",
+          "speaker": "otherCharacter",
+          "choices": ["AES", "Triple DES"],
+          "correctChoiceIndex": 0
+        },
+        {
+          "text": "Correct! AES provides a fast and secure encryption method, making it ideal for secure transmission of large files.",
           "speaker": "otherCharacter"
         },
         {
-          "text": "Now you are ready for your training!",
+          "text": "Got it!",
+          "speaker": "mainCharacter"
+        }
+      ]
+    },
+    "conversation9": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "A company wants to ensure their communication channels with a symmetric algorithm.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation10": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Which algorithm should they avoid due to its vulnerabilities to brute-force attacks?",
+          "speaker": "otherCharacter",
+          "choices": ["AES", "DES", "Triple DES"],
+          "correctChoiceIndex": 1
+        },
+        {
+          "text": "Correct! RC4 is ideal for low-power devices due to its simplicity and speed.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Makes sense!",
+          "speaker": "mainCharacter"
+        },
+        {
+          "text": "Now you are ready for the multiple choice test!",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation11": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Well done you have completed the Symmetric Algorithms training.",
           "speaker": "otherCharacter"
         }
       ]
@@ -297,13 +423,13 @@
           "image": "agent"
         },
         "otherCharacter": {
-          "name": "Instructor",
-          "image": "instructor"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
         {
-          "text": "So Agent, let's make a simulation test!",
+          "text": "So Agent, let's start your  verbal test!",
           "speaker": "otherCharacter"
         }
       ]
@@ -315,8 +441,8 @@
           "image": "agent"
         },
         "otherCharacter": {
-          "name": "Instructor",
-          "image": "instructor"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
@@ -347,8 +473,8 @@
           "image": "agent"
         },
         "otherCharacter": {
-          "name": "Instructor",
-          "image": "instructor"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
@@ -365,8 +491,8 @@
           "image": "agent"
         },
         "otherCharacter": {
-          "name": "Instructor",
-          "image": "instructor"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
@@ -389,8 +515,8 @@
     "conversation6": {
       "characters": {
         "otherCharacter": {
-          "name": "Instructor",
-          "image": "instructor"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
@@ -407,8 +533,8 @@
           "image": "agent"
         },
         "otherCharacter": {
-          "name": "Instructor",
-          "image": "instructor"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
@@ -431,13 +557,17 @@
     "conversation8": {
       "characters": {
         "otherCharacter": {
-          "name": "Instructor",
-          "image": "instructor"
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
         {
-          "text": "A document needs to be signed digitally to ensure its integrity and origin.",
+          "text": "A website wants to secure its data transmission using a more efficient asymmetric algorithm suitable for mobile devices with limited processing power. ",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "The website opts for an algorithm that offers high security with shorter key lengths. ",
           "speaker": "otherCharacter"
         }
       ]
@@ -449,8 +579,50 @@
           "image": "agent"
         },
         "otherCharacter": {
-          "name": "Instructor",
-          "image": "instructor"
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Which algorithm should the website choose?",
+          "speaker": "otherCharacter",
+          "choices": ["RSA", "ECC", "Diffie-Hellman"],
+          "correctChoiceIndex": 1
+        },
+        {
+          "text": "Correct! ECC is highly efficient for environments with limited processing power, providing strong security with shorter key lengths.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Makes sense!",
+          "speaker": "mainCharacter"
+        }
+      ]
+    },
+    "conversation10": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "A document needs to be signed digitally to ensure its integrity and origin.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation11": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
         }
       },
       "dialogues": [
@@ -474,7 +646,21 @@
         }
       ]
     },
-    "conversation10": {
+    "conversation12": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Well done you have completed the Asymmetric Algorithms.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation13": {
       "characters": {
         "otherCharacter": {
           "name": "Instructor",
@@ -483,7 +669,7 @@
       },
       "dialogues": [
         {
-          "text": "Well done you have completed the Asymmetric Algorithms.",
+          "text": "Nice job agent! You have completed the Asymmetric Algorithms tutorial.",
           "speaker": "otherCharacter"
         }
       ]

@@ -12,16 +12,16 @@ import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
 import { useScore } from "../../../context/ScoreContext";
 
-const ThirdLevelTraining1 = ({
+const SecondLevelTraining1 = ({
   navigation,
   onNext,
 }: {
   navigation: any;
   onNext: () => void;
 }) => {
-  const [showConversation2, setShowConversation2] = useState(true);
-  const [showImage, setShowImage] = useState(false);
-  const [showConversation3, setShowConversation3] = useState(false);
+  const [showFirstConversation, setShowFirstConversation] = useState(true);
+  const [showIcon, setShowIcon] = useState(false);
+  const [showSecondConversation, setShowSecondConversation] = useState(false);
   const [showNextButton, setShowNextButton] = useState(false);
   const fadeAnim = useSharedValue(0);
   const { resetScore } = useScore();
@@ -30,16 +30,16 @@ const ThirdLevelTraining1 = ({
     resetScore();
   }, []);
 
-  const handleConversation2Finish = () => {
-    setShowConversation2(false);
-    setShowImage(true);
+  const handleConversation4Finish = () => {
+    setShowFirstConversation(false);
+    setShowIcon(true);
     fadeAnim.value = withTiming(1, { duration: 1000 }, () => {
-      runOnJS(setShowConversation3)(true);
+      runOnJS(setShowSecondConversation)(true);
     });
   };
 
-  const handleConversation3Finish = () => {
-    setShowConversation3(false);
+  const handleConversation5Finish = () => {
+    setShowSecondConversation(false);
     setShowNextButton(true);
   };
 
@@ -51,26 +51,26 @@ const ThirdLevelTraining1 = ({
 
   return (
     <View style={styles.container}>
-      {showConversation2 && (
+      {showFirstConversation && (
         <Conversation
-          level="ThirdLevel"
-          conversationNumber={2}
-          onFinish={handleConversation2Finish}
+          level="SecondLevel"
+          conversationNumber={5}
+          onFinish={handleConversation4Finish}
         />
       )}
-      {showImage && (
-        <Animated.View style={[styles.imageContainer, animatedStyle]}>
+      {showIcon && (
+        <Animated.View style={[styles.iconContainer, animatedStyle]}>
           <Image
-            source={require("../../../assets/computer.png")}
-            style={styles.image}
+            source={require("../../../assets/database.png")}
+            style={styles.icon}
           />
         </Animated.View>
       )}
-      {showConversation3 && (
+      {showSecondConversation && (
         <Conversation
-          level="ThirdLevel"
-          conversationNumber={3}
-          onFinish={handleConversation3Finish}
+          level="SecondLevel"
+          conversationNumber={6}
+          onFinish={handleConversation5Finish}
         />
       )}
       {showNextButton && (
@@ -83,7 +83,6 @@ const ThirdLevelTraining1 = ({
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -91,13 +90,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#f0f0f0",
   },
-  imageContainer: {
+  iconContainer: {
     position: "absolute",
     top: "10%",
     justifyContent: "center",
     alignItems: "center",
   },
-  image: {
+  icon: {
     width: 200,
     height: 200,
     marginBottom: 20,
@@ -114,4 +113,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ThirdLevelTraining1;
+export default SecondLevelTraining1;

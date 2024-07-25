@@ -4,12 +4,11 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   StyleSheet,
+  TouchableWithoutFeedback,
+  Keyboard,
   Dimensions,
   Animated,
   Easing,
-  TouchableWithoutFeedback,
-  Keyboard,
-  ScrollView,
 } from "react-native";
 import {
   Text,
@@ -25,25 +24,24 @@ const containerWidth = width * 0.9;
 
 const points = [
   {
-    title: "Block Ciphers",
-    text: "Block ciphers operate on fixed-size blocks of plaintext, typically 64 or 128 bits, and transform them into blocks of ciphertext of the same size using a symmetric key. Examples include AES, DES, and Triple DES.",
-    extraInfo:
-      "AES is widely appreciated for its high level of reliability and is amongst one of the most secure forms of encryption mechanisms. AES works in 128-bit blocks and is implemented for 128, 192, and 256 bit keys. DES was one of the first popular algorithms but is now considered insecure. Triple DES enhances security by applying DES three times.",
+    title: "Necessity",
+    text: "Essential for creating secure encryption and decryption processes in asymmetric cryptography.",
   },
   {
-    title: "Stream Ciphers",
-    text: "Stream ciphers encrypt data one bit or byte at a time, making them ideal for real-time data processing. Examples include RC4 and ChaCha20.",
-    extraInfo:
-      "RC4 is known for its simplicity and speed but has been found to have several vulnerabilities. ChaCha20 offers high security and good performance, making it suitable for applications like TLS and video encryption.",
+    title: "Trapdoor",
+    text: "A special key that makes it easy to invert the function, allowing decryption.",
+  },
+  {
+    title: "Usage in RSA",
+    text: "Used in the RSA algorithm to securely encrypt and decrypt data.",
   },
 ];
 
-const SecondLevelTutorial2 = () => {
+const ThirdLevelTutorial7 = () => {
   const [dialogVisible, setDialogVisible] = useState(false);
   const [selectedPoint, setSelectedPoint] = useState<{
     title: string;
     text: string;
-    extraInfo: string;
   } | null>(null);
   const animationValues = useRef(
     points.map(() => new Animated.Value(0))
@@ -63,11 +61,7 @@ const SecondLevelTutorial2 = () => {
     Animated.stagger(200, animations).start();
   }, []);
 
-  const showDialog = (point: {
-    title: string;
-    text: string;
-    extraInfo: string;
-  }) => {
+  const showDialog = (point: { title: string; text: string }) => {
     setSelectedPoint(point);
     setDialogVisible(true);
   };
@@ -81,13 +75,18 @@ const SecondLevelTutorial2 = () => {
     <Provider>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.outerContainer}>
-          <ScrollView contentContainerStyle={styles.scrollContainer}>
-            <Text style={styles.title}>Types of Symmetric Algorithms</Text>
-            <Text style={styles.introText}>
-              Symmetric functions are divided into two categories: Block Ciphers
-              and Stream Ciphers. Each type has its own unique method of
-              encrypting data and is used in different applications.
+          <View style={styles.container}>
+            <Text style={styles.title}>
+              Concept of the Trapdoor One-Way Function
             </Text>
+
+            <Text style={styles.text}>
+              A Trapdoor One-Way Function is easy to compute in one direction
+              but hard to reverse without a special key. It's crucial in
+              asymmetric cryptography for secure encryption and decryption. The
+              "trapdoor" is the key that allows decryption.
+            </Text>
+
             {points.map((point, index) => (
               <Animated.View
                 key={index}
@@ -124,14 +123,12 @@ const SecondLevelTutorial2 = () => {
                 />
               </Animated.View>
             ))}
-          </ScrollView>
+          </View>
           <Portal>
             <Dialog visible={dialogVisible} onDismiss={hideDialog}>
               <Dialog.Title>{selectedPoint?.title}</Dialog.Title>
               <Dialog.Content>
-                <Text style={styles.dialogExtraInfo}>
-                  {selectedPoint?.extraInfo}
-                </Text>
+                <Text>{selectedPoint?.text}</Text>
               </Dialog.Content>
               <Dialog.Actions>
                 <Button onPress={hideDialog}>Close</Button>
@@ -147,17 +144,13 @@ const SecondLevelTutorial2 = () => {
 const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
-  },
-  scrollContainer: {
-    padding: 10,
+    justifyContent: "center",
     alignItems: "center",
   },
-  introText: {
-    fontSize: 16,
-    fontFamily: "UbuntuRegular",
-    marginVertical: 20,
-    textAlign: "center",
-    color: "#333",
+  container: {
+    width: containerWidth,
+    padding: 10,
+    alignSelf: "center",
   },
   title: {
     fontSize: 24,
@@ -176,6 +169,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: "UbuntuRegular",
     color: "#555",
+    marginBottom: 10,
   },
   pointListItem: {
     flexDirection: "row",
@@ -184,7 +178,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "#f0f0f0",
     borderRadius: 10,
-    width: containerWidth,
+    width: "100%",
   },
   textContainer: {
     flex: 1,
@@ -192,11 +186,6 @@ const styles = StyleSheet.create({
   infoButton: {
     marginLeft: "auto",
   },
-  dialogExtraInfo: {
-    fontSize: 14,
-    fontFamily: "UbuntuRegular",
-    color: "#777",
-  },
 });
 
-export default SecondLevelTutorial2;
+export default ThirdLevelTutorial7;

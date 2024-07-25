@@ -9,7 +9,15 @@ import {
   ScrollView,
   Dimensions,
 } from "react-native";
-import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";
+import {
+  Text,
+  TextInput,
+  Button,
+  Dialog,
+  Portal,
+  Provider,
+} from "react-native-paper";
+import { encryptDES, decryptDES } from "../../../utils/CryptographyFunctions";
 import Conversation from "../../Conversation";
 import { useScore } from "../../../context/ScoreContext";
 
@@ -17,8 +25,13 @@ const { width } = Dimensions.get("window");
 const containerWidth = width * 0.9;
 
 const SecondLevelTutorial6 = () => {
+  const [input, setInput] = useState("mymessage");
+  const [key, setKey] = useState("mysecretkey");
+  const [output, setOutput] = useState("");
+  const [decryptedOutput, setDecryptedOutput] = useState("");
   const [visible, setVisible] = useState(false);
-  const [showConversation, setShowConversation] = useState(true);
+  const [showConversation, setShowConversation] = useState(false);
+  const [conversationShown, setConversationShown] = useState(false);
   const { resetScore } = useScore();
 
   useEffect(() => {
@@ -28,6 +41,26 @@ const SecondLevelTutorial6 = () => {
   const showDialog = () => setVisible(true);
   const hideDialog = () => setVisible(false);
 
+  const handleEncrypt = () => {
+    Keyboard.dismiss();
+    const message = input || "mymessage";
+    const encryptionKey = key || "mysecretkey";
+    setInput(message);
+    setKey(encryptionKey);
+    const result = encryptDES(message, encryptionKey);
+    setOutput(result);
+    setDecryptedOutput("");
+  };
+
+  const handleDecrypt = () => {
+    const result = decryptDES(output, key);
+    setDecryptedOutput(result);
+    if (!conversationShown) {
+      setShowConversation(true);
+      setConversationShown(true);
+    }
+  };
+
   const handleConversationFinish = () => {
     setShowConversation(false);
   };
@@ -35,88 +68,72 @@ const SecondLevelTutorial6 = () => {
   return (
     <Provider>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.outerContainer}>
-          <ScrollView contentContainerStyle={styles.container}>
-            <Text style={styles.title}>Triple DES (3DES)</Text>
+        <View style={styles.container}>
+          <ScrollView contentContainerStyle={styles.scrollView}>
+            <Text style={styles.title}>Encrypt a Message with DES</Text>
             <Text style={styles.text}>
-              Triple DES, also known as 3DES, is a symmetric encryption
-              algorithm that applies the DES algorithm three times to each data
-              block. It was developed to provide a higher level of security than
-              DES due to the vulnerability of DES to brute-force attacks.
+              Enter your message and a key to see the encrypted result using
+              DES.
             </Text>
-            <Text style={styles.text}>
-              Triple DES uses three 56-bit keys, giving it an effective key
-              length of 168 bits. This makes it much more secure than DES.
-            </Text>
-            <Text style={styles.tableTitle}>
-              Difference between DES and 3DES
-            </Text>
-            <View style={styles.table}>
-              <View style={styles.tableRow}>
-                <Text style={styles.tableHeader}>Criteria</Text>
-                <Text style={styles.tableHeader}>DES</Text>
-                <Text style={styles.tableHeader}>3DES</Text>
-              </View>
-              <View style={styles.tableRow}>
-                <Text style={styles.tableCell}>Key Size</Text>
-                <Text style={styles.tableCell}>56-bit</Text>
-                <Text style={styles.tableCell}>
-                  168-bit (three 56-bit keys)
-                </Text>
-              </View>
-              <View style={styles.tableRow}>
-                <Text style={styles.tableCell}>Block Size</Text>
-                <Text style={styles.tableCell}>64-bit</Text>
-                <Text style={styles.tableCell}>64-bit</Text>
-              </View>
-              <View style={styles.tableRow}>
-                <Text style={styles.tableCell}>Security</Text>
-                <Text style={styles.tableCell}>Considered insecure</Text>
-                <Text style={styles.tableCell}>More secure than DES</Text>
-              </View>
-              <View style={styles.tableRow}>
-                <Text style={styles.tableCell}>Performance</Text>
-                <Text style={styles.tableCell}>Faster</Text>
-                <Text style={styles.tableCell}>
-                  Slower (due to triple encryption)
-                </Text>
-              </View>
-            </View>
-            <Button
-              mode="text"
-              onPress={showDialog}
-              labelStyle={styles.buttonTextLabel}
-            >
-              Learn More
+            <TextInput
+              label="Enter message"
+              value={input}
+              onChangeText={setInput}
+              style={styles.input}
+            />
+            <TextInput
+              label="Enter key"
+              value={key}
+              onChangeText={(text) => setKey(text)}
+              style={[styles.input, styles.keyInput]}
+            />
+            <Button mode="contained" onPress={handleEncrypt}>
+              Encrypt
             </Button>
-            <Portal>
-              <Dialog visible={visible} onDismiss={hideDialog}>
-                <Dialog.Title>About 3DES</Dialog.Title>
-                <Dialog.Content>
-                  <Text style={styles.dialogText}>
-                    Triple DES was created as a way to improve the security of
-                    DES without needing to design a completely new algorithm. By
-                    applying DES three times with different keys, 3DES
-                    significantly increases the difficulty of brute-force
-                    attacks.
+            {output && (
+              <>
+                <Text style={styles.result}>Encrypted Message: {output}</Text>
+                <Button
+                  mode="contained"
+                  onPress={handleDecrypt}
+                  style={styles.decryptButton}
+                >
+                  Decrypt
+                </Button>
+                {decryptedOutput && (
+                  <Text style={styles.result}>
+                    Decrypted Message: {decryptedOutput}
                   </Text>
-                </Dialog.Content>
-                <Dialog.Actions>
-                  <Button
-                    onPress={hideDialog}
-                    labelStyle={styles.buttonTextLabel}
-                  >
-                    Close
-                  </Button>
-                </Dialog.Actions>
-              </Dialog>
-            </Portal>
+                )}
+              </>
+            )}
           </ScrollView>
+          <View style={styles.learnMoreContainer}>
+            <Button mode="text" onPress={showDialog}>
+              Learn more
+            </Button>
+          </View>
+          <Portal>
+            <Dialog visible={visible} onDismiss={hideDialog}>
+              <Dialog.Title>What is DES?</Dialog.Title>
+              <Dialog.Content>
+                <Text>
+                  DES (Data Encryption Standard) is a symmetric-key algorithm
+                  for the encryption of digital data. DES was developed in the
+                  early 1970s and was once a widely used encryption method. It
+                  uses a 56-bit key and operates on 64-bit blocks of data.
+                </Text>
+              </Dialog.Content>
+              <Dialog.Actions>
+                <Button onPress={hideDialog}>Close</Button>
+              </Dialog.Actions>
+            </Dialog>
+          </Portal>
           {showConversation && (
             <View style={styles.conversationContainer}>
               <Conversation
                 level="SecondLevel"
-                conversationNumber="2"
+                conversationNumber={3}
                 onFinish={handleConversationFinish}
               />
             </View>
@@ -128,60 +145,49 @@ const SecondLevelTutorial6 = () => {
 };
 
 const styles = StyleSheet.create({
-  outerContainer: {
-    flex: 1,
-  },
   container: {
-    flexGrow: 1,
+    flex: 1,
+    alignItems: "center",
+  },
+  scrollView: {
+    width: containerWidth,
     padding: 10,
+    flexGrow: 1,
   },
   title: {
     fontSize: 24,
-    fontFamily: "UbuntuBold",
+    fontWeight: "bold",
     marginBottom: 10,
   },
   text: {
     fontSize: 16,
-    fontFamily: "UbuntuRegular",
     marginBottom: 10,
   },
-  tableTitle: {
+  input: {
+    marginBottom: 10,
+  },
+  keyInput: {
+    marginTop: 20,
+  },
+  result: {
     fontSize: 18,
-    fontFamily: "UbuntuBold",
-    marginVertical: 10,
+    marginTop: 10,
+    backgroundColor: "#e8e8e8",
+    padding: 10,
+    borderRadius: 5,
+    width: "100%",
   },
-  table: {
-    borderWidth: 1,
-    borderColor: "#ddd",
-    marginBottom: 10,
+  decryptButton: {
+    marginTop: 10,
   },
-  tableRow: {
-    flexDirection: "row",
-    borderBottomWidth: 1,
-    borderColor: "#ddd",
-  },
-  tableHeader: {
-    flex: 1,
-    padding: 8,
-    fontWeight: "bold",
-    backgroundColor: "#f0f0f0",
-  },
-  tableCell: {
-    flex: 1,
-    padding: 8,
-  },
-  buttonTextLabel: {
-    fontSize: 14,
-    fontFamily: "UbuntuRegular",
-  },
-  dialogText: {
-    fontSize: 16,
-    fontFamily: "UbuntuRegular",
-    marginBottom: 10,
+  learnMoreContainer: {
+    width: containerWidth,
+    padding: 10,
+    justifyContent: "flex-end",
   },
   conversationContainer: {
     position: "absolute",
-    bottom: 0,
+    bottom: 30,
     width: "100%",
   },
 });

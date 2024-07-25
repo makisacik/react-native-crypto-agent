@@ -10,7 +10,7 @@ import { CommonActions } from "@react-navigation/native";
 import { useScore } from "../../../context/ScoreContext";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-const ThirdLevelTraining6 = ({
+const SecondLevelTraining4 = ({
   navigation,
   onNext,
 }: {
@@ -23,8 +23,8 @@ const ThirdLevelTraining6 = ({
   const buttonOpacity = useRef(new Animated.Value(0)).current;
   const { score } = useScore();
 
-  const maxScore = 200;
-  const numberOfQuestions = 15;
+  const maxScore = 135;
+  const numberOfQuestions = 10;
 
   const handleCharacterClick = () => {
     setShowConversation(true);
@@ -95,8 +95,8 @@ const ThirdLevelTraining6 = ({
       </View>
       {showConversation && (
         <Conversation
-          level="ThirdLevel"
-          conversationNumber={12}
+          level="SecondLevel"
+          conversationNumber={11}
           onFinish={handleConversationFinish}
         />
       )}
@@ -161,4 +161,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ThirdLevelTraining6;
+export default SecondLevelTraining4;

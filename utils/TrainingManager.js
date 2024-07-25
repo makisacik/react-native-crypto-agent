@@ -3,13 +3,17 @@
 import FirstLevelTraining1 from "../components/first-level/training/FirstLevelTraining1";
 import FirstLevelTraining2 from "../components/first-level/training/FirstLevelTraining2";
 import FirstLevelTraining3 from "../components/first-level/training/FirstLevelTraining3";
-import QuestionController from "../pages/QuestionController";
+import SecondLevelTraining1 from "../components/second-level/training/SecondLevelTraining1";
+import SecondLevelTraining2 from "../components/second-level/training/SecondLevelTraining2";
+import SecondLevelTraining3 from "../components/second-level/training/SecondLevelTraining3";
+import SecondLevelTraining4 from "../components/second-level/training/SecondLevelTraining4";
 import ThirdLevelTraining1 from "../components/third-level/training/ThirdLevelTraining1";
 import ThirdLevelTraining2 from "../components/third-level/training/ThirdLevelTraining2";
 import ThirdLevelTraining3 from "../components/third-level/training/ThirdLevelTraining3";
 import ThirdLevelTraining4 from "../components/third-level/training/ThirdLevelTraining4";
 import ThirdLevelTraining5 from "../components/third-level/training/ThirdLevelTraining5";
 import ThirdLevelTraining6 from "../components/third-level/training/ThirdLevelTraining6";
+import QuestionController from "../pages/QuestionController";
 
 const trainingPages = {
   FirstLevel: [
@@ -18,7 +22,13 @@ const trainingPages = {
     QuestionController,
     FirstLevelTraining3,
   ],
-  SecondLevel: [QuestionController],
+  SecondLevel: [
+    SecondLevelTraining1,
+    SecondLevelTraining2,
+    SecondLevelTraining3,
+    QuestionController,
+    SecondLevelTraining4,
+  ],
   ThirdLevel: [
     ThirdLevelTraining1,
     ThirdLevelTraining2,

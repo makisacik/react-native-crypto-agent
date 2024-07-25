@@ -22,8 +22,8 @@ const FirstLevelTraining3 = ({
   const buttonOpacity = useRef(new Animated.Value(0)).current;
   const { score } = useScore();
 
-  const maxScore = 150;
-  const numberOfQuestions = 10;
+  const maxScore = 110;
+  const numberOfQuestions = 7;
 
   const handleCharacterClick = () => {
     setShowConversation(true);

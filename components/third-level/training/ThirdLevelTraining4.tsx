@@ -48,7 +48,7 @@ const ThirdLevelTraining4 = ({
       {showFirstConversation && (
         <Conversation
           level="ThirdLevel"
-          conversationNumber={6}
+          conversationNumber={8}
           onFinish={handleConversation4Finish}
         />
       )}
@@ -63,7 +63,7 @@ const ThirdLevelTraining4 = ({
       {showSecondConversation && (
         <Conversation
           level="ThirdLevel"
-          conversationNumber={7}
+          conversationNumber={9}
           onFinish={handleConversation5Finish}
         />
       )}
