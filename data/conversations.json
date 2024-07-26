@@ -171,7 +171,11 @@
       },
       "dialogues": [
         {
-          "text": "The Data Encryption Standard (DES) is another symmetric algorithm!",
+          "text": "Hello Agent!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Time for symmetric algorithms!",
           "speaker": "otherCharacter"
         }
       ]
@@ -389,6 +393,112 @@
         {
           "text": "Well done you have completed the Symmetric Algorithms training.",
           "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation12": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Let's discuss the Key Expansion process for AES in detail.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "First step is Initialization: Start with the original key.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Second step is applying Round Constants, known as Rcon.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Next, we apply SubWord and RotWord for byte substitution and rotation.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Then, we perform an XOR Operation to combine the transformed word with the previous round key.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "This process ensures each encryption round uses a unique key derived from the original key.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation13": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Here is the diagram for the Key Expansion in AES!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "It shows how the original key is expanded into multiple round keys for each encryption round.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation14": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Remember the part about Key Expansion in AES.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation15": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Which logical operation is applied to words on Key Expansion Process in AES?",
+          "speaker": "otherCharacter",
+          "choices": ["AND", "OR", "XOR"],
+          "correctChoiceIndex": 2
+        },
+        {
+          "text": "XOR Operation is applied after the word is transformed with SubWord and RotWord.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Oh! I remember now.",
+          "speaker": "mainCharacter"
         }
       ]
     }

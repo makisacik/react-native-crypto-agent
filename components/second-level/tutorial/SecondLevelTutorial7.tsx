@@ -118,7 +118,7 @@ const SecondLevelTutorial7 = () => {
           {showConversation && (
             <View style={styles.conversationContainer}>
               <Conversation
-                level="SecondLevel"
+                level="none"
                 conversationNumber={2}
                 onFinish={handleConversationFinish}
               />
