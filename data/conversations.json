@@ -783,6 +783,42 @@
           "speaker": "otherCharacter"
         }
       ]
+    },
+    "conversation14": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Let's talk about the Alice and Bob example. This will help you understand the concept of key exchange.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation15": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "I hope you understand the concept of key exchange now. It is crucial for secure communication.",
+          "speaker": "otherCharacter"
+        }
+      ]
     }
   }
 }

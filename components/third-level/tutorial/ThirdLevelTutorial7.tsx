@@ -32,8 +32,8 @@ const points = [
     text: "A special key that makes it easy to invert the function, allowing decryption.",
   },
   {
-    title: "Usage in RSA",
-    text: "Used in the RSA algorithm to securely encrypt and decrypt data.",
+    title: "Usage in Algorithms",
+    text: "Used in the RSA and ECC algorithms to securely encrypt and decrypt data.",
   },
 ];
 
