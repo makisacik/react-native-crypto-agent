@@ -13,6 +13,7 @@ import * as SplashScreen from "expo-splash-screen";
 import FirstLevel from "./pages/FirstLevel";
 import SecondLevel from "./pages/SecondLevel";
 import ThirdLevel from "./pages/ThirdLevel";
+import FourthLevel from "./pages/FourthLevel";
 import TutorialController from "./pages/TutorialController";
 import TrainingController from "./pages/TrainingController";
 import { ScoreProvider } from "./context/ScoreContext";
@@ -22,6 +23,7 @@ type RootStackParamList = {
   FirstLevel: undefined;
   SecondLevel: undefined;
   ThirdLevel: undefined;
+  FourthLevel: undefined;
   TutorialController: { level: string };
   TrainingController: { level: string };
 };
@@ -72,6 +74,14 @@ const HomeScreen = ({
         >
           Start Level 3: Asymmetric Algorithms
         </Button>
+        <Button
+          mode="contained"
+          onPress={() => navigation.navigate("FourthLevel")} // Adding the button for FourthLevel
+          style={styles.button}
+          labelStyle={styles.buttonLabel}
+        >
+          Start Level 4: Hash Functions
+        </Button>
       </View>
     </Card>
   </View>
@@ -98,6 +108,7 @@ export default function App() {
       FirstLevel: "Caesar Cipher",
       SecondLevel: "Symmetric Algorithms",
       ThirdLevel: "Asymmetric Algorithms",
+      FourthLevel: "Hash Functions", // Adding title for FourthLevel
     };
     return `${levelNames[level]} - ${type}`;
   };
@@ -125,6 +136,11 @@ export default function App() {
             name="ThirdLevel"
             component={ThirdLevel}
             options={{ title: "Level 3: Asymmetric Algorithms" }}
+          />
+          <Stack.Screen
+            name="FourthLevel"
+            component={FourthLevel}
+            options={{ title: "Level 4: Hash Functions" }}
           />
           <Stack.Screen
             name="TutorialController"
