@@ -44,6 +44,7 @@ const Conversation = ({
   const [scoreUpdated, setScoreUpdated] = useState(false);
   const [animationSource, setAnimationSource] = useState(null);
   const [animationKey, setAnimationKey] = useState(0);
+  const [incorrectChoice, setIncorrectChoice] = useState<number | null>(null);
   const { addScore } = useScore();
 
   useEffect(() => {
@@ -64,6 +65,8 @@ const Conversation = ({
       if (choiceIndex !== correctChoiceIndex) {
         setAnimationSource(require("../assets/incorrect-animation.json"));
         setAnimationKey((prevKey) => prevKey + 1);
+        setIncorrectChoice(choiceIndex);
+        setTimeout(() => setIncorrectChoice(null), 500);
         return;
       } else if (!scoreUpdated) {
         if (animationSource) {
@@ -116,7 +119,10 @@ const Conversation = ({
                 key={i}
                 mode="contained"
                 onPress={() => handlePress(i)}
-                style={styles.choiceButton}
+                style={[
+                  styles.choiceButton,
+                  incorrectChoice === i && styles.incorrectChoiceButton,
+                ]}
               >
                 {choice}
               </Button>
@@ -179,6 +185,9 @@ const styles = StyleSheet.create({
   },
   choiceButton: {
     marginVertical: 5,
+  },
+  incorrectChoiceButton: {
+    backgroundColor: "red",
   },
   animation: {
     position: "absolute",

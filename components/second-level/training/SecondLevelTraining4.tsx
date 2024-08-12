@@ -1,14 +1,15 @@
 /** @format */
-/** @format */
 
-import React, { useState, useEffect, useRef } from "react";
-import { View, StyleSheet, Text, Animated } from "react-native";
-import { Button, Card, Paragraph } from "react-native-paper";
+import React, { useState, useEffect } from "react";
+import { View, Image, StyleSheet } from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+  runOnJS,
+} from "react-native-reanimated";
+import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
-import Character from "../../Character";
-import { CommonActions } from "@react-navigation/native";
-import { useScore } from "../../../context/ScoreContext";
-import Icon from "react-native-vector-icons/FontAwesome";
 
 const SecondLevelTraining4 = ({
   navigation,
@@ -17,147 +18,92 @@ const SecondLevelTraining4 = ({
   navigation: any;
   onNext: () => void;
 }) => {
-  const [showConversation, setShowConversation] = useState(false);
-  const [showExclamation, setShowExclamation] = useState(true);
-  const [showButton, setShowButton] = useState(false);
-  const buttonOpacity = useRef(new Animated.Value(0)).current;
-  const { score } = useScore();
+  const [showFirstConversation, setShowFirstConversation] = useState(true);
+  const [showIcon, setShowIcon] = useState(false);
+  const [showSecondConversation, setShowSecondConversation] = useState(false);
+  const [showNextButton, setShowNextButton] = useState(false);
+  const fadeAnim = useSharedValue(0);
 
-  const maxScore = 135;
-  const numberOfQuestions = 10;
-
-  const handleCharacterClick = () => {
-    setShowConversation(true);
-    setShowExclamation(false);
+  const handleConversation4Finish = () => {
+    setShowFirstConversation(false);
+    setShowIcon(true);
+    fadeAnim.value = withTiming(1, { duration: 1000 }, () => {
+      runOnJS(setShowSecondConversation)(true);
+    });
   };
 
-  const handleConversationFinish = () => {
-    setShowConversation(false);
-    setShowButton(true);
-    Animated.timing(buttonOpacity, {
-      toValue: 1,
-      duration: 500,
-      useNativeDriver: true,
-    }).start();
+  const handleConversation5Finish = () => {
+    setShowSecondConversation(false);
+    setShowNextButton(true);
   };
 
-  const handleCompleteTutorial = () => {
-    navigation.dispatch(
-      CommonActions.reset({
-        index: 0,
-        routes: [{ name: "Home" }],
-      })
-    );
-  };
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: fadeAnim.value,
+    };
+  });
 
   return (
     <View style={styles.container}>
-      <View style={styles.characterWrapper}>
-        <Character
-          image={require("../../../assets/trainer.png")}
-          name="Trainer"
-          onPress={handleCharacterClick}
-        />
-        {showExclamation && (
-          <View style={styles.exclamationMark}>
-            <Text style={styles.exclamationText}>!</Text>
-          </View>
-        )}
-      </View>
-      <View style={styles.summaryWrapper}>
-        <Card style={styles.summaryCard}>
-          <Card.Content>
-            <Text style={styles.summaryTitle}>Training Summary</Text>
-            <View style={styles.summaryTextContainer}>
-              <Paragraph style={styles.summaryText}>
-                Highest Score Possible: {maxScore}
-              </Paragraph>
-              <Icon name="star" size={15} color="#e28743" style={styles.icon} />
-            </View>
-            <View style={styles.summaryTextContainer}>
-              <Paragraph style={styles.summaryText}>
-                Your Score: {score}
-              </Paragraph>
-              <Icon name="star" size={15} color="#e28743" style={styles.icon} />
-            </View>
-            <Paragraph style={styles.summaryText}>
-              Number of Questions: {numberOfQuestions}
-            </Paragraph>
-          </Card.Content>
-        </Card>
-        {showButton && (
-          <Animated.View style={{ ...styles.button, opacity: buttonOpacity }}>
-            <Button mode="contained" onPress={handleCompleteTutorial}>
-              Complete the training
-            </Button>
-          </Animated.View>
-        )}
-      </View>
-      {showConversation && (
+      {showFirstConversation && (
         <Conversation
           level="SecondLevel"
-          conversationNumber={11}
-          onFinish={handleConversationFinish}
+          conversationNumber={14}
+          onFinish={handleConversation4Finish}
         />
+      )}
+      {showIcon && (
+        <Animated.View style={[styles.iconContainer, animatedStyle]}>
+          <Image
+            source={require("../../../assets/xor.png")}
+            style={styles.icon}
+          />
+        </Animated.View>
+      )}
+      {showSecondConversation && (
+        <Conversation
+          level="SecondLevel"
+          conversationNumber={15}
+          onFinish={handleConversation5Finish}
+        />
+      )}
+      {showNextButton && (
+        <View style={styles.nextButtonContainer}>
+          <Button mode="contained" onPress={onNext} style={styles.nextButton}>
+            Continue
+          </Button>
+        </View>
       )}
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#f0f0f0",
-    paddingTop: 100,
   },
-  characterWrapper: {
-    alignItems: "center",
-    marginBottom: 50,
-  },
-  exclamationMark: {
+  iconContainer: {
     position: "absolute",
-    top: -10,
-    right: 30,
-    backgroundColor: "red",
-    borderRadius: 15,
-    width: 20,
-    height: 20,
+    top: "10%",
     justifyContent: "center",
     alignItems: "center",
   },
-  exclamationText: {
-    color: "white",
-    fontWeight: "bold",
-  },
-  summaryWrapper: {
-    width: "80%",
-    alignItems: "center",
-  },
-  summaryCard: {
-    width: "100%",
-    elevation: 5,
-    marginBottom: 50,
-  },
-  summaryTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 10,
-  },
-  summaryTextContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 5,
-  },
-  summaryText: {
-    fontSize: 16,
-  },
   icon: {
-    marginLeft: 5,
+    width: 200,
+    height: 200,
+    marginBottom: 20,
   },
-  button: {
-    width: "70%",
+  nextButtonContainer: {
+    position: "absolute",
+    bottom: 150,
+    left: 0,
+    right: 0,
+    alignItems: "center",
+  },
+  nextButton: {
+    alignSelf: "center",
   },
 });
 

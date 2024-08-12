@@ -8,6 +8,8 @@ import FirstLevelTutorial5 from "../components/first-level/tutorial/FirstLevelTu
 import SecondLevelTutorial1 from "../components/second-level/tutorial/SecondLevelTutorial1";
 import SecondLevelTutorial2 from "../components/second-level/tutorial/SecondLevelTutorial2";
 import SecondLevelTutorial3 from "../components/second-level/tutorial/SecondLevelTutorial3";
+import SecondLevelTutorial3Extra1 from "../components/second-level/tutorial/SecondLevelTutorial3Extra1";
+import SecondLevelTutorial3Extra2 from "../components/second-level/tutorial/SecondLevelTutorial3Extra2";
 import SecondLevelTutorial4 from "../components/second-level/tutorial/SecondLevelTutorial4";
 import SecondLevelTutorial5 from "../components/second-level/tutorial/SecondLevelTutorial5";
 import SecondLevelTutorial6 from "../components/second-level/tutorial/SecondLevelTutorial6";
@@ -21,6 +23,7 @@ import ThirdLevelTutorial2 from "../components/third-level/tutorial/ThirdLevelTu
 import ThirdLevelTutorial3 from "../components/third-level/tutorial/ThirdLevelTutorial3";
 import ThirdLevelTutorial4 from "../components/third-level/tutorial/ThirdLevelTutorial4";
 import ThirdLevelTutorial5 from "../components/third-level/tutorial/ThirdLevelTutorial5";
+import ThirdLevelTutorial5Extra1 from "../components/third-level/tutorial/ThirdLevelTutorial5Extra1";
 import ThirdLevelTutorial6 from "../components/third-level/tutorial/ThirdLevelTutorial6";
 import ThirdLevelTutorial7 from "../components/third-level/tutorial/ThirdLevelTutorial7";
 import ThirdLevelTutorial8 from "../components/third-level/tutorial/ThirdLevelTutorial8";
@@ -37,6 +40,8 @@ const tutorialPages = {
     SecondLevelTutorial1,
     SecondLevelTutorial2,
     SecondLevelTutorial3,
+    SecondLevelTutorial3Extra1,
+    SecondLevelTutorial3Extra2,
     SecondLevelTutorial4,
     SecondLevelTutorial5,
     SecondLevelTutorial6,
@@ -52,6 +57,7 @@ const tutorialPages = {
     ThirdLevelTutorial3,
     ThirdLevelTutorial4,
     ThirdLevelTutorial5,
+    ThirdLevelTutorial5Extra1,
     ThirdLevelTutorial6,
     ThirdLevelTutorial7,
     ThirdLevelTutorial8,

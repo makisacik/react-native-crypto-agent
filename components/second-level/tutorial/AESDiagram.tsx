@@ -8,24 +8,12 @@ const AESDiagram = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.diagramContainer}>
-        <Svg height="350" width="350">
-          {/* Title */}
-          <SvgText
-            x="175"
-            y="30"
-            fontSize="20"
-            fontWeight="bold"
-            textAnchor="middle"
-            fill="blue"
-          >
-            AES Design
-          </SvgText>
-
+        <Svg height="300" width="350">
           {/* Secret Key */}
-          <Rect x="30" y="70" width="130" height="50" fill="green" />
+          <Rect x="30" y="20" width="130" height="50" fill="green" />
           <SvgText
             x="95"
-            y="100"
+            y="50"
             fontSize="15"
             fontWeight="bold"
             textAnchor="middle"
@@ -35,10 +23,10 @@ const AESDiagram = () => {
           </SvgText>
 
           {/* Plain Text */}
-          <Rect x="190" y="70" width="130" height="50" fill="green" />
+          <Rect x="190" y="20" width="130" height="50" fill="green" />
           <SvgText
             x="255"
-            y="100"
+            y="50"
             fontSize="15"
             fontWeight="bold"
             textAnchor="middle"
@@ -49,7 +37,7 @@ const AESDiagram = () => {
 
           {/* Arrow from Secret Key to Cipher */}
           <Path
-            d="M95 120 V170 H175"
+            d="M95 70 V120 H175"
             stroke="black"
             strokeWidth="2"
             fill="none"
@@ -57,17 +45,17 @@ const AESDiagram = () => {
 
           {/* Arrow from Plain Text to Cipher */}
           <Path
-            d="M255 120 V170 H175"
+            d="M255 70 V120 H175"
             stroke="black"
             strokeWidth="2"
             fill="none"
           />
 
           {/* Cipher */}
-          <Rect x="80" y="170" width="190" height="50" fill="green" />
+          <Rect x="80" y="120" width="190" height="50" fill="green" />
           <SvgText
             x="175"
-            y="200"
+            y="150"
             fontSize="15"
             fontWeight="bold"
             textAnchor="middle"
@@ -77,13 +65,13 @@ const AESDiagram = () => {
           </SvgText>
 
           {/* Arrow from Cipher to Cipher Text */}
-          <Path d="M175 220 V270" stroke="black" strokeWidth="2" fill="none" />
+          <Path d="M175 170 V220" stroke="black" strokeWidth="2" fill="none" />
 
           {/* Cipher Text */}
-          <Rect x="80" y="270" width="190" height="50" fill="blue" />
+          <Rect x="80" y="220" width="190" height="50" fill="blue" />
           <SvgText
             x="175"
-            y="300"
+            y="250"
             fontSize="15"
             fontWeight="bold"
             textAnchor="middle"
@@ -95,7 +83,7 @@ const AESDiagram = () => {
           {/* Key Sizes */}
           <SvgText
             x="10"
-            y="90"
+            y="40"
             fontSize="10"
             fontWeight="bold"
             textAnchor="start"
@@ -105,7 +93,7 @@ const AESDiagram = () => {
           </SvgText>
           <SvgText
             x="10"
-            y="110"
+            y="60"
             fontSize="10"
             fontWeight="bold"
             textAnchor="start"
@@ -115,7 +103,7 @@ const AESDiagram = () => {
           </SvgText>
           <SvgText
             x="10"
-            y="130"
+            y="80"
             fontSize="10"
             fontWeight="bold"
             textAnchor="start"
@@ -126,7 +114,7 @@ const AESDiagram = () => {
 
           <SvgText
             x="310"
-            y="90"
+            y="40"
             fontSize="10"
             fontWeight="bold"
             textAnchor="end"
@@ -136,7 +124,7 @@ const AESDiagram = () => {
           </SvgText>
           <SvgText
             x="310"
-            y="110"
+            y="60"
             fontSize="10"
             fontWeight="bold"
             textAnchor="end"
@@ -146,7 +134,7 @@ const AESDiagram = () => {
           </SvgText>
           <SvgText
             x="310"
-            y="130"
+            y="80"
             fontSize="10"
             fontWeight="bold"
             textAnchor="end"

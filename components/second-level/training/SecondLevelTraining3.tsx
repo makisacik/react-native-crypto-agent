@@ -62,7 +62,7 @@ const SecondLevelTraining3 = ({
       )}
       {showSecondConversation && (
         <Conversation
-          level="ThirdLevel"
+          level="SecondLevel"
           conversationNumber={10}
           onFinish={handleConversation5Finish}
         />

@@ -88,6 +88,33 @@
         "answer": "It applies DES encryption three times",
         "questionType": "singleAnswer"
       },
+
+      {
+        "question": "Which of the following steps is not part of AES key expansion?",
+        "options": [
+          "XOR Operation",
+          "Round Constant (Rcon)",
+          "Key Whitening",
+          "SubWord and RotWord"
+        ],
+        "answer": "Key Whitening",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "Which of the following statements are true about AES key expansion?",
+        "options": [
+          "Initialization starts with the original key",
+          "Round constants are applied in the process",
+          "Key expansion generates a single round key",
+          "Each round key is derived from the original key"
+        ],
+        "answer": [
+          "Initialization starts with the original key",
+          "Round constants are applied in the process",
+          "Each round key is derived from the original key"
+        ],
+        "questionType": "multipleAnswer"
+      },
       {
         "question": "Which of the following statements are true about AES?",
         "options": [

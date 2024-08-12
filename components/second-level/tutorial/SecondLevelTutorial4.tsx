@@ -122,7 +122,7 @@ const SecondLevelTutorial4 = () => {
               <Dialog.Content>
                 <Text>
                   Yes due to the use of an random initialization vector or a
-                  random salt vlue in the encryption process.
+                  random salt value in the encryption process.
                 </Text>
               </Dialog.Content>
               <Dialog.Actions>
