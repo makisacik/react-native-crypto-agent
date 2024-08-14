@@ -16,8 +16,8 @@ const FourthLevel = ({ navigation }: { navigation: any }) => {
     <View style={styles.container}>
       {showConversation && (
         <Conversation
-          level="FourthLevel"
-          conversationNumber={4}
+          level="none"
+          conversationNumber={1}
           onFinish={handleConversationFinish}
         />
       )}

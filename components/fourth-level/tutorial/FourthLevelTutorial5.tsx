@@ -18,16 +18,16 @@ const FourthLevelTutorial5 = () => {
           <Text style={styles.text}>
             <Text style={styles.bold}>SHA-3</Text> is the latest member of the
             Secure Hash Algorithm family, published by NIST in 2015. Unlike its
-            predecessors, SHA-3 is based on the Keccak cryptographic primitive
-            and is designed to complement the SHA-2 family rather than replace
-            it.
+            predecessors, SHA-3 is based on the{" "}
+            <Text style={styles.bold}>Keccak Sponge Construction</Text> and is
+            designed to complement the SHA-2 family rather than replace it.
           </Text>
           <Text style={styles.text}>
-            SHA-3 produces hash values of different lengths, such as{" "}
-            <Text style={styles.bold}>224, 256, 384, and 512 bits</Text>, making
-            it versatile for various cryptographic applications. It is
-            particularly robust against collision and pre-image attacks,
-            ensuring strong security for modern cryptographic needs.
+            SHA-3 produces hash values of different lengths, such as 224, 256,
+            384, and 512 bits, making it versatile for various cryptographic
+            applications. It is particularly robust against collision and
+            pre-image attacks, ensuring strong security for modern cryptographic
+            needs.
           </Text>
           <Image
             source={require("../../../assets/sponge-function.png")}

@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   ScrollView,
@@ -9,13 +9,17 @@ import {
   Animated,
   Image,
 } from "react-native";
-import { Text, Provider } from "react-native-paper";
+import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";
 
 const { width } = Dimensions.get("window");
 const containerWidth = width * 0.9;
 
 const FourthLevelTutorial2 = () => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
+  const [visible, setVisible] = useState(false);
+
+  const showDialog = () => setVisible(true);
+  const hideDialog = () => setVisible(false);
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -51,6 +55,31 @@ const FourthLevelTutorial2 = () => {
               style={styles.image}
             />
           </Animated.View>
+          <Button
+            mode="text"
+            onPress={showDialog}
+            labelStyle={styles.buttonLabel}
+          >
+            Learn More
+          </Button>
+          <Portal>
+            <Dialog visible={visible} onDismiss={hideDialog}>
+              <Dialog.Title>Ronald Rivest</Dialog.Title>
+              <Dialog.Content>
+                <Text style={styles.dialogText}>
+                  Ronald Rivest is the cryptographer who invented the Rivest
+                  Cipher (RC) series, including MD5. His contributions to
+                  cryptography have been fundamental in shaping secure data
+                  practices.
+                </Text>
+              </Dialog.Content>
+              <Dialog.Actions>
+                <Button onPress={hideDialog} labelStyle={styles.buttonLabel}>
+                  Close
+                </Button>
+              </Dialog.Actions>
+            </Dialog>
+          </Portal>
         </View>
       </ScrollView>
     </Provider>
@@ -93,6 +122,14 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     resizeMode: "contain",
+  },
+  buttonLabel: {
+    fontSize: 14,
+    fontFamily: "UbuntuRegular",
+  },
+  dialogText: {
+    fontSize: 16,
+    fontFamily: "UbuntuRegular",
   },
 });
 

@@ -1,28 +1,26 @@
 /** @format */
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, ScrollView, StyleSheet, Image } from "react-native";
-import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";
+import { Text, Provider } from "react-native-paper";
+import Conversation from "../../Conversation";
 
 const FourthLevelTutorial6 = () => {
+  const [showConversation, setShowConversation] = useState(true);
+
+  const handleConversationFinish = () => {
+    setShowConversation(false);
+  };
+
   return (
     <Provider>
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <Text style={styles.title}>Diving Deeper into SHA-3</Text>
         <View style={styles.container}>
-          <Text style={styles.text}>
-            Now that we have a basic understanding of what SHA-3 is, let's dive
-            deeper into the core mechanism that makes SHA-3 both unique and
-            powerful: the{" "}
-            <Text style={styles.bold}>Keccak sponge function</Text>.
-          </Text>
-
           <Text style={styles.subtitle}>The Keccak Sponge Function</Text>
           <Text style={styles.text}>
-            The Keccak sponge function is the heart of SHA-3. Unlike the
-            Merkle-Damgård construction used in SHA-1 and SHA-2, Keccak uses a
-            sponge construction, which is divided into two phases:
-            <Text style={styles.bold}> absorption</Text> and{" "}
+            The Keccak sponge function uses two phases:{" "}
+            <Text style={styles.bold}>absorption</Text> and{" "}
             <Text style={styles.bold}>squeezing</Text>.
           </Text>
           <Image
@@ -33,43 +31,38 @@ const FourthLevelTutorial6 = () => {
             The structure of the Keccak Sponge Function
           </Text>
           <Text style={styles.text}>
-            In the <Text style={styles.bold}>absorption</Text> phase, the input
-            message is XORed into the initial portion of the state, and then the
-            state is iteratively transformed using a permutation function. This
-            step is repeated until all input blocks are processed.
-          </Text>
-          <Text style={styles.text}>
-            The <Text style={styles.bold}>squeezing</Text> phase begins once the
-            entire message has been absorbed. The final hash value is produced
-            by extracting output blocks from the state, which is again permuted
-            between each block extraction.
+            During <Text style={styles.bold}>absorption</Text>, the input is
+            XORed into the state and transformed using the{" "}
+            <Text style={styles.bold}>Keccak permutation function</Text>, a key
+            operation in SHA-3 that applies a series of transformations to mix
+            the bits thoroughly. In <Text style={styles.bold}>squeezing</Text>,
+            the hash is produced by extracting output blocks from the state.
           </Text>
 
           <Text style={styles.subtitle}>Why is SHA-3 Different?</Text>
           <Text style={styles.text}>
-            Unlike SHA-2, where the internal state size is fixed, SHA-3 allows
-            flexibility in the capacity and rate, enabling a trade-off between
-            security and speed. This flexibility makes SHA-3 adaptable to a
-            wider range of applications, including those requiring lightweight
-            cryptography.
-          </Text>
-          <Text style={styles.text}>
-            Moreover, the Keccak function is inherently resistant to length
-            extension attacks, a vulnerability that affects the Merkle-Damgård
-            construction used in SHA-1 and SHA-2.
+            SHA-3 allows flexibility in capacity and rate, enabling a trade-off
+            between security and speed. It is also resistant to length extension
+            attacks, unlike SHA-1 and SHA-2.
           </Text>
 
           <Text style={styles.subtitle}>Applications of SHA-3</Text>
           <Text style={styles.text}>
-            Given its unique structure, SHA-3 is not just a hashing algorithm;
-            it can be adapted for other cryptographic primitives such as
-            pseudo-random number generation, stream ciphers, and even message
-            authentication codes (MACs). Its versatility and security make it a
-            strong candidate for future cryptographic applications, especially
-            in a world preparing for quantum computing.
+            SHA-3's unique structure allows it to adapt to various cryptographic
+            applications, including pseudo-random number generation, stream
+            ciphers, and message authentication codes (MACs).
           </Text>
         </View>
       </ScrollView>
+      {showConversation && (
+        <View style={styles.conversationContainer}>
+          <Conversation
+            level="FourthLevel"
+            conversationNumber={2}
+            onFinish={handleConversationFinish}
+          />
+        </View>
+      )}
     </Provider>
   );
 };
@@ -84,7 +77,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontFamily: "UbuntuBold",
-    marginBottom: 10,
     textAlign: "center",
   },
   subtitle: {
@@ -97,28 +89,27 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     fontFamily: "UbuntuRegular",
-    marginBottom: 10,
     textAlign: "left",
   },
   bold: {
     fontFamily: "UbuntuBold",
-    textAlign: "left",
-  },
-  buttonLabel: {
-    fontSize: 14,
-    fontFamily: "UbuntuRegular",
   },
   image: {
     width: "100%",
     height: 200,
     resizeMode: "contain",
-    marginBottom: 10,
   },
   imageCaption: {
     fontSize: 14,
     fontFamily: "UbuntuRegular",
     color: "#555",
     textAlign: "center",
+    marginBottom: 10,
+  },
+  conversationContainer: {
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
   },
 });
 

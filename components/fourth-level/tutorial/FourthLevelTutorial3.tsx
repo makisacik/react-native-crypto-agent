@@ -35,7 +35,7 @@ const FourthLevelTutorial3 = () => {
             style={styles.image}
           />
           <Text style={styles.imageCaption}>
-            Usage of SHA-1 in Original Paper
+            Usage of SHA-1 with digital signatures
           </Text>
           <Button
             mode="text"
@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 200,
     resizeMode: "contain",
-    marginTop: 20,
   },
   imageCaption: {
     marginTop: 10,

@@ -820,5 +820,61 @@
         }
       ]
     }
+  },
+  "FourthLevel": {
+    "conversation1": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Agent! Let's start our last topic in our education!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Let's explore the Keccak sponge function the core of SHA-3 that makes it unique and powerful.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation2": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Now that we understand the basics of SHA-3.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Let's explore the Keccak sponge function the core of SHA-3 that makes it unique and powerful.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation3": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Instructor",
+          "image": "instructor"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Good job agent!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "You have completed the hash functions tutorial.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    }
   }
 }

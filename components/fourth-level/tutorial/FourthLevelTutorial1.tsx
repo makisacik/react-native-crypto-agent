@@ -12,6 +12,7 @@ import {
   ScrollView,
 } from "react-native";
 import { Text, Provider, Button } from "react-native-paper";
+import Conversation from "../../Conversation";
 
 const { width } = Dimensions.get("window");
 const containerWidth = width * 0.9;
@@ -38,6 +39,7 @@ const algorithms = [
 const FourthLevelTutorial1 = () => {
   const [showIntro, setShowIntro] = useState(true);
   const [animationValues, setAnimationValues] = useState<Animated.Value[]>([]);
+  const [showConversation, setShowConversation] = useState(true);
 
   const startAnimation = () => {
     const values = algorithms.map(() => new Animated.Value(0));
@@ -59,6 +61,10 @@ const FourthLevelTutorial1 = () => {
   const handleShowAlgorithms = () => {
     setShowIntro(false);
     startAnimation();
+  };
+
+  const handleConversationFinish = () => {
+    setShowConversation(false);
   };
 
   return (
@@ -127,6 +133,15 @@ const FourthLevelTutorial1 = () => {
           </ScrollView>
         </View>
       </TouchableWithoutFeedback>
+      {showConversation && (
+        <View style={styles.conversationContainer}>
+          <Conversation
+            level="FourthLevel"
+            conversationNumber={1}
+            onFinish={handleConversationFinish}
+          />
+        </View>
+      )}
     </Provider>
   );
 };
@@ -184,6 +199,11 @@ const styles = StyleSheet.create({
   },
   showAlgorithmsButton: {
     marginTop: 20,
+  },
+  conversationContainer: {
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
   },
 });
 
