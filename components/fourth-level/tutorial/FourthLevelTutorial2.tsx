@@ -28,7 +28,7 @@ const FourthLevelTutorial2 = () => {
   return (
     <Provider>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <Text style={styles.title}>Understanding MD5</Text>
+        <Text style={styles.title}>MD5</Text>
         <View style={styles.container}>
           <Text style={styles.text}>
             <Text style={styles.bold}>MD5</Text> is a hash function that

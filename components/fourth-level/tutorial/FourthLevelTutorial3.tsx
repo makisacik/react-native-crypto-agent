@@ -13,7 +13,7 @@ const FourthLevelTutorial3 = () => {
   return (
     <Provider>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <Text style={styles.title}>Understanding SHA-1</Text>
+        <Text style={styles.title}>SHA-1</Text>
         <View style={styles.container}>
           <Text style={styles.text}>
             <Text style={styles.bold}>SHA-1 (Secure Hash Algorithm 1)</Text> is

@@ -13,14 +13,14 @@ const FourthLevelTutorial5 = () => {
   return (
     <Provider>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <Text style={styles.title}>Understanding SHA-3</Text>
+        <Text style={styles.title}>SHA-3</Text>
         <View style={styles.container}>
           <Text style={styles.text}>
-            <Text style={styles.bold}>SHA-3 (Secure Hash Algorithm 3)</Text> is
-            the latest member of the Secure Hash Algorithm family, published by
-            NIST in 2015. Unlike its predecessors, SHA-3 is based on the Keccak
-            cryptographic primitive and is designed to complement the SHA-2
-            family rather than replace it.
+            <Text style={styles.bold}>SHA-3</Text> is the latest member of the
+            Secure Hash Algorithm family, published by NIST in 2015. Unlike its
+            predecessors, SHA-3 is based on the Keccak cryptographic primitive
+            and is designed to complement the SHA-2 family rather than replace
+            it.
           </Text>
           <Text style={styles.text}>
             SHA-3 produces hash values of different lengths, such as{" "}

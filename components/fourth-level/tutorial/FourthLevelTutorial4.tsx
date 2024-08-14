@@ -14,7 +14,7 @@ const FourthLevelTutorial4 = () => {
   return (
     <Provider>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <Text style={styles.title}>Understanding SHA-256</Text>
+        <Text style={styles.title}>SHA-256</Text>
         <Text style={styles.text}>
           <Text style={styles.bold}>SHA-256</Text> is part of the{" "}
           <Text style={styles.bold}>SHA-2 family</Text> of hash functions, which
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: "UbuntuBold",
     marginBottom: 10,
+    textAlign: "center",
   },
   animation: {
     width: "100%",
