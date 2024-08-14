@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    padding: 20,
+    padding: 10,
   },
   infoContainer: {
     marginTop: 20,
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 200,
+    height: 240,
     resizeMode: "contain",
     marginVertical: 10,
   },
