@@ -875,6 +875,216 @@
           "speaker": "otherCharacter"
         }
       ]
+    },
+    "conversation4": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Let's start by discussing the MD5 algorithm.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "MD5 was once widely used, but it has known vulnerabilities.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation5": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "What is the main weakness of the MD5 algorithm?",
+          "speaker": "otherCharacter",
+          "choices": [
+            "Collision attacks",
+            "Slow speed",
+            "High computational cost"
+          ],
+          "correctChoiceIndex": 0
+        },
+        {
+          "text": "Correct! MD5 is vulnerable to collision attacks.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "That’s an important point to remember.",
+          "speaker": "mainCharacter"
+        }
+      ]
+    },
+    "conversation6": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Next, let's take a look at SHA-1.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "SHA-1 was an improvement over MD5.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation7": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "In which area the SHA-1 was widely used ?",
+          "speaker": "otherCharacter",
+          "choices": [
+            "Data compression",
+            "Cryptocurrencies",
+            "Secure data transimissions"
+          ],
+          "correctChoiceIndex": 2
+        },
+        {
+          "text": "Correct! SHA-1 is widely used in secure data transimissions.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "I see!",
+          "speaker": "mainCharacter"
+        }
+      ]
+    },
+    "conversation8": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Let's move on to SHA-256, part of the SHA-2 family.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "SHA-256 is known for its strong security and is widely used in various applications.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation9": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Which of the following uses SHA-256?",
+          "speaker": "otherCharacter",
+          "choices": ["TLS/SSL", "AES encryption", "Key exchange"],
+          "correctChoiceIndex": 0
+        },
+        {
+          "text": "Correct! SHA-256 is commonly used in securing web communications like TLS/SSL.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "That’s useful to know, especially for web security.",
+          "speaker": "mainCharacter"
+        }
+      ]
+    },
+    "conversation10": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Finally, let's talk about SHA-3.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "SHA-3 is the latest in the family of Secure Hash Algorithms and is based on the Keccak sponge function.",
+          "speaker": "otherCharacter"
+        }
+      ]
+    },
+    "conversation11": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "What makes SHA-3 different from SHA-2?",
+          "speaker": "otherCharacter",
+          "choices": [
+            "Keccak sponge construction",
+            "Smaller hash size",
+            "It’s faster"
+          ],
+          "correctChoiceIndex": 0
+        },
+        {
+          "text": "Correct! SHA-3 uses the Keccak sponge construction, which provides robust security features.",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "That's quite a powerful feature!",
+          "speaker": "mainCharacter"
+        }
+      ]
+    },
+    "conversation12": {
+      "characters": {
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Nice job agent! You have completed the Hash Functions training.",
+          "speaker": "otherCharacter"
+        }
+      ]
     }
   }
 }

@@ -14,7 +14,11 @@ import ThirdLevelTraining3 from "../components/third-level/training/ThirdLevelTr
 import ThirdLevelTraining4 from "../components/third-level/training/ThirdLevelTraining4";
 import ThirdLevelTraining5 from "../components/third-level/training/ThirdLevelTraining5";
 import ThirdLevelTraining6 from "../components/third-level/training/ThirdLevelTraining6";
-import FourthLevel from "../pages/FourthLevel";
+import FourthLevelTraining1 from "../components/fourth-level/training/FourthLevelTraining1";
+import FourthLevelTraining2 from "../components/fourth-level/training/FourthLevelTraining2";
+import FourthLevelTraining3 from "../components/fourth-level/training/FourthLevelTraining3";
+import FourthLevelTraining4 from "../components/fourth-level/training/FourthLevelTraining4";
+import FourthLevelTraining5 from "../components/fourth-level/training/FourthLevelTraining5";
 import QuestionController from "../pages/QuestionController";
 
 const trainingPages = {
@@ -41,7 +45,14 @@ const trainingPages = {
     QuestionController,
     ThirdLevelTraining6,
   ],
-  FourthLevel: [QuestionController],
+  FourthLevel: [
+    FourthLevelTraining1,
+    FourthLevelTraining2,
+    FourthLevelTraining3,
+    FourthLevelTraining4,
+    QuestionController,
+    FourthLevelTraining5,
+  ],
 };
 
 export const getTrainingPages = (level) => trainingPages[level] || [];

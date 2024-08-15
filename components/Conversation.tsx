@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import { Button } from "react-native-paper";
-import { getConversation } from "../utils/ConversationManager";
-import useTypingEffect from "../utils/useTypingEffect";
 import LottieView from "lottie-react-native";
 import { useScore } from "../context/ScoreContext";
+import { getConversation } from "../utils/ConversationManager";
+import useTypingEffect from "../utils/useTypingEffect";
+import WrappedButton from "./WrappedButton"; // Import the new WrappedButton component
 
 interface ConversationProps {
   level: string;
@@ -115,17 +115,16 @@ const Conversation = ({
         {choices.length > 0 && (
           <View style={styles.choicesContainer}>
             {choices.map((choice: string, i: number) => (
-              <Button
+              <WrappedButton
                 key={i}
-                mode="contained"
+                title={choice}
                 onPress={() => handlePress(i)}
                 style={[
                   styles.choiceButton,
                   incorrectChoice === i && styles.incorrectChoiceButton,
                 ]}
-              >
-                {choice}
-              </Button>
+                textStyle={null}
+              />
             ))}
           </View>
         )}
