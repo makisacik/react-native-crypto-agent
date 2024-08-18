@@ -11,13 +11,7 @@ import Animated, {
 import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
 
-const ThirdLevelTraining2 = ({
-  navigation,
-  onNext,
-}: {
-  navigation: any;
-  onNext: () => void;
-}) => {
+const ThirdLevelTraining2 = ({ onNext }: { onNext: () => void }) => {
   const [showFirstConversation, setShowFirstConversation] = useState(true);
   const [showIcon, setShowIcon] = useState(false);
   const [showSecondConversation, setShowSecondConversation] = useState(false);

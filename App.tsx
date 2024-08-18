@@ -76,7 +76,7 @@ const HomeScreen = ({
         </Button>
         <Button
           mode="contained"
-          onPress={() => navigation.navigate("FourthLevel")} // Adding the button for FourthLevel
+          onPress={() => navigation.navigate("FourthLevel")}
           style={styles.button}
           labelStyle={styles.buttonLabel}
         >
@@ -108,9 +108,9 @@ export default function App() {
       FirstLevel: "Caesar Cipher",
       SecondLevel: "Symmetric Algorithms",
       ThirdLevel: "Asymmetric Algorithms",
-      FourthLevel: "Hash Functions", // Adding title for FourthLevel
+      FourthLevel: "Hash Functions",
     };
-    return `${levelNames[level]} - ${type}`;
+    return `${levelNames[level]}`;
   };
 
   return (
@@ -125,22 +125,22 @@ export default function App() {
           <Stack.Screen
             name="FirstLevel"
             component={FirstLevel}
-            options={{ title: "Level 1: Caesar Cipher" }}
+            options={{ title: "Level 1" }}
           />
           <Stack.Screen
             name="SecondLevel"
             component={SecondLevel}
-            options={{ title: "Level 2: Symmetric Algorithms" }}
+            options={{ title: "Level 2" }}
           />
           <Stack.Screen
             name="ThirdLevel"
             component={ThirdLevel}
-            options={{ title: "Level 3: Asymmetric Algorithms" }}
+            options={{ title: "Level 3" }}
           />
           <Stack.Screen
             name="FourthLevel"
             component={FourthLevel}
-            options={{ title: "Level 4: Hash Functions" }}
+            options={{ title: "Level 4" }}
           />
           <Stack.Screen
             name="TutorialController"
@@ -150,7 +150,7 @@ export default function App() {
             }: {
               route: RouteProp<RootStackParamList, "TutorialController">;
             }) => ({
-              title: getTitleForLevel(route.params.level, "Tutorial"),
+              title: getTitleForLevel(route.params.level, ""),
             })}
           />
           <Stack.Screen
@@ -161,7 +161,7 @@ export default function App() {
             }: {
               route: RouteProp<RootStackParamList, "TrainingController">;
             }) => ({
-              title: getTitleForLevel(route.params.level, "Training"),
+              title: getTitleForLevel(route.params.level, ""),
             })}
           />
         </Stack.Navigator>

@@ -12,13 +12,7 @@ import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
 import { useScore } from "../../../context/ScoreContext";
 
-const ThirdLevelTraining1 = ({
-  navigation,
-  onNext,
-}: {
-  navigation: any;
-  onNext: () => void;
-}) => {
+const ThirdLevelTraining1 = ({ onNext }: { onNext: () => void }) => {
   const [showConversation2, setShowConversation2] = useState(true);
   const [showImage, setShowImage] = useState(false);
   const [showConversation3, setShowConversation3] = useState(false);

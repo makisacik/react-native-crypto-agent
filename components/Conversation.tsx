@@ -6,7 +6,7 @@ import LottieView from "lottie-react-native";
 import { useScore } from "../context/ScoreContext";
 import { getConversation } from "../utils/ConversationManager";
 import useTypingEffect from "../utils/useTypingEffect";
-import WrappedButton from "./WrappedButton"; // Import the new WrappedButton component
+import WrappedButton from "./WrappedButton";
 
 interface ConversationProps {
   level: string;
