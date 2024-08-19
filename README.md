@@ -9,7 +9,7 @@ Before you begin, ensure you have the following software installed:
 1. **Node.js**: [Download and install Node.js](https://nodejs.org/).
 2. **Git**: [Download and install Git](https://git-scm.com/).
 3. **Android Studio**: [Download and install Android Studio](https://developer.android.com/studio). Ensure you install the Android SDK and set up an Android Virtual Device on installation.
-After openining the Android Studio, from the "More Actions" menu click on the "Virtual Device Manager". In this menu add a phone virtual device such as Pixel 8, Pixel 7 etc..
+After opening the Android Studio, from the "More Actions" menu click on the "Virtual Device Manager". In this menu add a phone virtual device such as Pixel 8, Pixel 7 etc..
 <img width="475" alt="Screenshot 2024-07-25 at 13 55 41" src="https://github.com/user-attachments/assets/917069a5-4468-454a-b0bd-2c411c5371f2">
 
 Press the plus icon on the left:
