@@ -103,14 +103,14 @@ export default function App() {
     return null;
   }
 
-  const getTitleForLevel = (level: string, type: string) => {
+  const getTitleForLevel = (level: string) => {
     const levelNames: { [key: string]: string } = {
       FirstLevel: "Caesar Cipher",
       SecondLevel: "Symmetric Algorithms",
       ThirdLevel: "Asymmetric Algorithms",
       FourthLevel: "Hash Functions",
     };
-    return `${levelNames[level]}`;
+    return levelNames[level];
   };
 
   return (
@@ -150,7 +150,7 @@ export default function App() {
             }: {
               route: RouteProp<RootStackParamList, "TutorialController">;
             }) => ({
-              title: getTitleForLevel(route.params.level, ""),
+              title: getTitleForLevel(route.params.level),
             })}
           />
           <Stack.Screen
@@ -161,7 +161,7 @@ export default function App() {
             }: {
               route: RouteProp<RootStackParamList, "TrainingController">;
             }) => ({
-              title: getTitleForLevel(route.params.level, ""),
+              title: getTitleForLevel(route.params.level),
             })}
           />
         </Stack.Navigator>
