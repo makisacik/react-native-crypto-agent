@@ -10,30 +10,24 @@ import Animated, {
 } from "react-native-reanimated";
 import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
-import { useScore } from "../../../context/ScoreContext";
 
-const ThirdLevelTraining1 = ({ onNext }: { onNext: () => void }) => {
-  const [showConversation2, setShowConversation2] = useState(true);
+const FourthLevelTraining3 = ({ onNext }: { onNext: () => void }) => {
+  const [showConversation1, setShowConversation1] = useState(true);
   const [showImage, setShowImage] = useState(false);
-  const [showConversation3, setShowConversation3] = useState(false);
+  const [showConversation2, setShowConversation2] = useState(false);
   const [showNextButton, setShowNextButton] = useState(false);
   const fadeAnim = useSharedValue(0);
-  const { resetScore } = useScore();
 
-  useEffect(() => {
-    resetScore();
-  }, []);
-
-  const handleConversation2Finish = () => {
-    setShowConversation2(false);
+  const handleConversation1Finish = () => {
+    setShowConversation1(false);
     setShowImage(true);
     fadeAnim.value = withTiming(1, { duration: 1000 }, () => {
-      runOnJS(setShowConversation3)(true);
+      runOnJS(setShowConversation2)(true);
     });
   };
 
-  const handleConversation3Finish = () => {
-    setShowConversation3(false);
+  const handleConversation2Finish = () => {
+    setShowConversation2(false);
     setShowNextButton(true);
   };
 
@@ -45,26 +39,26 @@ const ThirdLevelTraining1 = ({ onNext }: { onNext: () => void }) => {
 
   return (
     <View style={styles.container}>
-      {showConversation2 && (
+      {showConversation1 && (
         <Conversation
-          level="ThirdLevel"
-          conversationNumber={2}
-          onFinish={handleConversation2Finish}
+          level="FourthLevel"
+          conversationNumber={8}
+          onFinish={handleConversation1Finish}
         />
       )}
       {showImage && (
         <Animated.View style={[styles.imageContainer, animatedStyle]}>
           <Image
-            source={require("../../../assets/computer.png")}
+            source={require("../../../assets/tls-ssl.png")}
             style={styles.image}
           />
         </Animated.View>
       )}
-      {showConversation3 && (
+      {showConversation2 && (
         <Conversation
-          level="ThirdLevel"
-          conversationNumber={3}
-          onFinish={handleConversation3Finish}
+          level="FourthLevel"
+          conversationNumber={9}
+          onFinish={handleConversation2Finish}
         />
       )}
       {showNextButton && (
@@ -83,7 +77,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f0f0f0",
   },
   imageContainer: {
     position: "absolute",
@@ -108,4 +101,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ThirdLevelTraining1;
+export default FourthLevelTraining3;

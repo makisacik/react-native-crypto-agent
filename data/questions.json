@@ -253,5 +253,99 @@
         "questionType": "singleAnswer"
       }
     ]
+  },
+  "FourthLevel": {
+    "questions": [
+      {
+        "question": "What is the bit length of the hash value produced by the MD5 algorithm?",
+        "options": ["128-bit", "160-bit", "256-bit", "512-bit"],
+        "answer": "128-bit",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "Why is MD5 considered vulnerable?",
+        "options": [
+          "It is slow in generating hash values",
+          "It is susceptible to collision attacks",
+          "It uses too much computational power",
+          "It generates too large hash values"
+        ],
+        "answer": "It is susceptible to collision attacks",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "Which statement is true about SHA-1?",
+        "options": [
+          "It produces a 160-bit hash value",
+          "It is still widely used in modern cryptography",
+          "It is more secure than SHA-2",
+          "It is not vulnerable to collision attacks"
+        ],
+        "answer": "It produces a 160-bit hash value",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "SHA-256 is part of which hash function family?",
+        "options": ["SHA-1", "SHA-2", "SHA-3", "MD5"],
+        "answer": "SHA-2",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "What is a key application of SHA-256?",
+        "options": [
+          "Compressing data",
+          "File encryption",
+          "Transaction verification in cryptocurrencies",
+          "Password storage"
+        ],
+        "answer": "Transaction verification in cryptocurrencies",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "Which of the following are features of SHA-3?",
+        "options": [
+          "It is based on the Keccak Sponge Construction",
+          "It is designed to replace SHA-2",
+          "It produces hash values of various lengths",
+          "It is vulnerable to length extension attacks"
+        ],
+        "answer": [
+          "It is based on the Keccak Sponge Construction",
+          "It produces hash values of various lengths"
+        ],
+        "questionType": "multipleAnswer"
+      },
+      {
+        "question": "SHA-3 was introduced to complement which hash function family?",
+        "options": ["SHA-1", "MD5", "SHA-2", "Blowfish"],
+        "answer": "SHA-2",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "What are the two phases of the Keccak Sponge Function used in SHA-3?",
+        "options": [
+          "Absorption and Squeezing",
+          "Encryption and Decryption",
+          "Hashing and Verification",
+          "Compression and Expansion"
+        ],
+        "answer": "Absorption and Squeezing",
+        "questionType": "singleAnswer"
+      },
+      {
+        "question": "Which of the following statements are true about SHA-3?",
+        "options": [
+          "It is resistant to quantum computing threats",
+          "It is more vulnerable to collision attacks than SHA-2",
+          "It offers flexibility in capacity and rate",
+          "It is primarily used for file encryption"
+        ],
+        "answer": [
+          "It is resistant to quantum computing threats",
+          "It offers flexibility in capacity and rate"
+        ],
+        "questionType": "multipleAnswer"
+      }
+    ]
   }
 }

@@ -24,7 +24,7 @@ const ThirdLevelTraining5 = ({
   const [showNextButton, setShowNextButton] = useState(false);
   const fadeAnim = useSharedValue(0);
 
-  const handleConversation4Finish = () => {
+  const handleFirstConversationFinish = () => {
     setShowFirstConversation(false);
     setShowIcon(true);
     fadeAnim.value = withTiming(1, { duration: 1000 }, () => {
@@ -32,7 +32,7 @@ const ThirdLevelTraining5 = ({
     });
   };
 
-  const handleConversation5Finish = () => {
+  const handleSecondConversationFinish = () => {
     setShowSecondConversation(false);
     setShowNextButton(true);
   };
@@ -49,7 +49,7 @@ const ThirdLevelTraining5 = ({
         <Conversation
           level="ThirdLevel"
           conversationNumber={10}
-          onFinish={handleConversation4Finish}
+          onFinish={handleFirstConversationFinish}
         />
       )}
       {showIcon && (
@@ -64,7 +64,7 @@ const ThirdLevelTraining5 = ({
         <Conversation
           level="ThirdLevel"
           conversationNumber={11}
-          onFinish={handleConversation5Finish}
+          onFinish={handleSecondConversationFinish}
         />
       )}
       {showNextButton && (
