@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 16,
     marginVertical: 10,
-    fontFamily: "UbuntuMedium",
+    fontFamily: "UbuntuRegular",
     textAlign: "center",
   },
   image: {

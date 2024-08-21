@@ -133,6 +133,28 @@
           "speaker": "otherCharacter"
         }
       ]
+    },
+    "conversation6": {
+      "characters": {
+        "mainCharacter": {
+          "name": "Agent",
+          "image": "agent"
+        },
+        "otherCharacter": {
+          "name": "Trainer",
+          "image": "trainer"
+        }
+      },
+      "dialogues": [
+        {
+          "text": "Do an encryption for this one!",
+          "speaker": "otherCharacter"
+        },
+        {
+          "text": "Sure!",
+          "speaker": "mainCharacter"
+        }
+      ]
     }
   },
   "SecondLevel": {
