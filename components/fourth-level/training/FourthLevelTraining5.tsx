@@ -23,8 +23,8 @@ const FourthLevelTraining5 = ({
   const buttonOpacity = useRef(new Animated.Value(0)).current;
   const { score } = useScore();
 
-  const maxScore = 200;
-  const numberOfQuestions = 15;
+  const maxScore = 195;
+  const numberOfQuestions = 13;
 
   const handleCharacterClick = () => {
     setShowConversation(true);

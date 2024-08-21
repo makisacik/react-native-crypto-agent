@@ -23,8 +23,8 @@ const SecondLevelTraining5 = ({
   const buttonOpacity = useRef(new Animated.Value(0)).current;
   const { score } = useScore();
 
-  const maxScore = 135;
-  const numberOfQuestions = 10;
+  const maxScore = 180;
+  const numberOfQuestions = 12;
 
   const handleCharacterClick = () => {
     setShowConversation(true);
