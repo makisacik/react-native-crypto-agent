@@ -387,16 +387,12 @@
           "correctChoiceIndex": 1
         },
         {
-          "text": "Correct! RC4 is ideal for low-power devices due to its simplicity and speed.",
+          "text": "Correct! DES is vulnerable to brute-force attacks due to its small key size.",
           "speaker": "otherCharacter"
         },
         {
           "text": "Makes sense!",
           "speaker": "mainCharacter"
-        },
-        {
-          "text": "Now you are ready for the multiple choice test!",
-          "speaker": "otherCharacter"
         }
       ]
     },
@@ -521,6 +517,10 @@
         {
           "text": "Oh! I remember now.",
           "speaker": "mainCharacter"
+        },
+        {
+          "text": "Now you are ready for the multiple choice test!",
+          "speaker": "otherCharacter"
         }
       ]
     }

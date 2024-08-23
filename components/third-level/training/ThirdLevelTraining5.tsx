@@ -1,6 +1,7 @@
 /** @format */
+// TRAINING PAGE TO DISPLAY DIGITAL SIGNATURE IMAGE AND CONVERSATION
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Image, StyleSheet } from "react-native";
 import Animated, {
   useSharedValue,

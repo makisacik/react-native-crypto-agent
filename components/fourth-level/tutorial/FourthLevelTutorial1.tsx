@@ -1,6 +1,7 @@
 /** @format */
+// INTRODUCTION TO HASH FUNCTIONS AND LIST OF COMMON HASH ALGORITHMS
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import {
   View,
   StyleSheet,

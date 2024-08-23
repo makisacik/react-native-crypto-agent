@@ -1,4 +1,5 @@
 /** @format */
+// CONTEXT FILE TO MANAGE SCORE. PROVIDES SCORE AND FUNCTIONS TO ADD AND RESET SCORE
 
 import React, { createContext, useState, useContext } from "react";
 

@@ -1,4 +1,5 @@
 /** @format */
+// APP FILE WHICH HAS THE HOME PAGE AND MAIN MENU. IT ALSO SETS UP THE NAVIGATION AND LOADS THE FONTS
 
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Text } from "react-native";

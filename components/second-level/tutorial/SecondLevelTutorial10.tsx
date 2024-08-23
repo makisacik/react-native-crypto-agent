@@ -1,4 +1,5 @@
 /** @format */
+// APPLICATIONS OF SYMMETRIC KEY CRYPTOGRAPHY TUTORIAL PAGE
 
 import React, { useState, useEffect, useRef } from "react";
 import {

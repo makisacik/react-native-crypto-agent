@@ -1,4 +1,5 @@
 /** @format */
+//QUESTION CONTROLLER. THE CONTROLLER WHICH DISPLAYS THE QUESTIONS AND HANDLES THE ANSWERS
 
 import React, { useState } from "react";
 import {

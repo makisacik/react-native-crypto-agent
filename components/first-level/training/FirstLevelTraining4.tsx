@@ -1,4 +1,5 @@
 /** @format */
+// TRAINING SUMMARY PAGE FOR FIRST LEVEL. IT DISPLAYS THE SUMMARY OF THE TRAINING AND THE SCORE
 
 import React, { useState, useEffect, useRef } from "react";
 import { View, StyleSheet, Text, Animated } from "react-native";

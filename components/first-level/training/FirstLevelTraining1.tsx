@@ -1,4 +1,5 @@
 /** @format */
+// THE FIRST TRAINING PAGE OF FIRST LEVEL. CONTAINS THE TRAINER AND A CONVERSATION COMPONENT
 
 import React, { useState, useRef, useEffect } from "react";
 import { View, StyleSheet, Text, Animated } from "react-native";

@@ -1,4 +1,5 @@
 /** @format */
+// UTILITY FILE TO GET CONVERSATION DATA FROM CONVERSARTIONS.JSON FILE
 
 const conversations = require("../data/conversations.json");
 

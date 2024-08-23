@@ -1,4 +1,5 @@
 /** @format */
+// TUTORIAL PAGE FOR SHA-256 HASH FUNCTION
 
 import React, { useState } from "react";
 import { View, ScrollView, StyleSheet } from "react-native";

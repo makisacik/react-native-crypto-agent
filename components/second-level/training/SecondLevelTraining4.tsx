@@ -1,4 +1,5 @@
 /** @format */
+// TRAINING PAGE TO DISPLAY RELATED XOR GATE IMAGE AND KEY EXPANSION CONVERSATION
 
 import React, { useState, useEffect } from "react";
 import { View, Image, StyleSheet } from "react-native";

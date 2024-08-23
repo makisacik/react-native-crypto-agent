@@ -1,4 +1,5 @@
 /** @format */
+// AES DIAGRAM TO DISPLAY THE AES ENCRYPTION PROCESS
 
 import React from "react";
 import { ScrollView, View, StyleSheet } from "react-native";

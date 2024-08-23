@@ -1,5 +1,5 @@
 /** @format */
-/** @format */
+// TRAINING SUMMARY PAGE FOR SECOND LEVEL. IT DISPLAYS THE SUMMARY OF THE TRAINING AND THE SCORE
 
 import React, { useState, useEffect, useRef } from "react";
 import { View, StyleSheet, Text, Animated } from "react-native";

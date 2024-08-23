@@ -1,6 +1,7 @@
 /** @format */
+// AES ENCRYPTION TUTORIAL PAGE
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   StyleSheet,
@@ -8,7 +9,6 @@ import {
   Keyboard,
   ScrollView,
   Dimensions,
-  Animated,
 } from "react-native";
 import {
   Text,

@@ -1,4 +1,5 @@
 /** @format */
+// UTILITY FILE TO GET TRAINING PAGES FOR EACH LEVEL AND TO SPECIFY THE ORDER OF TRAINING PAGES
 
 import FirstLevelTraining1 from "../components/first-level/training/FirstLevelTraining1";
 import FirstLevelTraining2 from "../components/first-level/training/FirstLevelTraining2";
