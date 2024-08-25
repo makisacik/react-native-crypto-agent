@@ -1,3 +1,5 @@
+// UTILITY FUNCTION TO CREATE TYPING EFFECT
+
 import { useState, useEffect } from 'react';
 
 const useTypingEffect = (text: string, speed: number) => {

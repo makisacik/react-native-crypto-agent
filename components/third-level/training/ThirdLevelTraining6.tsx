@@ -1,5 +1,5 @@
 /** @format */
-/** @format */
+// TRAINING SUMMARY PAGE FOR THIRD LEVEL. IT DISPLAYS THE SUMMARY OF THE TRAINING AND THE SCORE
 
 import React, { useState, useEffect, useRef } from "react";
 import { View, StyleSheet, Text, Animated } from "react-native";
@@ -23,7 +23,7 @@ const ThirdLevelTraining6 = ({
   const buttonOpacity = useRef(new Animated.Value(0)).current;
   const { score } = useScore();
 
-  const maxScore = 200;
+  const maxScore = 225;
   const numberOfQuestions = 15;
 
   const handleCharacterClick = () => {

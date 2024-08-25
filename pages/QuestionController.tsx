@@ -1,4 +1,5 @@
 /** @format */
+//QUESTION CONTROLLER. THE CONTROLLER WHICH DISPLAYS THE QUESTIONS AND HANDLES THE ANSWERS
 
 import React, { useState } from "react";
 import {
@@ -12,7 +13,15 @@ import {
 } from "react-native";
 import { getQuestions } from "../utils/QuestionManager";
 import { Ionicons } from "@expo/vector-icons";
-import { ProgressBar, useTheme, Card } from "react-native-paper";
+import {
+  ProgressBar,
+  useTheme,
+  Card,
+  Button,
+  Dialog,
+  Portal,
+  Provider,
+} from "react-native-paper";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -38,6 +47,8 @@ const QuestionController = ({
   const [animationKey, setAnimationKey] = useState(0);
   const [animationSource, setAnimationSource] = useState(null);
   const [answerChecked, setAnswerChecked] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [explanation, setExplanation] = useState("");
   const theme = useTheme();
   const { addScore } = useScore();
 
@@ -56,6 +67,7 @@ const QuestionController = ({
         setAnimationSource(null);
         setScoreUpdated(false);
         setAnswerChecked(false);
+        setExplanation("");
         fadeIn();
       }, 200);
     } else {
@@ -72,6 +84,7 @@ const QuestionController = ({
         setAnimationSource(null);
         setScoreUpdated(false);
         setAnswerChecked(false);
+        setExplanation("");
         fadeIn();
       }, 200);
     }
@@ -109,6 +122,7 @@ const QuestionController = ({
       setAnimationSource(require("../assets/incorrect-animation.json"));
     }
     setAnswerChecked(true);
+    setExplanation(currentQuestion.explanation);
     setAnimationKey((prevKey) => prevKey + 1);
   };
 
@@ -138,119 +152,146 @@ const QuestionController = ({
     setAnimationSource(null);
   };
 
+  const showDialog = () => setVisible(true);
+  const hideDialog = () => setVisible(false);
+
   return (
-    <TouchableWithoutFeedback onPress={handleDismissAnimation}>
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior={Platform.OS === "ios" ? undefined : "height"}
-        keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
-      >
-        <View style={styles.contentContainer}>
-          <Animated.View style={[styles.content, animatedStyle]}>
-            <Card style={styles.questionCard}>
-              <Card.Content>
-                <Text style={styles.questionText}>
-                  {currentQuestion.question}
-                </Text>
-              </Card.Content>
-            </Card>
-            <View>
-              {currentQuestion.options.map((option: string, index: number) => (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() => handleOptionSelect(option)}
-                  disabled={answerChecked}
+    <Provider>
+      <TouchableWithoutFeedback onPress={handleDismissAnimation}>
+        <KeyboardAvoidingView
+          style={styles.container}
+          behavior={Platform.OS === "ios" ? undefined : "height"}
+          keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
+        >
+          <View style={styles.contentContainer}>
+            <Animated.View style={[styles.content, animatedStyle]}>
+              <Card style={styles.questionCard}>
+                <Card.Content>
+                  <Text style={styles.questionText}>
+                    {currentQuestion.question}
+                  </Text>
+                </Card.Content>
+              </Card>
+              <View>
+                {currentQuestion.options.map(
+                  (option: string, index: number) => (
+                    <TouchableOpacity
+                      key={index}
+                      onPress={() => handleOptionSelect(option)}
+                      disabled={answerChecked}
+                    >
+                      <Card
+                        style={[
+                          styles.optionCard,
+                          {
+                            backgroundColor:
+                              answerChecked &&
+                              (currentQuestion.questionType === "multipleAnswer"
+                                ? currentQuestion.answer.includes(option)
+                                : option === currentQuestion.answer)
+                                ? "lightgreen"
+                                : "white",
+                          },
+                        ]}
+                      >
+                        <Card.Content style={styles.optionContent}>
+                          <Ionicons
+                            name={
+                              currentQuestion.questionType === "multipleAnswer"
+                                ? selectedOptions.includes(option)
+                                  ? "checkbox"
+                                  : "square-outline"
+                                : selectedOptions.includes(option)
+                                ? "radio-button-on"
+                                : "radio-button-off"
+                            }
+                            size={24}
+                            color={
+                              selectedOptions.includes(option)
+                                ? theme.colors.primary
+                                : "gray"
+                            }
+                          />
+                          <Text style={styles.optionText}>{option}</Text>
+                        </Card.Content>
+                      </Card>
+                    </TouchableOpacity>
+                  )
+                )}
+              </View>
+              <TouchableOpacity
+                style={[
+                  styles.checkButton,
+                  {
+                    backgroundColor: answerChecked
+                      ? "gray"
+                      : theme.colors.primary,
+                  },
+                ]}
+                onPress={handleCheckAnswer}
+                disabled={selectedOptions.length === 0 || answerChecked}
+              >
+                <Text style={styles.checkButtonText}>Check Answer</Text>
+              </TouchableOpacity>
+              {answerChecked && (
+                <Button
+                  mode="outlined"
+                  onPress={showDialog}
+                  style={styles.explanationButton}
                 >
-                  <Card
-                    style={[
-                      styles.optionCard,
-                      {
-                        backgroundColor:
-                          answerChecked &&
-                          (currentQuestion.questionType === "multipleAnswer"
-                            ? currentQuestion.answer.includes(option)
-                            : option === currentQuestion.answer)
-                            ? "lightgreen"
-                            : "white",
-                      },
-                    ]}
-                  >
-                    <Card.Content style={styles.optionContent}>
-                      <Ionicons
-                        name={
-                          currentQuestion.questionType === "multipleAnswer"
-                            ? selectedOptions.includes(option)
-                              ? "checkbox"
-                              : "square-outline"
-                            : selectedOptions.includes(option)
-                            ? "radio-button-on"
-                            : "radio-button-off"
-                        }
-                        size={24}
-                        color={
-                          selectedOptions.includes(option)
-                            ? theme.colors.primary
-                            : "gray"
-                        }
-                      />
-                      <Text style={styles.optionText}>{option}</Text>
-                    </Card.Content>
-                  </Card>
-                </TouchableOpacity>
-              ))}
-            </View>
+                  Show Explanation
+                </Button>
+              )}
+            </Animated.View>
+            {animationSource && (
+              <LottieView
+                key={animationKey}
+                source={animationSource}
+                autoPlay
+                loop={false}
+                style={styles.animation}
+                onAnimationFinish={() => setAnimationSource(null)}
+              />
+            )}
+          </View>
+          <ProgressBar
+            progress={progress}
+            color={theme.colors.primary}
+            style={styles.progressBar}
+          />
+          <View style={styles.navigationContainer}>
             <TouchableOpacity
-              style={[
-                styles.checkButton,
-                {
-                  backgroundColor: answerChecked
-                    ? "gray"
-                    : theme.colors.primary,
-                },
-              ]}
-              onPress={handleCheckAnswer}
-              disabled={selectedOptions.length === 0 || answerChecked}
+              onPress={handlePrevious}
+              disabled={currentQuestionIndex === 0}
             >
-              <Text style={styles.checkButtonText}>Check Answer</Text>
+              <Ionicons
+                name="arrow-back"
+                size={32}
+                color={currentQuestionIndex === 0 ? "gray" : "black"}
+              />
             </TouchableOpacity>
-          </Animated.View>
-          {animationSource && (
-            <LottieView
-              key={animationKey}
-              source={animationSource}
-              autoPlay
-              loop={false}
-              style={styles.animation}
-              onAnimationFinish={() => setAnimationSource(null)}
-            />
-          )}
-        </View>
-        <ProgressBar
-          progress={progress}
-          color={theme.colors.primary}
-          style={styles.progressBar}
-        />
-        <View style={styles.navigationContainer}>
-          <TouchableOpacity
-            onPress={handlePrevious}
-            disabled={currentQuestionIndex === 0}
-          >
-            <Ionicons
-              name="arrow-back"
-              size={32}
-              color={currentQuestionIndex === 0 ? "gray" : "black"}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleNext} disabled={!answerChecked}>
-            <Ionicons
-              name="arrow-forward"
-              size={32}
-              color={!answerChecked ? "gray" : "black"}
-            />
-          </TouchableOpacity>
-        </View>
-      </KeyboardAvoidingView>
-    </TouchableWithoutFeedback>
+            <TouchableOpacity onPress={handleNext} disabled={!answerChecked}>
+              <Ionicons
+                name="arrow-forward"
+                size={32}
+                color={!answerChecked ? "gray" : "black"}
+              />
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
+      </TouchableWithoutFeedback>
+      <Portal>
+        <Dialog visible={visible} onDismiss={hideDialog}>
+          <Dialog.Title>Explanation</Dialog.Title>
+          <Dialog.Content>
+            <Text>{explanation}</Text>
+          </Dialog.Content>
+          <Dialog.Actions>
+            <Button onPress={hideDialog}>Close</Button>
+          </Dialog.Actions>
+        </Dialog>
+      </Portal>
+    </Provider>
   );
 };
 
@@ -317,6 +358,9 @@ const styles = StyleSheet.create({
     transform: [{ translateX: -100 }, { translateY: -100 }],
     width: 200,
     height: 200,
+  },
+  explanationButton: {
+    marginTop: 20,
   },
 });
 

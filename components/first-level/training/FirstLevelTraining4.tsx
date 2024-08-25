@@ -1,5 +1,5 @@
 /** @format */
-// TRAINING SUMMARY PAGE FOR THIRD LEVEL. IT DISPLAYS THE SUMMARY OF THE TRAINING AND THE SCORE
+// TRAINING SUMMARY PAGE FOR FIRST LEVEL. IT DISPLAYS THE SUMMARY OF THE TRAINING AND THE SCORE
 
 import React, { useState, useEffect, useRef } from "react";
 import { View, StyleSheet, Text, Animated } from "react-native";
@@ -10,7 +10,7 @@ import { CommonActions } from "@react-navigation/native";
 import { useScore } from "../../../context/ScoreContext";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-const FourthLevelTraining5 = ({
+const FirstLevelTraining4 = ({
   navigation,
   onNext,
 }: {
@@ -23,8 +23,8 @@ const FourthLevelTraining5 = ({
   const buttonOpacity = useRef(new Animated.Value(0)).current;
   const { score } = useScore();
 
-  const maxScore = 195;
-  const numberOfQuestions = 13;
+  const maxScore = 130;
+  const numberOfQuestions = 8;
 
   const handleCharacterClick = () => {
     setShowConversation(true);
@@ -95,8 +95,8 @@ const FourthLevelTraining5 = ({
       </View>
       {showConversation && (
         <Conversation
-          level="FourthLevel"
-          conversationNumber={12}
+          level="FirstLevel"
+          conversationNumber={5}
           onFinish={handleConversationFinish}
         />
       )}
@@ -161,4 +161,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FourthLevelTraining5;
+export default FirstLevelTraining4;

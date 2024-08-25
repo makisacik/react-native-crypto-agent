@@ -1,4 +1,5 @@
 /** @format */
+// SECOND TRAINING PAGE FOR ECC CONVERSATION AND A RELATED IMAGE
 
 import React, { useState, useEffect } from "react";
 import { View, Image, StyleSheet } from "react-native";

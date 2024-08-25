@@ -1,4 +1,5 @@
 /** @format */
+// PAGE FOR TRAPDOOR ONE-WAY FUNCTION TUTORIAL
 
 import React, { useState, useEffect, useRef } from "react";
 import {

@@ -1,4 +1,5 @@
 /** @format */
+// TRAINING PAGE TO DISPLAY RELATED IMAGE AND AES CONVERSATIONS
 
 import React, { useState, useEffect } from "react";
 import { View, Image, StyleSheet } from "react-native";

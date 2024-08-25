@@ -1,4 +1,5 @@
 /** @format */
+// TRAINING PAGE TO DISPLAY CAESAR CIPHER DECRYPTION QUESTION
 
 import React, { useState } from "react";
 import { View, Image, StyleSheet } from "react-native";
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
   },
   nextButtonContainer: {
     position: "absolute",
-    bottom: 250,
+    bottom: 170,
     left: 0,
     right: 0,
     alignItems: "center",

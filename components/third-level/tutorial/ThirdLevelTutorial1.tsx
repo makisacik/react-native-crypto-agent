@@ -1,4 +1,6 @@
 /** @format */
+//INTRODUCTION PAGE FOR ASYMMETRIC ALGORITHMS
+
 import React, { useState } from "react";
 import { View, ScrollView, StyleSheet, Image } from "react-native";
 import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";

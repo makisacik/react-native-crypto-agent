@@ -1,4 +1,5 @@
 /** @format */
+// APP FILE WHICH HAS THE HOME PAGE AND MAIN MENU. IT ALSO SETS UP THE NAVIGATION AND LOADS THE FONTS
 
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Text } from "react-native";
@@ -17,6 +18,7 @@ import FourthLevel from "./pages/FourthLevel";
 import TutorialController from "./pages/TutorialController";
 import TrainingController from "./pages/TrainingController";
 import { ScoreProvider } from "./context/ScoreContext";
+import { LogBox } from "react-native";
 
 type RootStackParamList = {
   Home: undefined;
@@ -40,6 +42,7 @@ const loadFonts = async () => {
 };
 
 SplashScreen.preventAutoHideAsync();
+LogBox.ignoreAllLogs();
 
 const HomeScreen = ({
   navigation,

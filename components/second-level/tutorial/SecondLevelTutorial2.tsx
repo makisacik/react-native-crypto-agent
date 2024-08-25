@@ -1,4 +1,5 @@
 /** @format */
+//TUTORIAL PAGE TO EXPLAIN TYPES OF SYMMETRIC ALGORITHMS
 
 import React, { useState, useEffect, useRef } from "react";
 import {

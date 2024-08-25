@@ -1,4 +1,5 @@
 /** @format */
+//TRAINING CONTROLLER. THE CONTROLLER WHICH DISPLAYS THE TRAINING PAGES AND HANDLES THE NAVIGATION
 
 import React, { useState, useLayoutEffect } from "react";
 import { View, StyleSheet, Text } from "react-native";

@@ -1,4 +1,5 @@
 /** @format */
+// TUTORIAL PAGE FOR MD5 HASH FUNCTION
 
 import React, { useState, useEffect, useRef } from "react";
 import {

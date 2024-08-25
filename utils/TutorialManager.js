@@ -1,4 +1,5 @@
 /** @format */
+// UTILITY FILE TO GET TUTORIAL PAGES FOR EACH LEVEL AND TO SPECIFY THE ORDER OF TUTORIAL PAGES
 
 import FirstLevelTutorial1 from "../components/first-level/tutorial/FirstLevelTutorial1";
 import FirstLevelTutorial2 from "../components/first-level/tutorial/FirstLevelTutorial2";

@@ -1,4 +1,5 @@
 /** @format */
+// CAESAR CIPHER QUESTION COMPONENT TO DISPLAY ENCRYPTION/DECRYPTION QUESTION AND A CIRCULAR ALPHABET. IT IS USED IN TRAINING PAGES OF FIRST LEVEL
 
 import React, { useState, useEffect } from "react";
 import {
@@ -21,19 +22,19 @@ import SuccessAnimation from "./animations/SuccessAnimation";
 import IncorrectAnimation from "./animations/IncorrectAnimation";
 
 interface CaesarCipherQuestionProps {
-  isEncoding: boolean;
-  text: string;
-  onCorrectAnswer: () => void;
-  onMistake: () => void;
-  shift: number;
+  isEncoding?: boolean;
+  text?: string;
+  onCorrectAnswer?: () => void;
+  onMistake?: () => void;
+  shift?: number;
 }
 
 const CaesarCipherQuestion: React.FC<CaesarCipherQuestionProps> = ({
-  isEncoding,
-  text,
-  onCorrectAnswer,
-  onMistake,
-  shift,
+  isEncoding = true,
+  text = "",
+  onCorrectAnswer = () => {},
+  onMistake = () => {},
+  shift = 3,
 }) => {
   const [inputText, setInputText] = useState<string>("");
   const [visible, setVisible] = useState<boolean>(false);

@@ -1,7 +1,8 @@
 /** @format */
+// INTRODUCTION TO SYMMETRIC ALGORITHMS
 
 import React, { useState } from "react";
-import { View, ScrollView, StyleSheet, Image, Keyboard } from "react-native";
+import { ScrollView, StyleSheet, Image } from "react-native";
 import { Text, Button, Dialog, Portal, Provider } from "react-native-paper";
 
 const SecondLevelTutorial1 = () => {

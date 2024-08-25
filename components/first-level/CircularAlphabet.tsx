@@ -1,4 +1,5 @@
 /** @format */
+// CIRCULAR ALPHABET COMPONENT. DISPLAYS THE CIRCULAR ALPHABET USED IN THE CAESAR CIPHER
 
 import React from "react";
 import { View, StyleSheet } from "react-native";

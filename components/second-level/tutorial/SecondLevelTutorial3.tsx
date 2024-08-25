@@ -1,8 +1,8 @@
 /** @format */
+// AES TUTORIAL PAGE
 
 import React, { useState } from "react";
 import {
-  View,
   StyleSheet,
   TouchableWithoutFeedback,
   Keyboard,

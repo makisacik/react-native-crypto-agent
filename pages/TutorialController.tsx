@@ -1,4 +1,5 @@
 /** @format */
+//TUTORIAL CONTROLLER. THE CONTROLLER WHICH DISPLAYS THE TUTORIAL PAGES AND HANDLES THE NAVIGATION
 
 import React, { useState } from "react";
 import {

@@ -1,13 +1,17 @@
 /** @format */
+// TRAINING PAGE TO DISPLAY CAESAR CIPHER ENCRYPTION QUESTION
 
-import React, { useState, useEffect, useRef } from "react";
-import { View, StyleSheet, Text, Animated } from "react-native";
-import { Button, Card, Paragraph } from "react-native-paper";
+import React, { useState } from "react";
+import { View, Image, StyleSheet } from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+} from "react-native-reanimated";
+import { Button } from "react-native-paper";
 import Conversation from "../../Conversation";
-import Character from "../../Character";
-import { CommonActions } from "@react-navigation/native";
+import CaesarCipherQuestion from "../../CaesarCipherQuestion";
 import { useScore } from "../../../context/ScoreContext";
-import Icon from "react-native-vector-icons/FontAwesome";
 
 const FirstLevelTraining3 = ({
   navigation,
@@ -16,88 +20,80 @@ const FirstLevelTraining3 = ({
   navigation: any;
   onNext: () => void;
 }) => {
-  const [showConversation, setShowConversation] = useState(false);
-  const [showExclamation, setShowExclamation] = useState(true);
-  const [showButton, setShowButton] = useState(false);
-  const buttonOpacity = useRef(new Animated.Value(0)).current;
-  const { score } = useScore();
-
-  const maxScore = 110;
-  const numberOfQuestions = 7;
-
-  const handleCharacterClick = () => {
-    setShowConversation(true);
-    setShowExclamation(false);
-  };
+  const [showConversation, setShowConversation] = useState(true);
+  const [showCypherText, setShowCypherText] = useState(true);
+  const [showCipherQuestion, setShowCipherQuestion] = useState(false);
+  const [showNextLevelButton, setShowNextLevelButton] = useState(false);
+  const [mistakeMade, setMistakeMade] = useState(false);
+  const [scoreUpdated, setScoreUpdated] = useState(false);
+  const fadeAnim = useSharedValue(0);
+  const { addScore } = useScore();
 
   const handleConversationFinish = () => {
     setShowConversation(false);
-    setShowButton(true);
-    Animated.timing(buttonOpacity, {
-      toValue: 1,
-      duration: 500,
-      useNativeDriver: true,
-    }).start();
+    setShowCypherText(false);
+    setShowCipherQuestion(true);
+    fadeAnim.value = withTiming(1, { duration: 1000 });
   };
 
-  const handleCompleteTutorial = () => {
-    navigation.dispatch(
-      CommonActions.reset({
-        index: 0,
-        routes: [{ name: "Home" }],
-      })
-    );
+  const handleCorrectAnswer = () => {
+    if (!scoreUpdated) {
+      if (mistakeMade) {
+        addScore(10);
+      } else {
+        addScore(20);
+      }
+      setScoreUpdated(true);
+    }
+    setShowNextLevelButton(true);
   };
+
+  const handleMistake = () => {
+    setMistakeMade(true);
+  };
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: fadeAnim.value,
+    };
+  });
 
   return (
     <View style={styles.container}>
-      <View style={styles.characterWrapper}>
-        <Character
-          image={require("../../../assets/trainer.png")}
-          name="Trainer"
-          onPress={handleCharacterClick}
-        />
-        {showExclamation && (
-          <View style={styles.exclamationMark}>
-            <Text style={styles.exclamationText}>!</Text>
-          </View>
-        )}
-      </View>
-      <View style={styles.summaryWrapper}>
-        <Card style={styles.summaryCard}>
-          <Card.Content>
-            <Text style={styles.summaryTitle}>Training Summary</Text>
-            <View style={styles.summaryTextContainer}>
-              <Paragraph style={styles.summaryText}>
-                Highest Score Possible: {maxScore}
-              </Paragraph>
-              <Icon name="star" size={15} color="#e28743" style={styles.icon} />
-            </View>
-            <View style={styles.summaryTextContainer}>
-              <Paragraph style={styles.summaryText}>
-                Your Score: {score}
-              </Paragraph>
-              <Icon name="star" size={15} color="#e28743" style={styles.icon} />
-            </View>
-            <Paragraph style={styles.summaryText}>
-              Number of Questions: {numberOfQuestions}
-            </Paragraph>
-          </Card.Content>
-        </Card>
-        {showButton && (
-          <Animated.View style={{ ...styles.button, opacity: buttonOpacity }}>
-            <Button mode="contained" onPress={handleCompleteTutorial}>
-              Complete the training
-            </Button>
-          </Animated.View>
-        )}
-      </View>
       {showConversation && (
         <Conversation
           level="FirstLevel"
-          conversationNumber={5}
+          conversationNumber={6}
           onFinish={handleConversationFinish}
         />
+      )}
+      {showCypherText && (
+        <Image
+          source={require("../../../assets/cypher-text.png")}
+          style={styles.image}
+        />
+      )}
+      {showCipherQuestion && (
+        <Animated.View style={[styles.cipherContainer, animatedStyle]}>
+          <CaesarCipherQuestion
+            isEncoding={true}
+            text="crypto"
+            onCorrectAnswer={handleCorrectAnswer}
+            onMistake={handleMistake}
+            shift={5}
+          />
+          {showNextLevelButton && (
+            <View style={styles.nextButtonContainer}>
+              <Button
+                mode="contained"
+                onPress={onNext}
+                style={styles.nextButton}
+              >
+                Continue
+              </Button>
+            </View>
+          )}
+        </Animated.View>
       )}
     </View>
   );
@@ -106,57 +102,30 @@ const FirstLevelTraining3 = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
-    backgroundColor: "#f0f0f0",
-    paddingTop: 100,
-  },
-  characterWrapper: {
-    alignItems: "center",
-    marginBottom: 50,
-  },
-  exclamationMark: {
-    position: "absolute",
-    top: -10,
-    right: 30,
-    backgroundColor: "red",
-    borderRadius: 15,
-    width: 20,
-    height: 20,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#f0f0f0",
   },
-  exclamationText: {
-    color: "white",
-    fontWeight: "bold",
+  image: {
+    width: 200,
+    height: 200,
+    marginBottom: 20,
   },
-  summaryWrapper: {
-    width: "80%",
-    alignItems: "center",
-  },
-  summaryCard: {
+  cipherContainer: {
+    flex: 1,
+    justifyContent: "center",
     width: "100%",
-    elevation: 5,
-    marginBottom: 50,
+    padding: 5,
   },
-  summaryTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 10,
-  },
-  summaryTextContainer: {
-    flexDirection: "row",
+  nextButtonContainer: {
+    position: "absolute",
+    bottom: 170,
+    left: 0,
+    right: 0,
     alignItems: "center",
-    marginBottom: 5,
   },
-  summaryText: {
-    fontSize: 16,
-  },
-  icon: {
-    marginLeft: 5,
-  },
-  button: {
-    width: "70%",
+  nextButton: {
+    alignSelf: "center",
   },
 });
 

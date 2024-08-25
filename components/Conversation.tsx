@@ -1,4 +1,5 @@
 /** @format */
+// CONVERSATION FILE TO DISPLAY DIALOGUES IN THE GAME
 
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";

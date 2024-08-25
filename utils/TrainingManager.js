@@ -1,8 +1,10 @@
 /** @format */
+// UTILITY FILE TO GET TRAINING PAGES FOR EACH LEVEL AND TO SPECIFY THE ORDER OF TRAINING PAGES
 
 import FirstLevelTraining1 from "../components/first-level/training/FirstLevelTraining1";
 import FirstLevelTraining2 from "../components/first-level/training/FirstLevelTraining2";
 import FirstLevelTraining3 from "../components/first-level/training/FirstLevelTraining3";
+import FirstLevelTraining4 from "../components/first-level/training/FirstLevelTraining4";
 import SecondLevelTraining1 from "../components/second-level/training/SecondLevelTraining1";
 import SecondLevelTraining2 from "../components/second-level/training/SecondLevelTraining2";
 import SecondLevelTraining3 from "../components/second-level/training/SecondLevelTraining3";
@@ -25,8 +27,9 @@ const trainingPages = {
   FirstLevel: [
     FirstLevelTraining1,
     FirstLevelTraining2,
-    QuestionController,
     FirstLevelTraining3,
+    QuestionController,
+    FirstLevelTraining4,
   ],
   SecondLevel: [
     SecondLevelTraining1,
