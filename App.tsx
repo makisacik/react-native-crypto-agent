@@ -18,6 +18,7 @@ import FourthLevel from "./pages/FourthLevel";
 import TutorialController from "./pages/TutorialController";
 import TrainingController from "./pages/TrainingController";
 import { ScoreProvider } from "./context/ScoreContext";
+import { LogBox } from "react-native";
 
 type RootStackParamList = {
   Home: undefined;
@@ -41,6 +42,7 @@ const loadFonts = async () => {
 };
 
 SplashScreen.preventAutoHideAsync();
+LogBox.ignoreAllLogs();
 
 const HomeScreen = ({
   navigation,

@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   },
   nextButtonContainer: {
     position: "absolute",
-    bottom: 250,
+    bottom: 170,
     left: 0,
     right: 0,
     alignItems: "center",
