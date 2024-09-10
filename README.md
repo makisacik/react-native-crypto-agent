@@ -1,3 +1,24 @@
+# Screenshoots of the application
+
+<img width="193" alt="image" src="https://github.com/user-attachments/assets/ecd94105-65bf-458a-8e0b-c8ee48834876">
+
+<img width="193" alt="image" src="https://github.com/user-attachments/assets/65331358-d71c-4fa1-bd46-4cf44db2d61f">
+<img width="193" alt="image" src="https://github.com/user-attachments/assets/7afd5cec-8da2-47dd-86d8-2bcbc98cab22">
+
+<img width="193" alt="image" src="https://github.com/user-attachments/assets/35e23c6f-11d7-44f8-95a7-3f63789d3cbc">
+
+<img width="193" alt="image" src="https://github.com/user-attachments/assets/85a9d6f6-fcc9-4c4f-b78a-4c9d93620a46">
+
+<img width="193" alt="image" src="https://github.com/user-attachments/assets/fe04c9d2-8f56-46dc-a9a7-75696483952b">
+
+<img width="193" alt="image" src="https://github.com/user-attachments/assets/385339b4-a34f-49bc-b59f-7fe45b1bca46">
+
+<img width="193" alt="image" src="https://github.com/user-attachments/assets/25a0f645-11ac-47da-bf53-246e4bb70eaa">
+
+<img width="193" alt="image" src="https://github.com/user-attachments/assets/705330ff-3c9a-44da-8ab4-cf6f4640dbcb">
+
+<img width="193" alt="image" src="https://github.com/user-attachments/assets/cff4b179-5965-4eb0-876f-ce3347f270e3">
+
 # Running the application
 
 This is a React Native application built using Expo. This guide will walk you through the steps to set up and run the application on a Windows machine using an Android simulator.
